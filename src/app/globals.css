@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* AMOLED & Studio Backgrounds */
+    --bg-app: #05070a;
+    --bg-surface: #0a0d14;
+    --bg-surface-raised: #0f131d;
+    --bg-surface-hover: #151b28;
+    --bg-surface-subtle: rgba(255, 255, 255, 0.025);
+
+    /* High-contrast Editorial Typography */
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --text-subtle: #475569;
+
+    /* Crisp Subtle Borders */
+    --border-subtle: rgba(255, 255, 255, 0.06);
+    --border-default: rgba(255, 255, 255, 0.10);
+    --border-strong: rgba(255, 255, 255, 0.16);
+
+    /* Restrained Accents */
+    --accent-studio: #6366f1;
+    --accent-studio-subtle: rgba(99, 102, 241, 0.10);
+    --accent-studio-border: rgba(99, 102, 241, 0.25);
+
+    --accent-research: #10b981;
+    --accent-research-subtle: rgba(16, 185, 129, 0.10);
+    --accent-research-border: rgba(16, 185, 129, 0.25);
+
+    --accent-system: #0ea5e9;
+    --accent-system-subtle: rgba(14, 165, 233, 0.10);
+    --accent-system-border: rgba(14, 165, 233, 0.25);
+
+    --accent-creative: #f59e0b;
+    --accent-creative-subtle: rgba(245, 158, 11, 0.10);
+    --accent-creative-border: rgba(245, 158, 11, 0.25);
+  }
+}
+
+body {
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01";
+  overflow-x: hidden;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.35);
+  color: #ffffff;
+}
+
+/* Studio & Research Lab Surface Panel */
+.studio-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  transition: border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.studio-card-interactive {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.studio-card-interactive:hover {
+  background-color: var(--bg-surface-raised);
+  border-color: var(--border-default);
+  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* Subtle Technical Node Grid & Graph Motifs */
+.bg-technical-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+.bg-dot-matrix {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Precision scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05070a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
