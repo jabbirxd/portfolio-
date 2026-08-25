@@ -25,7 +25,7 @@ export const siteConfig = {
     { title: "Contact", href: "/contact" },
   ] as NavItem[],
   socials: {
-    github: "https://github.com/[PLACEHOLDER_GITHUB_USERNAME]",
+    github: "https://github.com/godspeed630",
     linkedin: "https://linkedin.com/in/[PLACEHOLDER_LINKEDIN_USERNAME]",
     twitter: "https://x.com/[PLACEHOLDER_TWITTER_USERNAME]",
     email: "contact@example.com",
