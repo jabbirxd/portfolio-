@@ -6,7 +6,6 @@ import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { PlaceholderCallout } from "@/components/ui/PlaceholderCallout";
 import {
   Brain,
   Hammer,
@@ -26,7 +25,7 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Me | Mohammad Jabbir",
+  title: "About Me | Md. Jabbir Ali",
   description:
     "Multidisciplinary Developer · Designer · Researcher working at the intersection of software engineering, design systems, and computational biology.",
 };
@@ -71,7 +70,7 @@ export default function AboutPage() {
         <section className="space-y-6 pb-12 border-b border-white/[0.08]">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-white/[0.04] text-slate-300 border border-white/[0.08]">
             <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
-            <span>MOHAMMAD JABBIR // BIOGRAPHY & APPROACH</span>
+            <span>MD. JABBIR ALI // BIOGRAPHY & APPROACH</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight font-sans">
@@ -79,22 +78,17 @@ export default function AboutPage() {
           </h1>
 
           <p className="text-xl sm:text-3xl font-medium text-slate-200 max-w-3xl leading-relaxed font-sans">
-            I&apos;m interested in the space where <span className="text-indigo-400 font-semibold">technology</span>, <span className="text-purple-400 font-semibold">creativity</span>, and <span className="text-emerald-400 font-semibold">scientific thinking</span> overlap.
+            I&apos;m a final-year CSE student learning web development by <span className="text-indigo-400 font-semibold">building real projects</span> and <span className="text-emerald-400 font-semibold">shipping them</span>.
           </p>
 
           <div className="max-w-3xl text-slate-400 text-sm sm:text-base leading-relaxed space-y-4 pt-2 font-sans">
             <p>
-              My work spans web application engineering, PHP/Laravel architectures, user experience design, automated data harvesting, creative post-production, and computational biology research.
+              I work with Next.js and TypeScript on the frontend and I&apos;m learning PHP and Laravel for the backend. I&apos;m honest about where I am: I can read and explain code well, and I&apos;m building the ability to create from scratch by finishing one project at a time.
             </p>
             <p>
-              Rather than viewing these fields as disconnected pursuits, I approach them with the same foundational curiosity: understanding how complex systems function, identifying points of friction, and engineering practical, robust solutions.
+              Outside of web dev, I&apos;m doing independent study in computational biology. My approach everywhere is the same: understand how the thing works, then build something small that proves it.
             </p>
           </div>
-
-          <PlaceholderCallout
-            label="Integrity Baseline"
-            field="Written with strict fidelity to verified skills, background, and academic interests without fabricated milestones or claims"
-          />
         </section>
 
         {/* 2. My Approach — Three Core Principles */}
@@ -148,7 +142,7 @@ export default function AboutPage() {
           <SectionHeader
             eyebrow="Academic Foundations"
             title="Education"
-            description="Academic timeline and foundational studies in computational and biological disciplines."
+            description="Where I studied and what I focused on."
           />
 
           <div className="space-y-6 relative border-l border-white/[0.08] ml-4 sm:ml-6 pl-6 sm:pl-8">
@@ -205,7 +199,7 @@ export default function AboutPage() {
           <SectionHeader
             eyebrow="Practical Experience"
             title="Experience & Engagements"
-            description="Chronological record of software engineering, freelance automation, and research contributions."
+            description="What I have been doing lately."
           />
 
           <div className="space-y-6 relative border-l border-white/[0.08] ml-4 sm:ml-6 pl-6 sm:pl-8">
@@ -276,20 +270,17 @@ export default function AboutPage() {
 
             <div className="max-w-3xl space-y-4">
               <h2 className="text-2xl sm:text-3xl font-bold text-white font-sans">
-                Beyond the Screen
+                What I&apos;m looking for
               </h2>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-sans">
-                My interest in understanding how things work extends beyond software code and molecular diagrams into the physical world. I enjoy practical technical problem solving: rapid prototyping with 3D printing and fabrication, exploring mechanical systems, and diagnosing hardware faults.
-              </p>
-              <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-sans">
-                Whether diagnosing an automotive electrical circuit, optimizing a physical mechanism, or troubleshooting a print tolerance, the mindset remains identical: isolate variables, understand the tolerances, and solve the problem systematically.
+                I graduate in 2026 and I&apos;m looking for a junior web developer role or internship where I can keep learning on real work. I learn fast, I finish what I start, and I&apos;m comfortable saying &ldquo;I don&apos;t know that yet&rdquo;.
               </p>
             </div>
 
             <div className="pt-4 border-t border-white/[0.06] flex flex-wrap gap-4 items-center justify-between text-xs font-mono text-slate-400">
               <div className="flex items-center gap-3">
-                <span className="text-slate-500">Physical Passions:</span>
-                <span className="text-slate-300">Rapid Prototyping · 3D Fabrication · Mechanical Systems · Hardware Diagnostics</span>
+                <span className="text-slate-500">Currently:</span>
+                <span className="text-slate-300">Building with Next.js · Learning Laravel · Open to work</span>
               </div>
               <Button href="/contact" variant="primary" size="sm" icon={<ArrowRight className="w-4 h-4" />}>
                 Get in Touch
