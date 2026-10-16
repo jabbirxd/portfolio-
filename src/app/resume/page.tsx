@@ -5,13 +5,11 @@ import { siteConfig } from "@/data/siteConfig";
 import { experiencesData, educationData } from "@/data/experience";
 import { skillsCategories } from "@/data/skills";
 import { projectsData } from "@/data/projects";
-import { researchData } from "@/data/research";
 import { Container } from "@/components/ui/Container";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
-import { PlaceholderCallout } from "@/components/ui/PlaceholderCallout";
 import {
   Printer,
   Download,
@@ -82,7 +80,7 @@ export default function ResumePage() {
           <div>
             <h1 className="text-3xl sm:text-4xl font-extrabold text-white">Curriculum Vitae</h1>
             <p className="text-slate-400 text-sm mt-1">
-              Interactive & printable resume record for Mohammad Jabbir.
+              Interactive & printable resume record for Md. Jabbir Ali.
             </p>
           </div>
 
@@ -134,11 +132,6 @@ export default function ResumePage() {
           </div>
         )}
 
-        <PlaceholderCallout
-          label="CV Document Infrastructure"
-          field="Formatted for clean screen presentation and direct printing (Ctrl+P / Command+P). The Download CV action auto-detects /cv.pdf and falls back to print-to-PDF gracefully"
-        />
-
         {/* Printable Resume Sheet */}
         <div className="rounded-3xl p-6 sm:p-12 space-y-10 bg-[#080b11] border border-white/[0.08] shadow-2xl">
           {/* Header Identity */}
@@ -147,10 +140,10 @@ export default function ResumePage() {
               {siteConfig.name}
             </h2>
             <p className="text-base font-semibold text-indigo-400 font-mono">
-              Developer · Designer · Researcher
+              Web Developer
             </p>
             <p className="text-sm text-slate-300 max-w-2xl leading-relaxed font-sans">
-              Multidisciplinary builder working at the intersection of software architecture, user interface design, data automation, and computational biology research.
+              Final-year CSE student building real web projects with Next.js, TypeScript, and Laravel.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-2 text-xs font-mono text-slate-400">
@@ -210,36 +203,24 @@ export default function ResumePage() {
             </div>
           </div>
 
-          {/* 2. Research Investigations */}
+          {/* 2. Research Interest */}
           <div className="space-y-4">
             <h3 className="text-xs font-mono tracking-wider uppercase text-emerald-400 flex items-center gap-2">
               <FlaskConical className="w-4 h-4" />
-              02. Scientific & Computational Research
+              02. Research Interest
             </h3>
-            <div className="space-y-4">
-              {researchData.map((res) => (
-                <div
-                  key={res.id}
-                  className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.05] space-y-2"
-                >
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                    <h4 className="text-base font-bold text-white">{res.title}</h4>
-                    <span className="text-xs font-mono text-slate-400">{res.timeline}</span>
-                  </div>
-                  <p className="text-xs font-mono text-emerald-400/90">{res.tagline}</p>
-                  <p className="text-xs text-slate-400 leading-relaxed font-sans">{res.abstract}</p>
-                  <div className="pt-1 flex flex-wrap gap-1.5">
-                    {res.methods.map((method) => (
-                      <span
-                        key={method}
-                        className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950/20 text-emerald-300 border border-emerald-800/30"
-                      >
-                        {method}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
+            <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.05] space-y-2">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <h4 className="text-base font-bold text-white">
+                  Independent Study — Computational Drug Design
+                </h4>
+                <span className="text-xs font-mono text-slate-400">2024 - Present</span>
+              </div>
+              <p className="text-xs text-slate-400 leading-relaxed font-sans">
+                Independent academic exploration of computational drug design
+                (molecular docking, dynamics simulations, trajectory analysis).
+                Manuscript in preparation — details stay private until published.
+              </p>
             </div>
           </div>
 

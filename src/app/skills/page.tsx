@@ -7,7 +7,6 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { SkillGroupCard } from "@/components/cards/SkillGroupCard";
-import { PlaceholderCallout } from "@/components/ui/PlaceholderCallout";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
@@ -31,13 +30,9 @@ export default function SkillsPage() {
           </h1>
 
           <p className="text-lg sm:text-2xl text-slate-300 max-w-3xl leading-relaxed font-sans">
-            A structured, evidence-based inventory of confirmed capabilities across software engineering, interface design, data automation, creative media, and molecular research.
+            An honest list: what I'm comfortable with, what I'm learning, and what I'm curious about. No percentage bars, no padding.
           </p>
 
-          <PlaceholderCallout
-            label="Integrity Principle"
-            field="No arbitrary percentage bars or logo walls. Every capability is explicitly tied to architectural implementation and case study evidence"
-          />
         </div>
 
         {/* 2. Categorized Skill Grid (5 Disciplines) */}
@@ -55,7 +50,7 @@ export default function SkillsPage() {
               Evidence-Based Capabilities
             </h2>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-sans">
-              Tools and technologies evolve rapidly. Rather than measuring capabilities through superficial percentage meters, competencies are demonstrated through concrete deliverables: modular codebases, resilient automation workflows, WCAG AAA interface systems, and reproducible in silico research scripts.
+              Tools change fast. I skip the percentage bars: each skill above links to a real project where I actually used it. If it is not linked to something I built, it is under “currently learning” for a reason.
             </p>
           </div>
 

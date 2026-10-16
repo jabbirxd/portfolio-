@@ -46,7 +46,7 @@ export function SystemVisual() {
                     </span>
                   </div>
                   <p className="text-[11px] text-slate-400 font-mono mt-0.5">
-                    Laravel · TypeScript · Playwright · API Systems
+                    Next.js · TypeScript · Tailwind CSS
                   </p>
                 </div>
               </div>
@@ -80,11 +80,11 @@ export function SystemVisual() {
                       02 // Design
                     </span>
                     <span className="text-[10px] font-mono text-cyan-400 bg-cyan-500/10 px-1.5 py-0.2 rounded border border-cyan-500/20">
-                      UI/UX & MEDIA
+                      INTERFACE
                     </span>
                   </div>
                   <p className="text-[11px] text-slate-400 font-mono mt-0.5">
-                    Design Systems · Motion · Video Production · High Contrast
+                    Responsive UI · Readable · Fast
                   </p>
                 </div>
               </div>
@@ -122,7 +122,7 @@ export function SystemVisual() {
                     </span>
                   </div>
                   <p className="text-[11px] text-slate-400 font-mono mt-0.5">
-                    Biomedical Pipelines · In Silico Modeling · Sequence Data
+                    Curiosity · Reading · Learning
                   </p>
                 </div>
               </div>

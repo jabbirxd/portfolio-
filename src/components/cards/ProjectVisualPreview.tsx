@@ -19,24 +19,24 @@ export function ProjectVisualPreview({ project, className }: ProjectVisualPrevie
               <span className="w-2 h-2 rounded-full bg-rose-500/80" />
               <span className="w-2 h-2 rounded-full bg-amber-500/80" />
               <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
-              <span className="ml-2 text-slate-400">api/v1/endpoints.php</span>
+              <span className="ml-2 text-slate-400">build output</span>
             </div>
-            <span className="text-indigo-400">PHP 8.3 · LARAVEL 11</span>
+            <span className="text-indigo-400">NEXT.JS · TYPESCRIPT</span>
           </div>
           <div className="space-y-1.5 py-2 text-slate-400">
-            <div className="text-indigo-300">
-              <span className="text-slate-500">GET</span> /api/v1/modular/metrics <span className="text-emerald-400">200 OK</span> <span className="text-slate-600">68ms</span>
-            </div>
-            <div className="text-slate-500">
-              &gt; Worker::dispatch(Queue::HIGH_PRIORITY)
+            <div className="text-slate-400">
+              <span className="text-slate-500">$</span> npm run build
             </div>
             <div className="text-emerald-400/90">
-              ✓ Database::indexed(100% hits, 0.4ms)
+              ✓ Compiled successfully
+            </div>
+            <div className="text-emerald-400/90">
+              ✓ Deployed to Vercel
             </div>
           </div>
           <div className="flex items-center justify-between text-[10px] text-slate-500 pt-2 border-t border-white/[0.04]">
-            <span>STATUS: ACTIVE_PIPELINE</span>
-            <span className="text-indigo-400">CACHE: REDIS</span>
+            <span>STATUS: SHIPPED</span>
+            <span className="text-indigo-400">UPTIME: 99.9%</span>
           </div>
         </div>
       );
@@ -79,7 +79,7 @@ export function ProjectVisualPreview({ project, className }: ProjectVisualPrevie
               <Layout className="w-3.5 h-3.5" />
               <span>DESIGN_TOKENS</span>
             </div>
-            <span>WCAG AAA COMPLIANT</span>
+            <span>DESIGN TOKENS</span>
           </div>
           <div className="grid grid-cols-4 gap-2 py-2">
             <div className="p-2 rounded-lg bg-[#05070a] border border-white/[0.08] text-center">
@@ -101,7 +101,7 @@ export function ProjectVisualPreview({ project, className }: ProjectVisualPrevie
           </div>
           <div className="text-[10px] font-mono text-slate-500 flex justify-between pt-1">
             <span>SCALE: 4px BASELINE</span>
-            <span className="text-indigo-400">CONTRAST: 14.8:1</span>
+            <span className="text-indigo-400">SCALE: 4px BASE</span>
           </div>
         </div>
       );

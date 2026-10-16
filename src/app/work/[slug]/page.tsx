@@ -6,7 +6,6 @@ import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { PlaceholderCallout } from "@/components/ui/PlaceholderCallout";
 import { ProjectVisualPreview } from "@/components/cards/ProjectVisualPreview";
 import { GithubIcon } from "@/components/icons/BrandIcons";
 import {
@@ -138,11 +137,6 @@ export default async function ProjectDetailPage({
           <p className="text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed font-sans">
             {project.tagline}
           </p>
-
-          <PlaceholderCallout
-            label="Case Study Template"
-            field={`Dynamic route active at /work/${project.slug}. Tailored for ${project.filterCategory} domain presentation`}
-          />
 
           {/* Hero Visual Mockup / Schematic */}
           <div className="pt-4 rounded-2xl overflow-hidden border border-white/[0.08] bg-[#07090e] shadow-2xl p-2 sm:p-4">
@@ -395,12 +389,12 @@ export default async function ProjectDetailPage({
             </Card>
 
             <div className="p-6 rounded-2xl bg-[#0a0d14] border border-white/[0.08] text-center space-y-4">
-              <h4 className="text-sm font-bold text-white">Have a related problem?</h4>
+              <h4 className="text-sm font-bold text-white">Questions about this project?</h4>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Whether you need scalable architecture, workflow automation, or interface design, let&apos;s build it.
+                The code is on GitHub — or just ask me about it directly.
               </p>
               <Button href="/contact" variant="primary" size="sm" className="w-full">
-                Initiate Discussion
+                Get in Touch
               </Button>
             </div>
           </aside>

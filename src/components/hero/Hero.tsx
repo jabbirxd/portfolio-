@@ -31,7 +31,7 @@ export function Hero() {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-slate-300 border border-white/[0.08]">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="tracking-wide">BUILD · DESIGN · INVESTIGATE</span>
+                <span className="tracking-wide">LEARN · BUILD · SHIP</span>
               </div>
             </motion.div>
 
@@ -43,7 +43,7 @@ export function Hero() {
               className="space-y-2"
             >
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white uppercase font-sans leading-[1.05]">
-                Mohammad Jabbir
+                Md. Jabbir Ali
               </h1>
             </motion.div>
 
@@ -54,7 +54,7 @@ export function Hero() {
               transition={getTransition(0.18)}
             >
               <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-300 font-mono tracking-tight">
-                Developer · Designer · Researcher
+                Web Developer
               </p>
             </motion.div>
 
@@ -65,7 +65,7 @@ export function Hero() {
               transition={getTransition(0.26)}
             >
               <p className="text-base sm:text-lg lg:text-xl text-slate-400 max-w-2xl leading-relaxed font-sans">
-                &ldquo;I build digital products, design user experiences, automate complex tasks, and explore technology through scientific research.&rdquo;
+                &ldquo;I bring the ideas and direction, and build with modern tools to ship real projects fast.&rdquo;
               </p>
             </motion.div>
 
@@ -102,16 +102,16 @@ export function Hero() {
               className="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-500"
             >
               <span className="px-2.5 py-1 rounded bg-white/[0.02] border border-white/[0.05]">
-                Full-Stack & Laravel
+                Next.js & TypeScript
               </span>
               <span className="px-2.5 py-1 rounded bg-white/[0.02] border border-white/[0.05]">
-                Scraping & Automation
+                PHP & Laravel
               </span>
               <span className="px-2.5 py-1 rounded bg-white/[0.02] border border-white/[0.05]">
-                UI/UX & Video
+                Responsive UI
               </span>
               <span className="px-2.5 py-1 rounded bg-white/[0.02] border border-white/[0.05]">
-                Computational Biology
+                Open to junior roles
               </span>
             </motion.div>
           </div>
