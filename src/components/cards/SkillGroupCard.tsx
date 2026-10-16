@@ -21,17 +21,17 @@ export function SkillGroupCard({ category }: SkillGroupCardProps) {
   const getIcon = (name: string) => {
     switch (name) {
       case "Code2":
-        return <Code2 className="w-5 h-5 text-indigo-400" />;
+        return <Code2 className="w-5 h-5 text-[var(--accent-studio)]" />;
       case "Palette":
-        return <Palette className="w-5 h-5 text-cyan-400" />;
+        return <Palette className="w-5 h-5 text-[var(--accent-system)]" />;
       case "Cpu":
-        return <Cpu className="w-5 h-5 text-sky-400" />;
+        return <Cpu className="w-5 h-5 text-[var(--accent-system)]" />;
       case "Film":
-        return <Film className="w-5 h-5 text-amber-400" />;
+        return <Film className="w-5 h-5 text-[var(--accent-creative)]" />;
       case "FlaskConical":
-        return <FlaskConical className="w-5 h-5 text-emerald-400" />;
+        return <FlaskConical className="w-5 h-5 text-[var(--accent-research)]" />;
       default:
-        return <Code2 className="w-5 h-5 text-indigo-400" />;
+        return <Code2 className="w-5 h-5 text-[var(--accent-studio)]" />;
     }
   };
 
@@ -58,10 +58,10 @@ export function SkillGroupCard({ category }: SkillGroupCardProps) {
         {/* Header with category icon and badge */}
         <div className="flex items-center justify-between gap-3 mb-4">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+            <div className="p-2.5 rounded-xl bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)]">
               {getIcon(category.iconName)}
             </div>
-            <h3 className="text-xl font-bold text-white tracking-tight font-sans">
+            <h3 className="text-xl font-bold text-[var(--text-primary)] tracking-tight font-sans">
               {category.name}
             </h3>
           </div>
@@ -70,7 +70,7 @@ export function SkillGroupCard({ category }: SkillGroupCardProps) {
           </Badge>
         </div>
 
-        <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6 font-sans">
+        <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-6 font-sans">
           {category.description}
         </p>
 
@@ -79,31 +79,31 @@ export function SkillGroupCard({ category }: SkillGroupCardProps) {
           {category.skills.map((skill) => (
             <div
               key={skill.name}
-              className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:border-white/[0.08] transition-colors space-y-1.5"
+              className="p-3.5 rounded-xl bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-colors space-y-1.5"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
-                  <span className="text-sm font-bold text-white">{skill.name}</span>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[var(--accent-studio)] shrink-0" />
+                  <span className="text-sm font-bold text-[var(--text-primary)]">{skill.name}</span>
                 </div>
-                <span className="text-[10px] font-mono text-slate-500 uppercase">
+                <span className="text-xs font-mono text-[var(--text-secondary)] uppercase">
                   {skill.discipline}
                 </span>
               </div>
 
               {skill.description && (
-                <p className="text-xs text-slate-400 leading-relaxed">
+                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
                   {skill.description}
                 </p>
               )}
 
               {/* Evidence-based link to actual project */}
               {skill.relatedProject && (
-                <div className="pt-1.5 flex items-center justify-between text-[11px] font-mono border-t border-white/[0.04]">
-                  <span className="text-slate-500">Evidence:</span>
+                <div className="pt-1.5 flex items-center justify-between text-xs font-mono border-t border-[var(--border-subtle)]">
+                  <span className="text-[var(--text-muted)]">Evidence:</span>
                   <Link
                     href={skill.relatedProject.url}
-                    className="inline-flex items-center gap-1 text-indigo-400 hover:text-indigo-300 transition-colors font-medium"
+                    className="inline-flex items-center gap-1 text-[var(--accent-studio)] hover:text-[var(--accent-studio)] transition-colors font-medium"
                   >
                     <span>{skill.relatedProject.projectTitle}</span>
                     <ArrowUpRight className="w-3 h-3" />
@@ -115,7 +115,7 @@ export function SkillGroupCard({ category }: SkillGroupCardProps) {
         </div>
       </div>
 
-      <div className="pt-2 text-[10px] font-mono text-slate-500">
+      <div className="pt-2 text-xs font-mono text-[var(--text-secondary)]">
         STANDARD: EVIDENCE_BASED_VERIFICATION
       </div>
     </Card>

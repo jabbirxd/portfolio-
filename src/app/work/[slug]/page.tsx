@@ -114,32 +114,32 @@ export default async function ProjectDetailPage({
         />
 
         {/* 1. Header Section */}
-        <header className="space-y-6 pb-10 border-b border-white/[0.08]">
+        <header className="space-y-6 pb-10 border-b border-[var(--border-default)]">
           <div className="flex flex-wrap items-center gap-3">
             <Badge variant={getCategoryBadgeVariant(project.filterCategory)} size="md">
               {getCategoryIcon(project.filterCategory)}
               <span className="ml-1">{project.filterCategory}</span>
             </Badge>
-            <span className="text-xs font-mono text-slate-400 flex items-center gap-1.5">
-              <Calendar className="w-3.5 h-3.5 text-slate-500" />
+            <span className="text-xs font-mono text-[var(--text-secondary)] flex items-center gap-1.5">
+              <Calendar className="w-3.5 h-3.5 text-[var(--text-muted)]" />
               {project.timeline}
             </span>
-            <span className="text-xs font-mono text-slate-400 flex items-center gap-1.5">
-              <UserCheck className="w-3.5 h-3.5 text-slate-500" />
+            <span className="text-xs font-mono text-[var(--text-secondary)] flex items-center gap-1.5">
+              <UserCheck className="w-3.5 h-3.5 text-[var(--text-muted)]" />
               {project.role}
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-[1.15] font-sans">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-[var(--text-primary)] tracking-tight leading-[1.15] font-sans">
             {project.title}
           </h1>
 
-          <p className="text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed font-sans">
+          <p className="text-lg sm:text-xl text-[var(--text-secondary)] max-w-3xl leading-relaxed font-sans">
             {project.tagline}
           </p>
 
           {/* Hero Visual Mockup / Schematic */}
-          <div className="pt-4 rounded-2xl overflow-hidden border border-white/[0.08] bg-[#07090e] shadow-2xl p-2 sm:p-4">
+          <div className="pt-4 rounded-2xl overflow-hidden border border-[var(--border-default)] bg-[var(--bg-surface)] shadow-2xl p-2 sm:p-4">
             <ProjectVisualPreview project={project} />
           </div>
 
@@ -163,7 +163,7 @@ export default async function ProjectDetailPage({
                   variant="outline"
                   size="md"
                   isExternal
-                  icon={<GithubIcon className="w-4 h-4 text-slate-400" />}
+                  icon={<GithubIcon className="w-4 h-4 text-[var(--text-secondary)]" />}
                 >
                   Source Repository
                 </Button>
@@ -185,7 +185,7 @@ export default async function ProjectDetailPage({
                   variant="outline"
                   size="md"
                   isExternal
-                  icon={<Play className="w-4 h-4 text-amber-400" />}
+                  icon={<Play className="w-4 h-4 text-[var(--accent-creative)]" />}
                 >
                   Watch Video Reel
                 </Button>
@@ -200,12 +200,12 @@ export default async function ProjectDetailPage({
             {project.metrics.map((metric) => (
               <div
                 key={metric.label}
-                className="p-5 rounded-2xl bg-[#0a0d14] border border-white/[0.06] text-center"
+                className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-center"
               >
-                <div className="text-2xl font-extrabold text-white font-mono">
+                <div className="text-2xl font-extrabold text-[var(--text-primary)] font-mono">
                   {metric.value}
                 </div>
-                <div className="text-xs text-slate-400 uppercase tracking-wider font-mono mt-1">
+                <div className="text-xs text-[var(--text-secondary)] uppercase tracking-wider font-mono mt-1">
                   {metric.label}
                 </div>
               </div>
@@ -218,21 +218,21 @@ export default async function ProjectDetailPage({
           <div className="lg:col-span-2 space-y-12">
             {/* Overview */}
             <section className="space-y-4">
-              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-                <span className="text-indigo-400 font-mono text-base">01.</span> Overview
+              <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
+                <span className="text-[var(--accent-studio)] font-mono text-base">01.</span> Overview
               </h2>
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+              <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed">
                 {project.description}
               </p>
             </section>
 
             {/* Problem Statement */}
             {project.problem && (
-              <section className="space-y-4 p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
-                <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-amber-400 font-mono text-base">02.</span> The Challenge & Problem Scope
+              <section className="space-y-4 p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)]">
+                <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
+                  <span className="text-[var(--accent-creative)] font-mono text-base">02.</span> The Challenge & Problem Scope
                 </h2>
-                <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed">
                   {project.problem}
                 </p>
               </section>
@@ -241,10 +241,10 @@ export default async function ProjectDetailPage({
             {/* Approach */}
             {project.approach && (
               <section className="space-y-4">
-                <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-cyan-400 font-mono text-base">03.</span> Strategic Approach & Solution
+                <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
+                  <span className="text-[var(--accent-system)] font-mono text-base">03.</span> Strategic Approach & Solution
                 </h2>
-                <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed">
                   {project.approach}
                 </p>
               </section>
@@ -253,20 +253,20 @@ export default async function ProjectDetailPage({
             {/* Process Phases */}
             {project.process && project.process.length > 0 && (
               <section className="space-y-6">
-                <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-indigo-400 font-mono text-base">04.</span> Execution & Process
+                <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
+                  <span className="text-[var(--accent-studio)] font-mono text-base">04.</span> Execution & Process
                 </h2>
                 <div className="space-y-4">
                   {project.process.map((step, idx) => (
                     <div
                       key={idx}
-                      className="p-5 rounded-2xl bg-[#0a0d14] border border-white/[0.06] space-y-2"
+                      className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-2"
                     >
-                      <div className="flex items-center justify-between text-xs font-mono text-indigo-400">
+                      <div className="flex items-center justify-between text-xs font-mono text-[var(--accent-studio)]">
                         <span>{step.phase}</span>
                       </div>
-                      <h3 className="text-base font-bold text-white">{step.title}</h3>
-                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                      <h3 className="text-base font-bold text-[var(--text-primary)]">{step.title}</h3>
+                      <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
                         {step.description}
                       </p>
                     </div>
@@ -278,21 +278,21 @@ export default async function ProjectDetailPage({
             {/* Implementation Details */}
             {project.implementation && project.implementation.length > 0 && (
               <section className="space-y-6">
-                <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-emerald-400 font-mono text-base">05.</span> Implementation Architecture
+                <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
+                  <span className="text-[var(--accent-research)] font-mono text-base">05.</span> Implementation Architecture
                 </h2>
                 <div className="space-y-4">
                   {project.implementation.map((item, idx) => (
                     <div
                       key={idx}
-                      className="p-5 rounded-2xl bg-[#0a0d14] border border-white/[0.06] space-y-3"
+                      className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] space-y-3"
                     >
-                      <h3 className="text-base font-bold text-white">{item.title}</h3>
-                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                      <h3 className="text-base font-bold text-[var(--text-primary)]">{item.title}</h3>
+                      <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
                         {item.description}
                       </p>
                       {item.technicalDetails && (
-                        <ul className="space-y-1.5 pl-4 list-disc text-xs text-slate-400">
+                        <ul className="space-y-1.5 pl-4 list-disc text-xs text-[var(--text-secondary)]">
                           {item.technicalDetails.map((detail, dIdx) => (
                             <li key={dIdx}>{detail}</li>
                           ))}
@@ -307,24 +307,24 @@ export default async function ProjectDetailPage({
             {/* Results & Measurable Impact */}
             {project.results && project.results.length > 0 && (
               <section className="space-y-6">
-                <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-emerald-400 font-mono text-base">06.</span> Results & Outcomes
+                <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
+                  <span className="text-[var(--accent-research)] font-mono text-base">06.</span> Results & Outcomes
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {project.results.map((res, idx) => (
                     <div
                       key={idx}
-                      className="p-5 rounded-2xl bg-emerald-950/20 border border-emerald-800/30 space-y-2"
+                      className="p-5 rounded-2xl bg-[var(--accent-research-subtle)] border border-[var(--accent-research-border)] space-y-2"
                     >
                       {res.metric && (
-                        <span className="text-2xl font-extrabold font-mono text-emerald-400 block">
+                        <span className="text-2xl font-extrabold font-mono text-[var(--accent-research)] block">
                           {res.metric}
                         </span>
                       )}
-                      <span className="text-xs font-mono uppercase text-emerald-300 font-bold block">
+                      <span className="text-xs font-mono uppercase text-[var(--accent-research)] font-bold block">
                         {res.label}
                       </span>
-                      <p className="text-xs sm:text-sm text-slate-300">{res.text}</p>
+                      <p className="text-xs sm:text-sm text-[var(--text-secondary)]">{res.text}</p>
                     </div>
                   ))}
                 </div>
@@ -333,16 +333,16 @@ export default async function ProjectDetailPage({
 
             {/* What I Learned */}
             {project.whatILearned && project.whatILearned.length > 0 && (
-              <section className="space-y-4 p-6 sm:p-8 rounded-2xl bg-[#0a0d14] border border-white/[0.08]">
-                <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-                  <Lightbulb className="w-5 h-5 text-amber-400" />
+              <section className="space-y-4 p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-default)]">
+                <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
+                  <Lightbulb className="w-5 h-5 text-[var(--accent-creative)]" />
                   What I Learned & Key Takeaways
                 </h2>
                 <ul className="space-y-3 pt-2">
                   {project.whatILearned.map((learning, idx) => (
                     <li
                       key={idx}
-                      className="flex items-start gap-3 text-xs sm:text-sm text-slate-300"
+                      className="flex items-start gap-3 text-xs sm:text-sm text-[var(--text-secondary)]"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 shrink-0" />
                       <span>{learning}</span>
@@ -357,14 +357,14 @@ export default async function ProjectDetailPage({
           <aside className="space-y-6">
             <Card variant="studio" className="space-y-6">
               <div>
-                <h3 className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-3">
+                <h3 className="text-xs font-mono uppercase tracking-wider text-[var(--text-secondary)] mb-3">
                   Technologies & Tools
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {project.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2.5 py-1 rounded-lg text-xs font-mono bg-white/[0.03] text-slate-300 border border-white/[0.06]"
+                      className="px-2.5 py-1 rounded-lg text-xs font-mono bg-[var(--bg-surface-subtle)] text-[var(--text-secondary)] border border-[var(--border-subtle)]"
                     >
                       {tech}
                     </span>
@@ -372,25 +372,25 @@ export default async function ProjectDetailPage({
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-white/[0.06] space-y-3 text-xs font-mono">
+              <div className="pt-4 border-t border-[var(--border-subtle)] space-y-3 text-xs font-mono">
                 <div>
-                  <span className="text-slate-500 block">Disciplines:</span>
-                  <span className="text-slate-300">{project.disciplines.join(" · ")}</span>
+                  <span className="text-[var(--text-muted)] block">Disciplines:</span>
+                  <span className="text-[var(--text-secondary)]">{project.disciplines.join(" · ")}</span>
                 </div>
                 <div>
-                  <span className="text-slate-500 block">Primary Role:</span>
-                  <span className="text-slate-300">{project.role}</span>
+                  <span className="text-[var(--text-muted)] block">Primary Role:</span>
+                  <span className="text-[var(--text-secondary)]">{project.role}</span>
                 </div>
                 <div>
-                  <span className="text-slate-500 block">Timeline:</span>
-                  <span className="text-slate-300">{project.timeline}</span>
+                  <span className="text-[var(--text-muted)] block">Timeline:</span>
+                  <span className="text-[var(--text-secondary)]">{project.timeline}</span>
                 </div>
               </div>
             </Card>
 
-            <div className="p-6 rounded-2xl bg-[#0a0d14] border border-white/[0.08] text-center space-y-4">
-              <h4 className="text-sm font-bold text-white">Questions about this project?</h4>
-              <p className="text-xs text-slate-400 leading-relaxed">
+            <div className="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-default)] text-center space-y-4">
+              <h4 className="text-sm font-bold text-[var(--text-primary)]">Questions about this project?</h4>
+              <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
                 The code is on GitHub — or just ask me about it directly.
               </p>
               <Button href="/contact" variant="primary" size="sm" className="w-full">

@@ -26,11 +26,11 @@ export function Button({
     primary:
       "bg-indigo-600 hover:bg-indigo-500 text-white font-semibold border border-indigo-400/40 shadow-lg shadow-indigo-600/20 hover:shadow-indigo-600/30",
     secondary:
-      "bg-[#0d1018] hover:bg-[#141824] text-slate-100 font-semibold border border-white/[0.12] hover:border-white/[0.24]",
+      "bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-raised)] text-[var(--text-primary)] font-semibold border border-[var(--border-default)] hover:border-[var(--border-strong)]",
     outline:
-      "bg-white/[0.02] hover:bg-white/[0.06] text-slate-200 font-semibold border border-white/[0.12] hover:border-white/[0.28]",
+      "bg-[var(--bg-surface-subtle)] hover:bg-[var(--bg-surface-hover)] text-[var(--text-primary)] font-semibold border border-[var(--border-default)] hover:border-[var(--border-strong)]",
     ghost:
-      "bg-transparent hover:bg-white/[0.05] text-slate-300 hover:text-white font-semibold border-transparent",
+      "bg-transparent hover:bg-[var(--bg-surface-hover)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-semibold border-transparent",
     research:
       "bg-emerald-600 hover:bg-emerald-500 text-white font-semibold border border-emerald-400/40 shadow-lg shadow-emerald-600/20 hover:shadow-emerald-600/30",
     emerald:
@@ -44,7 +44,7 @@ export function Button({
   };
 
   const baseClasses = cn(
-    "inline-flex items-center justify-center transition-all duration-150 active:scale-[0.98] cursor-pointer disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#05070a] select-none font-sans",
+    "inline-flex items-center justify-center transition-all duration-150 active:scale-[0.98] cursor-pointer disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-app)] select-none font-sans",
     variantClasses[variant],
     sizeClasses[size],
     className
