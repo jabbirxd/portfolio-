@@ -23,6 +23,7 @@ export function SectionHeader({
 
   return (
     <motion.div
+      data-anim
       initial={{
         opacity: 0,
         y: shouldReduceMotion ? 0 : 14,

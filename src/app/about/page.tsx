@@ -29,6 +29,7 @@ export const metadata: Metadata = {
   title: "About Me | Md. Jabbir Ali",
   description:
     "Multidisciplinary Developer · Designer · Researcher working at the intersection of software engineering, design systems, and computational biology.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {

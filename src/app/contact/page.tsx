@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: "Contact | Md. Jabbir Ali",
   description:
     "Get in touch with Md. Jabbir Ali — email, GitHub, and LinkedIn.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

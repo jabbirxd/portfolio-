@@ -36,3 +36,9 @@ npm start
 
 Content lives in `src/data/` — edit the data files to update projects,
 skills, experience, or research interests. No CMS, no database.
+
+## Owner TODO
+
+- [ ] Add the real CV file at `public/cv.pdf` — the "Download CV (PDF)"
+  button on /resume currently falls back to the browser print dialog
+  until the file exists.

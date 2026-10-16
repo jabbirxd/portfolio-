@@ -40,6 +40,7 @@ export function FadeIn({
 
   return (
     <motion.div
+      data-anim
       initial={{ opacity: 0, y: initialY, x: initialX }}
       animate={{ opacity: 1, y: 0, x: 0 }}
       transition={{

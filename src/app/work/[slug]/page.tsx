@@ -50,6 +50,7 @@ export async function generateMetadata({
   return {
     title: `${project.title} | Selected Work`,
     description: project.summary,
+    alternates: { canonical: `/work/${slug}` },
   };
 }
 

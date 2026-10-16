@@ -26,7 +26,7 @@ export function Hero() {
           <div className="lg:col-span-7 space-y-6 sm:space-y-8">
             {/* Status / Category Tag */}
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={getTransition(0.05)}
             >
@@ -38,7 +38,7 @@ export function Hero() {
 
             {/* 1. Name */}
             <motion.div
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={getTransition(0.1)}
               className="space-y-2"
@@ -50,7 +50,7 @@ export function Hero() {
 
             {/* 2. Title Subheading */}
             <motion.div
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={getTransition(0.18)}
             >
@@ -63,7 +63,7 @@ export function Hero() {
 
             {/* 3. Supporting Statement */}
             <motion.div
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={getTransition(0.26)}
             >
@@ -74,7 +74,7 @@ export function Hero() {
 
             {/* 4. Action CTAs */}
             <motion.div
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={getTransition(0.34)}
               className="pt-2 flex flex-wrap items-center gap-4"
@@ -99,7 +99,7 @@ export function Hero() {
 
             {/* Quick Micro-Domain Pills */}
             <motion.div
-              initial={{ opacity: 0 }}
+              initial={{ y: 8 }}
               animate={{ opacity: 1 }}
               transition={getTransition(0.42)}
               className="pt-4 flex flex-wrap gap-2 text-xs font-mono text-[var(--text-secondary)]"
@@ -121,7 +121,7 @@ export function Hero() {
 
           {/* Right Column: Abstract Scientific & Technical Visual (5 Cols) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
+            initial={{ scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={getTransition(0.3)}
             className="lg:col-span-5 flex justify-center"

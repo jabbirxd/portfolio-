@@ -26,7 +26,7 @@ export function SystemVisual() {
         {/* Abstract 3-Node Architecture (BUILD -> DESIGN -> RESEARCH) */}
         <div className="relative space-y-4">
           {/* Node 1: BUILD */}
-          <motion.div
+          <motion.div data-anim
             initial={{ opacity: 0, x: -12 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4, delay: shouldReduceMotion ? 0 : 0.3 }}
@@ -64,7 +64,7 @@ export function SystemVisual() {
           </div>
 
           {/* Node 2: DESIGN */}
-          <motion.div
+          <motion.div data-anim
             initial={{ opacity: 0, x: 12 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4, delay: shouldReduceMotion ? 0 : 0.4 }}
@@ -102,7 +102,7 @@ export function SystemVisual() {
           </div>
 
           {/* Node 3: RESEARCH */}
-          <motion.div
+          <motion.div data-anim
             initial={{ opacity: 0, x: -12 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4, delay: shouldReduceMotion ? 0 : 0.5 }}
@@ -136,7 +136,7 @@ export function SystemVisual() {
         </div>
 
         {/* Live terminal: typewriter */}
-        <motion.div
+        <motion.div data-anim
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: shouldReduceMotion ? 0 : 0.7 }}

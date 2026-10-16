@@ -108,6 +108,17 @@ export function Navbar() {
                 </Link>
               );
             })}
+            {/* Contact: small primary button at the end of the links */}
+            <Link
+              href="/contact"
+              className={cn(
+                "relative px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold tracking-wide transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500/50",
+                "bg-indigo-600 hover:bg-indigo-500 text-white",
+                pathname === "/contact" && "ring-2 ring-indigo-400/60"
+              )}
+            >
+              Contact
+            </Link>
           </nav>
 
           {/* Right: CV, GitHub, LinkedIn */}

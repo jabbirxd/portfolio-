@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import { researchInterestsData } from "@/data/research";
 import { skillsCategories } from "@/data/skills";
 import { Container } from "@/components/ui/Container";
@@ -15,6 +16,10 @@ import { ArrowRight } from "lucide-react";
 import { Reveal, Counter } from "@/components/motion/Reveal";
 import { Marquee } from "@/components/motion/Marquee";
 import { GitGraphCanvas } from "@/components/motion/GitGraphCanvas";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function HomePage() {
   const featuredInterests = researchInterestsData.slice(0, 3);

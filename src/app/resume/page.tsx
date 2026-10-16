@@ -107,7 +107,7 @@ export default function ResumePage() {
             <div className="flex items-center gap-2">
               <Info className="w-4 h-4 text-[var(--accent-studio)] shrink-0" />
               <span>
-                Physical /cv.pdf file is currently pending placement. Opening native browser Print / Save to PDF generator.
+                PDF not available yet — opening print view instead.
               </span>
             </div>
             <button

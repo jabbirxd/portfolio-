@@ -73,7 +73,7 @@ export default function WorkPage() {
         >
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
-              <motion.div
+              <motion.div data-anim
                 key={project.id}
                 layout
                 initial={{ opacity: 0, scale: 0.98 }}

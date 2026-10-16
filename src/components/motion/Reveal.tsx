@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import {
   motion,
   useReducedMotion,
@@ -20,6 +20,8 @@ interface RevealProps {
 /**
  * Scroll-triggered reveal: fades and rises into view once.
  * Respects prefers-reduced-motion.
+ * `data-anim` lets the <noscript> fallback in layout force it visible
+ * when JavaScript is disabled (server HTML carries inline opacity:0).
  */
 export function Reveal({
   children,
@@ -32,6 +34,7 @@ export function Reveal({
 
   return (
     <motion.div
+      data-anim
       initial={{ opacity: 0, y: shouldReduceMotion ? 0 : y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once, margin: "-60px" }}
@@ -53,21 +56,26 @@ interface CounterProps {
   className?: string;
 }
 
-/** Animated count-up that starts when scrolled into view. */
+/**
+ * Animated count-up that starts when scrolled into view.
+ * Server-renders the final number so crawlers and no-JS visitors
+ * never see "0"; the client animates from 0 when it scrolls into view.
+ */
 export function Counter({ to, suffix = "", className }: CounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
   const shouldReduceMotion = useReducedMotion();
   const mv = useMotionValue(0);
   const spring = useSpring(mv, { duration: 1200, bounce: 0 });
+  const started = useRef(false);
 
-  useEffect(() => {
-    if (!inView) return;
-    if (shouldReduceMotion) {
-      if (ref.current) ref.current.textContent = `${to}${suffix}`;
-    } else {
-      mv.set(to);
-    }
+  useLayoutEffect(() => {
+    if (!inView || started.current) return;
+    started.current = true;
+    if (shouldReduceMotion) return;
+    // Swap to 0 before the browser paints, then count up.
+    if (ref.current) ref.current.textContent = `0${suffix}`;
+    mv.set(to);
   }, [inView, mv, to, shouldReduceMotion, suffix]);
 
   useEffect(() => {
@@ -81,7 +89,7 @@ export function Counter({ to, suffix = "", className }: CounterProps) {
 
   return (
     <span ref={ref} className={className}>
-      {shouldReduceMotion ? `${to}${suffix}` : `0${suffix}`}
+      {`${to}${suffix}`}
     </span>
   );
 }
