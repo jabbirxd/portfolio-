@@ -29,7 +29,7 @@ export default function WorkPage() {
       <Container size="xl">
         <Breadcrumb items={[{ label: "Selected Work" }]} />
 
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-white/[0.08]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[var(--border-default)]">
           <SectionHeader
             eyebrow="Portfolio & Case Studies"
             title="Selected Work"
@@ -56,8 +56,8 @@ export default function WorkPage() {
                 className={cn(
                   "px-4 py-2 rounded-xl text-xs font-mono tracking-wider uppercase transition-all duration-150 cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500",
                   isActive
-                    ? "bg-white text-slate-950 font-extrabold shadow-lg shadow-white/10 border border-white"
-                    : "bg-white/[0.03] text-slate-400 hover:text-slate-100 hover:bg-white/[0.06] border border-white/[0.06]"
+                    ? "bg-[var(--text-primary)] text-[var(--bg-app)] font-extrabold shadow-lg border border-[var(--border-strong)]"
+                    : "bg-[var(--bg-surface-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)]"
                 )}
               >
                 {tab.label}

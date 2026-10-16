@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { SystemVisual } from "@/components/hero/SystemVisual";
 import { ArrowRight, FileText, Sparkles } from "lucide-react";
+import { RotatingWord } from "@/components/motion/RotatingWord";
 
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
@@ -18,7 +19,7 @@ export function Hero() {
   });
 
   return (
-    <section className="relative min-h-[calc(100vh-5rem)] flex items-center py-12 lg:py-16 overflow-hidden">
+    <section className="relative min-h-[calc(82vh-5rem)] flex items-center py-12 lg:py-16 overflow-hidden">
       <Container size="xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Editorial Display Typography & CTAs (7 Cols) */}
@@ -29,7 +30,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={getTransition(0.05)}
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-slate-300 border border-white/[0.08]">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-[var(--bg-surface-subtle)] text-[var(--text-secondary)] border border-[var(--border-default)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="tracking-wide">LEARN · BUILD · SHIP</span>
               </div>
@@ -42,7 +43,7 @@ export function Hero() {
               transition={getTransition(0.1)}
               className="space-y-2"
             >
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white uppercase font-sans leading-[1.05]">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[var(--text-primary)] uppercase font-sans leading-[1.05]">
                 Md. Jabbir Ali
               </h1>
             </motion.div>
@@ -53,8 +54,10 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={getTransition(0.18)}
             >
-              <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-300 font-mono tracking-tight">
-                Web Developer
+              <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-[var(--text-secondary)] font-mono tracking-tight">
+                <RotatingWord
+                  words={["Web Developer", "Interface Builder", "Problem Solver"]}
+                />
               </p>
             </motion.div>
 
@@ -64,7 +67,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={getTransition(0.26)}
             >
-              <p className="text-base sm:text-lg lg:text-xl text-slate-400 max-w-2xl leading-relaxed font-sans">
+              <p className="text-base sm:text-lg lg:text-xl text-[var(--text-secondary)] max-w-2xl leading-relaxed font-sans">
                 &ldquo;I bring the ideas and direction, and build with modern tools to ship real projects fast.&rdquo;
               </p>
             </motion.div>
@@ -99,18 +102,18 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={getTransition(0.42)}
-              className="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-500"
+              className="pt-4 flex flex-wrap gap-2 text-xs font-mono text-[var(--text-secondary)]"
             >
-              <span className="px-2.5 py-1 rounded bg-white/[0.02] border border-white/[0.05]">
+              <span className="px-2.5 py-1 rounded bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)]">
                 Next.js & TypeScript
               </span>
-              <span className="px-2.5 py-1 rounded bg-white/[0.02] border border-white/[0.05]">
+              <span className="px-2.5 py-1 rounded bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)]">
                 PHP & Laravel
               </span>
-              <span className="px-2.5 py-1 rounded bg-white/[0.02] border border-white/[0.05]">
+              <span className="px-2.5 py-1 rounded bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)]">
                 Responsive UI
               </span>
-              <span className="px-2.5 py-1 rounded bg-white/[0.02] border border-white/[0.05]">
+              <span className="px-2.5 py-1 rounded bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)]">
                 Open to junior roles
               </span>
             </motion.div>

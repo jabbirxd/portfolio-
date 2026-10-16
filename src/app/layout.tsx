@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { MotionConfig } from "motion/react";
 import { siteConfig } from "@/data/siteConfig";
 import "./globals.css";
 
@@ -86,15 +88,23 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark antialiased h-full scroll-smooth`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased h-full scroll-smooth`}
+      suppressHydrationWarning
     >
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('jabbir-portfolio-theme');if(t!=='dark'&&t!=='light'){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t;}catch(e){document.documentElement.dataset.theme='dark';}})();`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#05070a] text-[#f1f5f9] bg-technical-grid selection:bg-indigo-500/30 selection:text-white">
+      <body className="min-h-full flex flex-col bg-[var(--bg-app)] text-[var(--text-primary)] bg-technical-grid selection:bg-indigo-500/30 selection:text-white">
+        <MotionConfig reducedMotion="user">
+        <ThemeProvider>
         {/* Accessible Skip-to-Content Link */}
         <a
           href="#main-content"
@@ -116,6 +126,8 @@ export default function RootLayout({
           </main>
           <Footer />
         </div>
+        </ThemeProvider>
+        </MotionConfig>
       </body>
     </html>
   );

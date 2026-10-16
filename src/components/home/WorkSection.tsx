@@ -1,5 +1,7 @@
 "use client";
 
+import { Reveal } from "@/components/motion/Reveal";
+
 import React, { useState } from "react";
 import Link from "next/link";
 import { projectsData } from "@/data/projects";
@@ -27,8 +29,9 @@ export function WorkSection() {
       : projectsData.filter((p) => p.filterCategory === activeFilter);
 
   return (
-    <section id="work" className="relative pt-12 sm:pt-16">
+    <section id="home-work" className="relative pt-12 sm:pt-16 scroll-mt-24">
       <Container size="xl">
+        <Reveal>
         {/* Section Heading & Copy */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
           <SectionHeader
@@ -39,7 +42,7 @@ export function WorkSection() {
           />
 
           <div className="hidden md:flex items-center gap-3">
-            <span className="text-xs font-mono text-slate-500">
+            <span className="text-xs font-mono text-[var(--text-muted)]">
               Showing {filteredProjects.length} of {projectsData.length} Case Studies
             </span>
           </div>
@@ -62,8 +65,8 @@ export function WorkSection() {
                 className={cn(
                   "px-4 py-2 rounded-xl text-xs font-mono tracking-wider uppercase transition-all duration-150 cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500",
                   isActive
-                    ? "bg-white text-slate-950 font-extrabold shadow-lg shadow-white/10 border border-white"
-                    : "bg-white/[0.03] text-slate-400 hover:text-slate-100 hover:bg-white/[0.06] border border-white/[0.06]"
+                    ? "bg-[var(--text-primary)] text-[var(--bg-app)] font-extrabold shadow-lg border border-[var(--border-strong)]"
+                    : "bg-[var(--bg-surface-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)]"
                 )}
               >
                 {tab.label}
@@ -101,12 +104,13 @@ export function WorkSection() {
         </motion.div>
 
         {/* Bottom Explorer Action Link */}
-        <div className="mt-12 pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
+        <div className="mt-12 pt-8 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[var(--text-secondary)]">
           <span>Explore individual technical breakdowns and source links</span>
           <Button href="/work" variant="outline" size="sm" icon={<ArrowRight className="w-4 h-4" />}>
             View Full Index ({projectsData.length})
           </Button>
         </div>
+        </Reveal>
       </Container>
     </section>
   );

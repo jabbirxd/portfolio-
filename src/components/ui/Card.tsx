@@ -16,10 +16,10 @@ export function Card({
   const variantClasses = {
     studio: "studio-card p-6 sm:p-8",
     interactive: "studio-card-interactive p-6 sm:p-8 cursor-pointer",
-    subtle: "bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 sm:p-8",
-    bordered: "bg-transparent border border-white/[0.1] rounded-2xl p-6 sm:p-8",
+    subtle: "bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)] rounded-2xl p-6 sm:p-8",
+    bordered: "bg-transparent border border-[var(--border-default)] rounded-2xl p-6 sm:p-8",
     glass: "studio-card p-6 sm:p-8",
-    solid: "bg-[#0a0d14] border border-white/[0.08] rounded-2xl p-6 sm:p-8",
+    solid: "bg-[var(--bg-surface)] border border-[var(--border-default)] rounded-2xl p-6 sm:p-8",
   };
 
   return (
