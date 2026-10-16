@@ -1,55 +1,50 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import { researchData, researchInterestsData } from "@/data/research";
+import { researchInterestsData } from "@/data/research";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
-import { ResearchCard } from "@/components/cards/ResearchCard";
 import { ResearchInterestCard } from "@/components/research/ResearchInterestCard";
-import { ScientificPathwayVisual } from "@/components/research/ScientificPathwayVisual";
-import { PlaceholderCallout } from "@/components/ui/PlaceholderCallout";
-import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
-import { FlaskConical, ArrowRight, Dna, Compass, BookOpen, ExternalLink, Target } from "lucide-react";
+import { FlaskConical } from "lucide-react";
 
 export default function ResearchPage() {
-  const featuredStudy = researchData.find((r) => r.isFeatured) || researchData[0];
-
   return (
     <div className="py-12 sm:py-16 space-y-20">
       <Container size="xl">
-        <Breadcrumb items={[{ label: "Scientific Research" }]} />
+        <Breadcrumb items={[{ label: "Research Interests" }]} />
 
         {/* 1. Research Hero Section */}
         <div className="space-y-6 pb-12 border-b border-white/[0.08]">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
             <FlaskConical className="w-3.5 h-3.5" />
-            <span>MOLECULAR SCIENCE · COMPUTATION · ONCOLOGY</span>
+            <span>LEARNING IN PUBLIC · NO CLAIMS, JUST CURIOSITY</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight font-sans">
-            Research
+            Research Interests
           </h1>
 
           <p className="text-lg sm:text-2xl text-slate-300 max-w-3xl leading-relaxed font-sans">
-            Exploring biological questions through molecular science, computation, and technology.
+            Outside of web development, I spend time learning computational
+            biology and how computation helps explore biological questions.
           </p>
 
-          <PlaceholderCallout
-            label="Research Framework"
-            field="Presented as active academic research interests and in silico exploratory case studies without unverified claims of expertise"
-          />
+          <p className="text-sm sm:text-base text-slate-400 max-w-3xl leading-relaxed font-sans">
+            I am doing independent study in computational drug design, with a
+            manuscript in preparation. Until it is published, the details stay
+            private — so this page covers the areas I am learning about, not
+            results.
+          </p>
         </div>
 
-        {/* 2. Research Interests Visual Grid */}
+        {/* 2. Research Interests Grid */}
         <section className="space-y-8">
           <SectionHeader
-            eyebrow="Academic Focus Areas"
-            title="Core Research Interests"
-            description="Active areas of investigation spanning structural oncology, programmed cell death mechanisms, and computational screening methodologies."
+            eyebrow="What I'm learning"
+            title="Areas of Interest"
+            description="Topics I read about and study alongside my coursework. Interests, not credentials."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -59,86 +54,19 @@ export default function ResearchPage() {
           </div>
         </section>
 
-        {/* 3. Featured Research Showcase & Scientific Pathway Visual */}
-        <section className="space-y-8 pt-4">
-          <SectionHeader
-            eyebrow="Featured Investigation"
-            title="Targeting Anti-Apoptotic Bcl-2 Family Proteins in Cancer"
-            description="A computational study evaluating hydrophobic binding groove dynamics, in silico docking conformations, and candidate small-molecule screening."
-          />
-
-          {/* Mechanistic Pathway Diagram */}
-          <ScientificPathwayVisual />
-
-          {/* Featured Study Summary Card */}
-          {featuredStudy && (
-            <Card variant="interactive" className="p-8 sm:p-10 border-emerald-500/30 bg-[#070a10] space-y-6">
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div className="flex items-center gap-2">
-                  <Badge variant="research" size="md">
-                    {featuredStudy.domain}
-                  </Badge>
-                  <span className="text-xs font-mono text-slate-400">
-                    // {featuredStudy.timeline}
-                  </span>
-                </div>
-                <span className="text-xs font-mono text-emerald-400 font-bold uppercase">
-                  Status: {featuredStudy.status}
-                </span>
-              </div>
-
-              <div className="space-y-3">
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                  <Link href={`/research/${featuredStudy.slug}`} className="hover:text-emerald-300 transition-colors">
-                    {featuredStudy.title}
-                  </Link>
-                </h3>
-                <p className="text-sm font-mono text-emerald-400/90">
-                  {featuredStudy.tagline}
-                </p>
-                <p className="text-sm text-slate-300 leading-relaxed max-w-4xl font-sans">
-                  {featuredStudy.abstract}
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div className="flex flex-wrap gap-2">
-                  {featuredStudy.methods.map((method) => (
-                    <span
-                      key={method}
-                      className="text-xs font-mono px-2.5 py-1 rounded bg-emerald-950/30 text-emerald-300 border border-emerald-800/40"
-                    >
-                      {method}
-                    </span>
-                  ))}
-                </div>
-
-                <Button
-                  href={`/research/${featuredStudy.slug}`}
-                  variant="research"
-                  size="md"
-                  icon={<ArrowRight className="w-4 h-4" />}
-                >
-                  Read Full Research Study
-                </Button>
-              </div>
-            </Card>
-          )}
-        </section>
-
-        {/* 4. All Research Studies Catalog */}
-        <section className="space-y-8 pt-4">
-          <SectionHeader
-            eyebrow="Research Catalog"
-            title="All Investigations & Pipeline Studies"
-            description="Curated index of computational oncology and biomedical dataset processing workflows."
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            {researchData.map((item) => (
-              <ResearchCard key={item.id} research={item} />
-            ))}
-          </div>
+        {/* 3. Honest note */}
+        <section>
+          <Card variant="studio" className="p-8 sm:p-10">
+            <h2 className="text-xl sm:text-2xl font-bold text-white mb-3 font-sans">
+              Why so little detail?
+            </h2>
+            <p className="text-sm sm:text-base text-slate-400 leading-relaxed font-sans max-w-3xl">
+              Unpublished research should stay unpublished until it is ready.
+              I would rather show an honest short page than a long impressive
+              one I cannot back up. If you are curious about the computational
+              side, my web projects are a better window into how I work.
+            </p>
+          </Card>
         </section>
       </Container>
     </div>
