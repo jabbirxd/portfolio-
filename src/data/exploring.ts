@@ -2,7 +2,7 @@ export interface ExploringItem {
   id: string;
   order: string;
   title: string;
-  category: "Computational Informatics" | "Molecular Oncology" | "Systems Engineering";
+  category: "Web Development" | "Backend Learning" | "Research Interest";
   summary: string;
   description: string;
   currentThemes: string[];
@@ -14,57 +14,57 @@ export interface ExploringItem {
 
 export const currentlyExploringData: ExploringItem[] = [
   {
-    id: "exp-comp-bio",
+    id: "exp-nextjs",
     order: "01",
-    title: "Computational Biology",
-    category: "Computational Informatics",
-    summary: "Exploring computational approaches to biological problems.",
+    title: "Modern Frontend",
+    category: "Web Development",
+    summary: "Shipping responsive interfaces with Next.js and TypeScript.",
     description:
-      "Investigating structural modeling workflows, in silico macromolecular binding groove analysis, and reproducible computational pipelines to reduce experimental search spaces.",
+      "Building real projects with the Next.js App Router: routing, server and client components, API integration, and deploying to Vercel.",
     currentThemes: [
-      "In Silico Molecular Docking",
-      "Binding Free Energy (ΔG)",
-      "Structural Database Pipelines",
+      "Next.js App Router",
+      "TypeScript",
+      "Responsive Design",
     ],
-    statusTag: "ACTIVE_INQUIRY",
-    accent: "research",
-    linkUrl: "/research/targeting-bcl2-family-proteins-cancer",
-    linkLabel: "View Related Research",
+    statusTag: "ACTIVE_BUILD",
+    accent: "studio",
+    linkUrl: "/work",
+    linkLabel: "View My Work",
   },
   {
-    id: "exp-cancer-res",
+    id: "exp-laravel",
     order: "02",
-    title: "Cancer Research",
-    category: "Molecular Oncology",
-    summary: "Investigating apoptosis and anti-apoptotic mechanisms.",
+    title: "Backend with Laravel",
+    category: "Backend Learning",
+    summary: "Learning how the server side works with PHP and Laravel.",
     description:
-      "Studying intrinsic mitochondrial programmed cell death evasion and the structural dynamics of anti-apoptotic Bcl-2 family regulators (Bcl-2, Bcl-xL, Mcl-1).",
+      "Tracing requests from routes to controllers to Blade views. Working through Eloquent models, migrations, and form validation by building.",
     currentThemes: [
-      "Apoptosis Evasion Checkpoints",
-      "Bcl-2 / Bcl-xL / Mcl-1 Grooves",
-      "BH3 Mimetic Selectivity",
+      "PHP & Laravel",
+      "Eloquent & Migrations",
+      "MVC Fundamentals",
+    ],
+    statusTag: "LEARNING",
+    accent: "system",
+    linkUrl: "/work/techif-laravel-app",
+    linkLabel: "View Laravel Project",
+  },
+  {
+    id: "exp-comp-bio",
+    order: "03",
+    title: "Computational Biology",
+    category: "Research Interest",
+    summary: "Independent study alongside my degree.",
+    description:
+      "Exploring how computation helps investigate biological questions. Details stay private until published, but the curiosity is public.",
+    currentThemes: [
+      "Molecular Docking Concepts",
+      "Python for Science",
+      "Reading Papers",
     ],
     statusTag: "ACTIVE_INQUIRY",
     accent: "research",
     linkUrl: "/research",
-    linkLabel: "Explore Research Index",
-  },
-  {
-    id: "exp-ai-automation",
-    order: "03",
-    title: "AI Workflow Automation",
-    category: "Systems Engineering",
-    summary: "Building practical automation systems using local/open-source AI tooling.",
-    description:
-      "Developing privacy-preserving, zero-budget automation stacks leveraging self-hosted n8n orchestrations, local Ollama LLM inference nodes, and resilient web scraping sinks.",
-    currentThemes: [
-      "Local LLM Orchestration",
-      "n8n Workflow Engines",
-      "Private Self-Hosted Stacks",
-    ],
-    statusTag: "ACTIVE_BUILD",
-    accent: "system",
-    linkUrl: "/work/ai-workflow-automation-stack",
-    linkLabel: "View Automation Case Study",
+    linkLabel: "View Research Interests",
   },
 ];

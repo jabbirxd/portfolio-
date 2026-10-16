@@ -50,7 +50,7 @@ export function Navbar() {
             className="flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-lg py-1 px-1.5"
           >
             <span className="text-sm sm:text-base font-extrabold tracking-wider text-white group-hover:text-indigo-300 transition-colors uppercase font-mono">
-              Mohammad Jabbir
+              Md. Jabbir Ali
             </span>
           </Link>
 

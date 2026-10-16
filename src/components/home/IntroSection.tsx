@@ -22,9 +22,9 @@ export function IntroSection() {
       <div className="w-full border-t border-white/[0.08] mb-12 sm:mb-16">
         <Container size="xl">
           <div className="flex items-center justify-between py-2 text-[10px] font-mono text-slate-500 uppercase tracking-widest">
-            <span>01 // Core Methodology</span>
-            <span className="hidden sm:inline">Perspective: Multidisciplinary</span>
-            <span>Axis [Engineering × Design × Science]</span>
+            <span>01 // How I work</span>
+            <span className="hidden sm:inline">Perspective: Curious generalist</span>
+            <span>Axis [Build × Learn × Explore]</span>
           </div>
         </Container>
       </div>
@@ -50,7 +50,7 @@ export function IntroSection() {
             transition={getTransition(0.12)}
           >
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans">
-              My work spans software development, UI/UX design, automation, creative production, and scientific research. I enjoy taking a problem apart, understanding how it works, and building a practical solution.
+              I build web apps, keep learning new parts of the stack, and stay curious about science. I enjoy taking a problem apart, understanding how it works, and building something that actually runs.
             </p>
           </motion.div>
         </div>
@@ -83,16 +83,16 @@ export function IntroSection() {
                   BUILD
                 </h3>
                 <p className="text-xs font-mono text-indigo-400 font-semibold tracking-wide uppercase">
-                  Web · Apps · Backend · Automation
+                  Web · Frontend · Backend
                 </p>
               </div>
 
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6 flex-grow">
-                Architecting resilient full-stack systems, PHP/Laravel platforms, robust REST APIs, client applications, and high-throughput data extraction pipelines.
+                Shipping real web apps with Next.js and TypeScript, and learning the backend side with PHP and Laravel.
               </p>
 
               <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-slate-400">
-                <span className="text-slate-500">Laravel · TS · Playwright</span>
+                <span className="text-slate-500">Next.js · TS · Laravel</span>
                 <span className="inline-flex items-center gap-1 text-indigo-400 font-bold group-hover:translate-x-1 transition-transform">
                   Explore Work <ArrowUpRight className="w-3.5 h-3.5" />
                 </span>
@@ -126,16 +126,16 @@ export function IntroSection() {
                   DESIGN
                 </h3>
                 <p className="text-xs font-mono text-cyan-400 font-semibold tracking-wide uppercase">
-                  UI/UX · Visual Design · Video
+                  UI · Responsive · Details
                 </p>
               </div>
 
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6 flex-grow">
-                Creating intuitive interface architectures, coherent design systems, smooth micro-interactions, and creative post-production video and motion media.
+                Interfaces that stay readable on any screen. I study real sites to learn what good UI feels like, then apply it.
               </p>
 
               <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-slate-400">
-                <span className="text-slate-500">Figma · Motion · Video</span>
+                <span className="text-slate-500">Tailwind · Responsive</span>
                 <span className="inline-flex items-center gap-1 text-cyan-400 font-bold group-hover:translate-x-1 transition-transform">
                   View Skills <ArrowUpRight className="w-3.5 h-3.5" />
                 </span>
@@ -169,16 +169,16 @@ export function IntroSection() {
                   RESEARCH
                 </h3>
                 <p className="text-xs font-mono text-emerald-400 font-semibold tracking-wide uppercase">
-                  Biology · Cancer · Computational Research
+                  Biology · Computation · Curiosity
                 </p>
               </div>
 
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6 flex-grow">
-                Investigating biological mechanisms, oncology and disease targets, in silico sequence workflows, and reproducible computational pipelines.
+                Independent study in computational biology alongside my degree. Details stay private until published.
               </p>
 
               <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-slate-400">
-                <span className="text-slate-500">In Silico · FAIR Data</span>
+                <span className="text-slate-500">Learning in public</span>
                 <span className="inline-flex items-center gap-1 text-emerald-400 font-bold group-hover:translate-x-1 transition-transform">
                   View Research <ArrowUpRight className="w-3.5 h-3.5" />
                 </span>

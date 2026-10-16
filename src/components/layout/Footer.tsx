@@ -25,13 +25,13 @@ export function Footer() {
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
               <span className="text-white font-bold">01 // BUILD</span>
-              <span className="text-slate-600 hidden sm:inline">Software & Automation</span>
+              <span className="text-slate-600 hidden sm:inline">Web Apps</span>
             </div>
             <span className="text-slate-700">→</span>
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
               <span className="text-white font-bold">02 // DESIGN</span>
-              <span className="text-slate-600 hidden sm:inline">UI/UX & Media</span>
+              <span className="text-slate-600 hidden sm:inline">Interfaces</span>
             </div>
             <span className="text-slate-700">→</span>
             <div className="flex items-center gap-2">
@@ -42,7 +42,7 @@ export function Footer() {
           </div>
 
           <div className="text-[10px] font-mono text-slate-500 tracking-wider">
-            CORE_PARADIGM: MULTIDISCIPLINARY_SYNTHESIS
+            LEARN · BUILD · SHIP
           </div>
         </div>
 
@@ -51,10 +51,10 @@ export function Footer() {
           {/* Identity */}
           <div className="space-y-1">
             <h2 className="text-base font-extrabold text-white tracking-tight font-sans">
-              MOHAMMAD JABBIR
+              MD. JABBIR ALI
             </h2>
             <p className="text-xs font-mono text-indigo-300">
-              Developer · Designer · Researcher
+              Web Developer
             </p>
           </div>
 
@@ -90,7 +90,7 @@ export function Footer() {
 
         {/* Copyright & Technical Signature */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
-          <p>© 2026 Mohammad Jabbir</p>
+          <p>© 2026 Md. Jabbir Ali</p>
           <div className="flex items-center gap-3 text-[11px]">
             <span>Next.js App Router</span>
             <span>·</span>

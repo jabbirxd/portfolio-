@@ -15,10 +15,6 @@ import { cn } from "@/lib/utils";
 const filterTabs: { label: string; value: ProjectFilter }[] = [
   { label: "ALL", value: "ALL" },
   { label: "DEVELOPMENT", value: "DEVELOPMENT" },
-  { label: "UI/UX", value: "UI/UX" },
-  { label: "AUTOMATION", value: "AUTOMATION" },
-  { label: "CREATIVE", value: "CREATIVE" },
-  { label: "RESEARCH", value: "RESEARCH" },
 ];
 
 export function WorkSection() {
@@ -38,7 +34,7 @@ export function WorkSection() {
           <SectionHeader
             eyebrow="Portfolio & Case Studies"
             title="Selected Work"
-            description="A selection of things I've built, designed, automated, and investigated."
+            description="Real projects I designed, built, and shipped. Each one taught me something."
             className="mb-0 max-w-2xl"
           />
 

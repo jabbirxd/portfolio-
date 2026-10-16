@@ -42,7 +42,7 @@ export function ExploringSection() {
             </h2>
 
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-sans">
-              Ongoing investigative interests, emerging workflows, and active technical deep-dives across computation and biology.
+              What I'm focused on right now: building, learning, and staying curious.
             </p>
           </div>
 
