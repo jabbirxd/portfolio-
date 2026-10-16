@@ -1,7 +1,6 @@
 import { MetadataRoute } from "next";
 import { siteConfig } from "@/data/siteConfig";
 import { getAllProjectSlugs } from "@/data/projects";
-import { getAllResearchSlugs } from "@/data/research";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
@@ -31,13 +30,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // Dynamic Research Studies
-  const researchRoutes = getAllResearchSlugs().map((slug) => ({
-    url: `${baseUrl}/research/${slug}`,
-    lastModified: currentDate,
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
-
-  return [...staticRoutes, ...projectRoutes, ...researchRoutes];
+  return [...staticRoutes, ...projectRoutes];
 }

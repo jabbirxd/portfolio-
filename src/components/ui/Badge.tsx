@@ -26,21 +26,21 @@ export function Badge({
   ...props
 }: BadgeProps) {
   const variantClasses = {
-    default: "bg-slate-900/90 text-slate-300 border-white/[0.08]",
-    studio: "bg-indigo-950/40 text-indigo-300 border-indigo-500/30",
-    indigo: "bg-indigo-950/40 text-indigo-300 border-indigo-500/30",
-    research: "bg-emerald-950/40 text-emerald-300 border-emerald-500/30",
-    emerald: "bg-emerald-950/40 text-emerald-300 border-emerald-500/30",
-    system: "bg-sky-950/40 text-sky-300 border-sky-500/30",
-    cyan: "bg-sky-950/40 text-sky-300 border-sky-500/30",
-    creative: "bg-amber-950/40 text-amber-300 border-amber-500/30",
-    amber: "bg-amber-950/40 text-amber-300 border-amber-500/30",
-    outline: "bg-transparent text-slate-300 border-white/[0.12]",
-    subtle: "bg-white/[0.03] text-slate-400 border-white/[0.05]",
+    default: "bg-[var(--bg-surface-raised)] text-[var(--text-secondary)] border-[var(--border-default)]",
+    studio: "bg-[var(--accent-studio-subtle)] text-[var(--accent-studio)] border-[var(--accent-studio-border)]",
+    indigo: "bg-[var(--accent-studio-subtle)] text-[var(--accent-studio)] border-[var(--accent-studio-border)]",
+    research: "bg-[var(--accent-research-subtle)] text-[var(--accent-research)] border-[var(--accent-research-border)]",
+    emerald: "bg-[var(--accent-research-subtle)] text-[var(--accent-research)] border-[var(--accent-research-border)]",
+    system: "bg-[var(--accent-system-subtle)] text-[var(--accent-system)] border-[var(--accent-system-border)]",
+    cyan: "bg-[var(--accent-system-subtle)] text-[var(--accent-system)] border-[var(--accent-system-border)]",
+    creative: "bg-[var(--accent-creative-subtle)] text-[var(--accent-creative)] border-[var(--accent-creative-border)]",
+    amber: "bg-[var(--accent-creative-subtle)] text-[var(--accent-creative)] border-[var(--accent-creative-border)]",
+    outline: "bg-transparent text-[var(--text-secondary)] border-[var(--border-default)]",
+    subtle: "bg-[var(--bg-surface-subtle)] text-[var(--text-secondary)] border-[var(--border-subtle)]",
   };
 
   const sizeClasses = {
-    sm: "px-2.5 py-0.5 text-[11px] font-mono",
+    sm: "px-2.5 py-0.5 text-xs font-mono",
     md: "px-3 py-1 text-xs font-mono",
   };
 
