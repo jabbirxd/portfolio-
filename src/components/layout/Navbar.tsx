@@ -8,6 +8,9 @@ import { Container } from "@/components/ui/Container";
 import { GithubIcon, LinkedinIcon } from "@/components/icons/BrandIcons";
 import { Menu, X, FileText, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { motion } from "motion/react";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
+import { useScrollSpy } from "@/components/layout/useScrollSpy";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -33,13 +36,37 @@ export function Navbar() {
     { title: "Skills", href: "/skills" },
   ];
 
+  // Scrollspy: on the home page, highlight the nav item whose preview
+  // section is currently in view (single-page feel on a multi-page site).
+  const HOME_SPY_IDS = [
+    "home-intro",
+    "home-ship",
+    "home-work",
+    "home-exploring",
+    "home-research",
+    "home-capabilities",
+  ];
+  const SPY_HREF: Record<string, string> = {
+    "home-intro": "/about",
+    "home-ship": "/work",
+    "home-work": "/work",
+    "home-exploring": "/skills",
+    "home-research": "/research",
+    "home-capabilities": "/skills",
+  };
+  const isHomePage = pathname === "/";
+  const spyId = useScrollSpy(isHomePage ? HOME_SPY_IDS : []);
+  const spyHref = spyId ? SPY_HREF[spyId] ?? null : null;
+  const isActiveLink = (href: string) =>
+    spyHref ? href === spyHref : pathname.startsWith(href);
+
   return (
     <header
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-200 border-b",
         scrolled
-          ? "border-white/[0.08] bg-[#05070a]/90 backdrop-blur-md shadow-lg shadow-black/20"
-          : "border-white/[0.04] bg-[#05070a]/60 backdrop-blur-sm"
+          ? "border-[var(--border-default)] bg-[var(--bg-app)]/90 backdrop-blur-md shadow-lg shadow-black/20"
+          : "border-[var(--border-subtle)] bg-[var(--bg-app)]/60 backdrop-blur-sm"
       )}
     >
       <Container size="xl">
@@ -49,7 +76,7 @@ export function Navbar() {
             href="/"
             className="flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-lg py-1 px-1.5"
           >
-            <span className="text-sm sm:text-base font-extrabold tracking-wider text-white group-hover:text-indigo-300 transition-colors uppercase font-mono">
+            <span className="text-sm sm:text-base font-extrabold tracking-wider text-[var(--text-primary)] group-hover:text-[var(--accent-studio)] transition-colors uppercase font-mono">
               Md. Jabbir Ali
             </span>
           </Link>
@@ -57,20 +84,27 @@ export function Navbar() {
           {/* Center / Right: Main Navigation Links */}
           <nav className="hidden md:flex items-center gap-1 sm:gap-2">
             {mainNavLinks.map((item) => {
-              const isActive = pathname.startsWith(item.href);
+              const isActive = isActiveLink(item.href);
 
               return (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "px-3.5 py-1.5 rounded-lg text-xs font-mono tracking-wide transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500/50",
+                    "relative px-3.5 py-1.5 rounded-lg text-xs font-mono tracking-wide transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500/50",
                     isActive
-                      ? "text-white bg-white/[0.08] font-bold border border-white/[0.06]"
-                      : "text-slate-400 hover:text-slate-100 hover:bg-white/[0.03]"
+                      ? "text-[var(--text-primary)] font-bold"
+                      : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
                   )}
                 >
-                  {item.title}
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-active-pill"
+                      className="absolute inset-0 rounded-lg bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)]"
+                      transition={{ type: "spring", bounce: 0.18, duration: 0.5 }}
+                    />
+                  )}
+                  <span className="relative z-10">{item.title}</span>
                 </Link>
               );
             })}
@@ -80,9 +114,9 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <Link
               href="/resume"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono text-slate-300 hover:text-white bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.06] transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] bg-[var(--bg-surface-subtle)] hover:bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)] transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
             >
-              <FileText className="w-3.5 h-3.5 text-indigo-400" />
+              <FileText className="w-3.5 h-3.5 text-[var(--accent-studio)]" />
               <span>CV</span>
             </Link>
 
@@ -90,7 +124,7 @@ export function Navbar() {
               href={siteConfig.socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg text-slate-400 hover:text-white bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.04] transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+              className="p-2 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] bg-[var(--bg-surface-subtle)] hover:bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)] transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
               aria-label="GitHub Profile"
             >
               <GithubIcon className="w-4 h-4" />
@@ -100,19 +134,22 @@ export function Navbar() {
               href={siteConfig.socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg text-slate-400 hover:text-white bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.04] transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+              className="p-2 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] bg-[var(--bg-surface-subtle)] hover:bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)] transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
               aria-label="LinkedIn Profile"
             >
               <LinkedinIcon className="w-4 h-4" />
             </a>
+
+            <ThemeToggle />
           </div>
 
-          {/* Mobile Menu Toggle Button */}
-          <div className="flex md:hidden">
+          {/* Mobile: theme toggle + menu button */}
+          <div className="flex md:hidden items-center gap-2">
+            <ThemeToggle />
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-400 hover:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={mobileMenuOpen}
             >
@@ -124,22 +161,22 @@ export function Navbar() {
 
       {/* Mobile Animated Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-white/[0.08] bg-[#05070a]/98 backdrop-blur-xl px-5 pt-3 pb-6 space-y-4">
+        <div className="md:hidden border-b border-[var(--border-default)] bg-[var(--bg-app)]/98 backdrop-blur-xl px-5 pt-3 pb-6 space-y-4">
           <nav className="flex flex-col space-y-1">
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
               className={cn(
                 "px-3.5 py-2.5 rounded-lg text-sm font-mono transition-colors",
-                pathname === "/"
-                  ? "text-white bg-white/[0.08] font-bold"
-                  : "text-slate-300 hover:bg-white/[0.04]"
+                pathname === "/" && !spyHref
+                  ? "text-[var(--text-primary)] bg-[var(--bg-surface-hover)] font-bold"
+                  : "text-[var(--text-secondary)] hover:bg-[var(--bg-surface-hover)]"
               )}
             >
               Home
             </Link>
             {mainNavLinks.map((item) => {
-              const isActive = pathname.startsWith(item.href);
+              const isActive = isActiveLink(item.href);
               return (
                 <Link
                   key={item.href}
@@ -148,8 +185,8 @@ export function Navbar() {
                   className={cn(
                     "px-3.5 py-2.5 rounded-lg text-sm font-mono transition-colors",
                     isActive
-                      ? "text-white bg-indigo-950/40 text-indigo-300 font-bold border border-indigo-500/20"
-                      : "text-slate-300 hover:bg-white/[0.04]"
+                      ? "text-[var(--accent-studio)] bg-[var(--accent-studio-subtle)] font-bold border border-[var(--accent-studio-border)]"
+                      : "text-[var(--text-secondary)] hover:bg-[var(--bg-surface-hover)]"
                   )}
                 >
                   {item.title}
@@ -159,20 +196,20 @@ export function Navbar() {
             <Link
               href="/resume"
               onClick={() => setMobileMenuOpen(false)}
-              className="px-3.5 py-2.5 rounded-lg text-sm font-mono text-slate-300 hover:bg-white/[0.04] flex items-center gap-2"
+              className="px-3.5 py-2.5 rounded-lg text-sm font-mono text-[var(--text-secondary)] hover:bg-[var(--bg-surface-hover)] flex items-center gap-2"
             >
-              <FileText className="w-4 h-4 text-indigo-400" />
+              <FileText className="w-4 h-4 text-[var(--accent-studio)]" />
               <span>Curriculum Vitae (CV)</span>
             </Link>
           </nav>
 
-          <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between">
+          <div className="pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between">
             <div className="flex items-center gap-3">
               <a
                 href={siteConfig.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg text-slate-300 bg-white/[0.04] border border-white/[0.06]"
+                className="p-2.5 rounded-lg text-[var(--text-secondary)] bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)]"
                 aria-label="GitHub"
               >
                 <GithubIcon className="w-4 h-4" />
@@ -181,7 +218,7 @@ export function Navbar() {
                 href={siteConfig.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg text-slate-300 bg-white/[0.04] border border-white/[0.06]"
+                className="p-2.5 rounded-lg text-[var(--text-secondary)] bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)]"
                 aria-label="LinkedIn"
               >
                 <LinkedinIcon className="w-4 h-4" />
@@ -191,7 +228,7 @@ export function Navbar() {
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="inline-flex items-center gap-1.5 text-xs font-mono text-indigo-400 hover:text-indigo-300"
+              className="inline-flex items-center gap-1.5 text-xs font-mono text-[var(--accent-studio)] hover:text-[var(--accent-studio)]"
             >
               <span>Contact</span>
               <ArrowUpRight className="w-3.5 h-3.5" />

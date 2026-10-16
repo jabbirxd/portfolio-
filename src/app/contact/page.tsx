@@ -1,4 +1,5 @@
 import React from "react";
+import { Reveal } from "@/components/motion/Reveal";
 import { siteConfig } from "@/data/siteConfig";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -20,36 +21,37 @@ export default function ContactPage() {
       <Container size="lg">
         <Breadcrumb items={[{ label: "Contact" }]} />
 
-        <div className="space-y-6 pb-10 border-b border-white/[0.08]">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-slate-300 border border-white/[0.08]">
-            <Mail className="w-3.5 h-3.5 text-indigo-400" />
+        <div className="space-y-6 pb-10 border-b border-[var(--border-default)]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-[var(--bg-surface-subtle)] text-[var(--text-secondary)] border border-[var(--border-default)]">
+            <Mail className="w-3.5 h-3.5 text-[var(--accent-studio)]" />
             <span>DIRECT CHANNELS</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight font-sans">
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight font-sans">
             Let&apos;s talk.
           </h1>
 
-          <p className="text-lg sm:text-xl text-slate-300 max-w-2xl leading-relaxed font-sans">
+          <p className="text-lg sm:text-xl text-[var(--text-secondary)] max-w-2xl leading-relaxed font-sans">
             I&apos;m looking for junior web developer roles and internships.
             The fastest way to reach me is email — I usually reply within a
             day or two.
           </p>
         </div>
 
+        <Reveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card variant="interactive" className="p-6 sm:p-8">
             <a href={`mailto:${siteConfig.socials.email}`} className="group block space-y-4">
-              <div className="p-3 rounded-xl bg-indigo-500/10 text-indigo-400 w-fit">
+              <div className="p-3 rounded-xl bg-[var(--accent-studio-subtle)] text-[var(--accent-studio)] w-fit">
                 <Mail className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-xs font-mono text-slate-500 uppercase mb-1">Email</div>
-                <div className="text-sm font-mono text-white break-all group-hover:text-indigo-300 transition-colors">
+                <div className="text-xs font-mono text-[var(--text-muted)] uppercase mb-1">Email</div>
+                <div className="text-sm font-mono text-[var(--text-primary)] break-all group-hover:text-[var(--accent-studio)] transition-colors">
                   {siteConfig.socials.email}
                 </div>
               </div>
-              <div className="flex items-center gap-1 text-xs text-slate-400">
+              <div className="flex items-center gap-1 text-xs text-[var(--text-secondary)]">
                 Write me <ArrowUpRight className="w-3.5 h-3.5" />
               </div>
             </a>
@@ -62,16 +64,16 @@ export default function ContactPage() {
               rel="noopener noreferrer"
               className="group block space-y-4"
             >
-              <div className="p-3 rounded-xl bg-white/[0.03] text-slate-300 w-fit">
+              <div className="p-3 rounded-xl bg-[var(--bg-surface-subtle)] text-[var(--text-secondary)] w-fit">
                 <GithubIcon className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-xs font-mono text-slate-500 uppercase mb-1">GitHub</div>
-                <div className="text-sm font-mono text-white group-hover:text-white transition-colors">
+                <div className="text-xs font-mono text-[var(--text-muted)] uppercase mb-1">GitHub</div>
+                <div className="text-sm font-mono text-[var(--text-primary)] group-hover:text-[var(--text-primary)] transition-colors">
                   github.com/jabbirxd
                 </div>
               </div>
-              <div className="flex items-center gap-1 text-xs text-slate-400">
+              <div className="flex items-center gap-1 text-xs text-[var(--text-secondary)]">
                 See my code <ArrowUpRight className="w-3.5 h-3.5" />
               </div>
             </a>
@@ -84,34 +86,37 @@ export default function ContactPage() {
               rel="noopener noreferrer"
               className="group block space-y-4"
             >
-              <div className="p-3 rounded-xl bg-sky-500/10 text-sky-400 w-fit">
+              <div className="p-3 rounded-xl bg-sky-500/10 text-[var(--accent-system)] w-fit">
                 <LinkedinIcon className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-xs font-mono text-slate-500 uppercase mb-1">LinkedIn</div>
-                <div className="text-sm font-mono text-white group-hover:text-sky-300 transition-colors">
+                <div className="text-xs font-mono text-[var(--text-muted)] uppercase mb-1">LinkedIn</div>
+                <div className="text-sm font-mono text-[var(--text-primary)] group-hover:text-[var(--accent-system)] transition-colors">
                   Md. Jabbir Ali
                 </div>
               </div>
-              <div className="flex items-center gap-1 text-xs text-slate-400">
+              <div className="flex items-center gap-1 text-xs text-[var(--text-secondary)]">
                 Connect <ArrowUpRight className="w-3.5 h-3.5" />
               </div>
             </a>
           </Card>
         </div>
+        </Reveal>
 
+        <Reveal>
         <Card variant="studio" className="p-6 sm:p-8">
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-slate-400 font-sans">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-[var(--text-secondary)] font-sans">
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-slate-500" />
+              <MapPin className="w-4 h-4 text-[var(--text-muted)]" />
               {siteConfig.location}
             </div>
             <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-slate-500" />
+              <Clock className="w-4 h-4 text-[var(--text-muted)]" />
               Usually replies within 24–48 hours
             </div>
           </div>
         </Card>
+        </Reveal>
       </Container>
     </div>
   );

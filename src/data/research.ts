@@ -1,4 +1,4 @@
-import { ResearchItem, ResearchInterest } from "@/types";
+import { ResearchInterest } from "@/types";
 
 export const researchInterestsData: ResearchInterest[] = [
   {
@@ -63,12 +63,3 @@ export const researchInterestsData: ResearchInterest[] = [
   },
 ];
 
-export const researchData: ResearchItem[] = [];
-
-export function getResearchBySlug(slug: string): ResearchItem | undefined {
-  return researchData.find((r) => r.slug === slug);
-}
-
-export function getAllResearchSlugs(): string[] {
-  return researchData.map((r) => r.slug);
-}

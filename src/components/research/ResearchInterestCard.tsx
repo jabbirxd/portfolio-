@@ -14,17 +14,17 @@ export function ResearchInterestCard({ interest }: ResearchInterestCardProps) {
       case "cancer":
         return <Activity className="w-5 h-5 text-rose-400" />;
       case "apoptosis":
-        return <ShieldAlert className="w-5 h-5 text-amber-400" />;
+        return <ShieldAlert className="w-5 h-5 text-[var(--accent-creative)]" />;
       case "bcl2":
-        return <Dna className="w-5 h-5 text-cyan-400" />;
+        return <Dna className="w-5 h-5 text-[var(--accent-system)]" />;
       case "comp-bio":
-        return <Cpu className="w-5 h-5 text-indigo-400" />;
+        return <Cpu className="w-5 h-5 text-[var(--accent-studio)]" />;
       case "drug-discovery":
-        return <Sparkles className="w-5 h-5 text-emerald-400" />;
+        return <Sparkles className="w-5 h-5 text-[var(--accent-research)]" />;
       case "mol-bio":
         return <Microscope className="w-5 h-5 text-purple-400" />;
       default:
-        return <Layers className="w-5 h-5 text-emerald-400" />;
+        return <Layers className="w-5 h-5 text-[var(--accent-research)]" />;
     }
   };
 
@@ -32,7 +32,7 @@ export function ResearchInterestCard({ interest }: ResearchInterestCardProps) {
     <Card variant="interactive" className="flex flex-col justify-between h-full p-6 sm:p-7">
       <div>
         <div className="flex items-center justify-between mb-4">
-          <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+          <div className="p-2.5 rounded-xl bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)]">
             {getIcon(interest.iconType)}
           </div>
           <Badge variant="research" size="sm">
@@ -40,27 +40,27 @@ export function ResearchInterestCard({ interest }: ResearchInterestCardProps) {
           </Badge>
         </div>
 
-        <h3 className="text-lg font-bold text-white tracking-tight font-sans mb-1">
+        <h3 className="text-lg font-bold text-[var(--text-primary)] tracking-tight font-sans mb-1">
           {interest.title}
         </h3>
-        <p className="text-xs font-mono text-emerald-400/90 font-medium mb-3">
+        <p className="text-xs font-mono text-[var(--accent-research)]/90 font-medium mb-3">
           {interest.subtitle}
         </p>
 
-        <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+        <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-6">
           {interest.description}
         </p>
       </div>
 
-      <div className="pt-4 border-t border-white/[0.06]">
-        <div className="text-[10px] font-mono text-slate-500 uppercase mb-2">
+      <div className="pt-4 border-t border-[var(--border-subtle)]">
+        <div className="text-xs font-mono text-[var(--text-secondary)] uppercase mb-2">
           Key Investigative Themes
         </div>
         <div className="flex flex-wrap gap-1.5">
           {interest.keyConcepts.map((concept) => (
             <span
               key={concept}
-              className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950/20 text-emerald-300 border border-emerald-800/30"
+              className="text-xs font-mono px-2 py-0.5 rounded bg-[var(--accent-research-subtle)] text-[var(--accent-research)] border border-[var(--accent-research-border)]"
             >
               {concept}
             </span>

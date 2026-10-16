@@ -14,7 +14,7 @@ export function ProjectVisualPreview({ project, className }: ProjectVisualPrevie
     case "code-terminal":
       return (
         <div className="w-full h-full min-h-[160px] bg-[#06080d] rounded-xl border border-white/[0.06] p-4 flex flex-col justify-between font-mono text-[11px] select-none">
-          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2 text-slate-500 text-[10px]">
+          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2 text-slate-500 text-[11px]">
             <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-rose-500/80" />
               <span className="w-2 h-2 rounded-full bg-amber-500/80" />
@@ -34,7 +34,7 @@ export function ProjectVisualPreview({ project, className }: ProjectVisualPrevie
               ✓ Deployed to Vercel
             </div>
           </div>
-          <div className="flex items-center justify-between text-[10px] text-slate-500 pt-2 border-t border-white/[0.04]">
+          <div className="flex items-center justify-between text-[11px] text-slate-500 pt-2 border-t border-white/[0.04]">
             <span>STATUS: SHIPPED</span>
             <span className="text-indigo-400">UPTIME: 99.9%</span>
           </div>
@@ -44,7 +44,7 @@ export function ProjectVisualPreview({ project, className }: ProjectVisualPrevie
     case "mobile-ui":
       return (
         <div className="w-full h-full min-h-[160px] bg-[#06080d] rounded-xl border border-white/[0.06] p-4 flex flex-col justify-between select-none">
-          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2 text-[10px] font-mono text-slate-500">
+          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2 text-[11px] font-mono text-slate-500">
             <div className="flex items-center gap-1.5 text-sky-400">
               <Smartphone className="w-3.5 h-3.5" />
               <span>OFFLINE_PERSISTENCE</span>
@@ -57,14 +57,14 @@ export function ProjectVisualPreview({ project, className }: ProjectVisualPrevie
                 <span className="w-2 h-2 rounded-full bg-sky-400" />
                 <span>SQLite Sync State</span>
               </div>
-              <span className="text-[10px] font-mono text-emerald-400">SYNCED</span>
+              <span className="text-[11px] font-mono text-emerald-400">SYNCED</span>
             </div>
             <div className="p-2 rounded-lg bg-white/[0.02] border border-white/[0.04] flex items-center justify-between text-xs text-slate-400">
               <span>Optimistic State Cache</span>
-              <span className="font-mono text-[10px] text-slate-500">&lt; 1ms</span>
+              <span className="font-mono text-[11px] text-slate-500">&lt; 1ms</span>
             </div>
           </div>
-          <div className="text-[10px] font-mono text-slate-500 flex justify-between pt-1">
+          <div className="text-[11px] font-mono text-slate-500 flex justify-between pt-1">
             <span>CLIENT_PERSIST</span>
             <span className="text-sky-400">TOUCH_GESTURES: ON</span>
           </div>
@@ -74,7 +74,7 @@ export function ProjectVisualPreview({ project, className }: ProjectVisualPrevie
     case "design-system":
       return (
         <div className="w-full h-full min-h-[160px] bg-[#06080d] rounded-xl border border-white/[0.06] p-4 flex flex-col justify-between select-none">
-          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2 text-[10px] font-mono text-slate-500">
+          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2 text-[11px] font-mono text-slate-500">
             <div className="flex items-center gap-1.5 text-indigo-400">
               <Layout className="w-3.5 h-3.5" />
               <span>DESIGN_TOKENS</span>
@@ -99,7 +99,7 @@ export function ProjectVisualPreview({ project, className }: ProjectVisualPrevie
               <span className="text-[9px] font-mono text-slate-400">Media</span>
             </div>
           </div>
-          <div className="text-[10px] font-mono text-slate-500 flex justify-between pt-1">
+          <div className="text-[11px] font-mono text-slate-500 flex justify-between pt-1">
             <span>SCALE: 4px BASELINE</span>
             <span className="text-indigo-400">SCALE: 4px BASE</span>
           </div>
@@ -109,14 +109,14 @@ export function ProjectVisualPreview({ project, className }: ProjectVisualPrevie
     case "automation-workflow":
       return (
         <div className="w-full h-full min-h-[160px] bg-[#06080d] rounded-xl border border-white/[0.06] p-4 flex flex-col justify-between select-none">
-          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2 text-[10px] font-mono text-slate-500">
+          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2 text-[11px] font-mono text-slate-500">
             <div className="flex items-center gap-1.5 text-sky-400">
               <Workflow className="w-3.5 h-3.5" />
               <span>N8N + OLLAMA ORCHESTRATION</span>
             </div>
             <span className="text-emerald-400 font-bold">$0 RECURRING COST</span>
           </div>
-          <div className="grid grid-cols-4 gap-2 py-3 text-center text-[10px] font-mono items-center">
+          <div className="grid grid-cols-4 gap-2 py-3 text-center text-[11px] font-mono items-center">
             <div className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.08] text-slate-300">
               <span className="text-slate-500 block text-[8px]">TRIGGER</span>
               Webhook / Cron
@@ -131,7 +131,7 @@ export function ProjectVisualPreview({ project, className }: ProjectVisualPrevie
               JSON Sink
             </div>
           </div>
-          <div className="text-[10px] font-mono text-slate-500 flex justify-between pt-1 border-t border-white/[0.04]">
+          <div className="text-[11px] font-mono text-slate-500 flex justify-between pt-1 border-t border-white/[0.04]">
             <span>INFRA: SELF_HOSTED</span>
             <span className="text-sky-400">PRIVACY: 100% LOCAL</span>
           </div>
@@ -141,7 +141,7 @@ export function ProjectVisualPreview({ project, className }: ProjectVisualPrevie
     case "media-timeline":
       return (
         <div className="w-full h-full min-h-[160px] bg-[#06080d] rounded-xl border border-white/[0.06] p-4 flex flex-col justify-between select-none">
-          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2 text-[10px] font-mono text-slate-500">
+          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2 text-[11px] font-mono text-slate-500">
             <div className="flex items-center gap-1.5 text-amber-400">
               <Film className="w-3.5 h-3.5" />
               <span>TIMELINE_COMPOSITE</span>
@@ -159,7 +159,7 @@ export function ProjectVisualPreview({ project, className }: ProjectVisualPrevie
               A1 // Mastered Audio & SFX
             </div>
           </div>
-          <div className="text-[10px] font-mono text-slate-500 flex justify-between pt-1">
+          <div className="text-[11px] font-mono text-slate-500 flex justify-between pt-1">
             <span>COLOR: DAVINCI WIDE GAMUT</span>
             <span className="text-amber-400">SOUND: 24-BIT 48KHZ</span>
           </div>
@@ -169,7 +169,7 @@ export function ProjectVisualPreview({ project, className }: ProjectVisualPrevie
     case "molecular-graph":
       return (
         <div className="w-full h-full min-h-[160px] bg-[#06080d] rounded-xl border border-white/[0.06] p-4 flex flex-col justify-between select-none">
-          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2 text-[10px] font-mono text-slate-500">
+          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2 text-[11px] font-mono text-slate-500">
             <div className="flex items-center gap-1.5 text-emerald-400">
               <Dna className="w-3.5 h-3.5" />
               <span>IN_SILICO_DOCKING</span>
@@ -181,12 +181,12 @@ export function ProjectVisualPreview({ project, className }: ProjectVisualPrevie
               <span className="font-mono text-[11px]">Binding Affinity Index</span>
               <span className="font-mono font-bold text-emerald-400">HIGH_CONFIDENCE</span>
             </div>
-            <div className="flex items-center justify-between text-[10px] font-mono text-slate-400">
+            <div className="flex items-center justify-between text-[11px] font-mono text-slate-400">
               <span>Pocket Residues: 14 Target</span>
               <span>RMSD: 0.82 Å</span>
             </div>
           </div>
-          <div className="text-[10px] font-mono text-slate-500 flex justify-between pt-1 border-t border-white/[0.04]">
+          <div className="text-[11px] font-mono text-slate-500 flex justify-between pt-1 border-t border-white/[0.04]">
             <span>MODEL: STRUCTURAL_BIO</span>
             <span className="text-emerald-400">PIPELINE: REPRODUCIBLE</span>
           </div>
