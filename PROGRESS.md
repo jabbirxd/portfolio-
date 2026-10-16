@@ -1,8 +1,12 @@
 # Portfolio Fix Progress
 
-Owner: Md. Jabbir Ali — https://github.com/jabbirxd/portfolio- (branch: main)
+Owner: Md. Jabbir Ali — https://github.com/jabbirxd/portfolio- (work branch: `fix/site-audit`; `main` is production, deployed by Vercel — do not commit to it)
 Live: https://portfolio-jabbirxd.vercel.app
 Stack: Next.js 16.3.3 (App Router, Turbopack), React 19.2.8, TypeScript 5, Tailwind CSS v4, motion, lucide-react. Vercel deploy.
+
+## Phase workflow (owner instruction, 2026-10-17)
+- **Before each phase:** sync the local working copy to the remote branch — `git fetch origin` then `git reset --hard origin/fix/site-audit` (keeps untracked `docs/`). Build and test exactly what is pushed. Then run lint/tsc/build on that clean copy before committing the phase.
+- Each phase = one GitHub API commit on `fix/site-audit` containing exactly that phase's files.
 
 ## How pushing works in this environment
 - Direct `git push` does NOT work in this VM (`could not read Username`). All commits are made via the GitHub API (`push_files` / `delete_file`), one API commit per phase, each containing exactly that phase's files.
@@ -21,6 +25,8 @@ Stack: Next.js 16.3.3 (App Router, Turbopack), React 19.2.8, TypeScript 5, Tailw
 - Dev server runs locally at http://localhost:3101/ for verification.
 
 ## Phases completed
+- [x] **Phase 2, part 1 — visual/layout bugs (items 1–5) + owner fixes.** Commit: `TODO_PHASE2A`. Owner fixes: (1) navbar regression — desktop nav now shows from `lg` (1024px) up, mobile menu below; verified logo on one line and ≥12px Contact–CV gap at 768/800/834/1024; (2) PROGRESS.md header + Next phase corrected; (3) new workflow: `git fetch` + `git reset --hard origin/fix/site-audit` before each phase (fetch works read-only on the public repo), noted in PROGRESS.md; (4) Phase 3 gets a new item — only write theme to localStorage on toggle click. Phase 2 fixes: (1) terminal headers get gap + truncate, no mobile collision; (2) skills badge `whitespace-nowrap`, Evidence row gets gap; (3) SystemVisual — header no longer wraps (coordinate hidden <420px), card aligns with content edges on mobile, compact on mobile (terminal + telemetry hidden, tighter nodes), solid dark bg so it is not washed out in light theme; (4) root cause found — `space-y-*` was on a wrapper div while content lived inside `<Container>`, so sections touched at 0px; moved spacing onto Container on all 3 case-study pages, /research, /skills, /contact, /about (verified 0px → 48px on case study); (5) git graph — branch label moved below feature line, "init: portfolio" label below main line (curve no longer crosses it), commits spread 4%→93% width. Checks: `tsc` clean, `build` passes, lint 12 errors/44 warnings (unchanged, Phase 8's). Skipped: nothing; items 6–11 in part 2.
+
 - [x] **Phase 0 — baseline.** Commit: `f4a98a7` (on main). Items: recorded lint/audit/build baselines. Skipped: `npm install` (deps already present), `npm audit` (sandbox-blocked; owner ran it himself: next@16.3.3 has critical advisories, sharp has high ones — Phase 8 upgrades regardless).
 - [x] **Phase 1 — critical bugs.** Commit: `5c27265`. Items fixed: (1) canonical per page — removed wrong layout-level canonical, added self-referencing canonicals to `/`, `/about`, `/contact`, `/work/[slug]` (client pages `/work`, `/research`, `/skills`, `/resume` get theirs in the Phase 7 server/client split); (2) CV fallback copy → "PDF not available yet — opening print view instead.", README owner-TODO for `public/cv.pdf`; (3) no-JS visibility — hero animates transform-only, `data-anim` + `<noscript>` override on all motion-hidden elements, Counter server-renders the final number (verified: JS-disabled shows all text, no "0 skills"); (4) theme refactor — provider lazy-inits from the `<head>` script's `data-theme` attribute, toggle uses `useSyncExternalStore` mounted guard (fixes 2 lint errors; verified: light-preference → light first paint, toggle persists); (5) Contact added to desktop nav as a small primary button. Checks: `tsc` clean, `build` passes, lint 14→12 errors (remaining 12 are Phase 8's). Skipped: nothing.
 
@@ -30,6 +36,9 @@ Stack: Next.js 16.3.3 (App Router, Turbopack), React 19.2.8, TypeScript 5, Tailw
 ## Decisions made by owner
 - (none yet)
 
+## Phase 3 addition (owner instruction, 2026-10-17)
+- ThemeProvider currently writes the theme to localStorage on the first visit even if the visitor never pressed the toggle — this freezes their OS preference forever. Only save to localStorage when the user clicks the toggle. (Handle in Phase 3.)
+
 ## Owner TODO list (things Jabbir must do himself)
 - Add the real CV file at `public/cv.pdf`.
 - Add real screenshots for each project in `public/projects/`.
@@ -38,4 +47,4 @@ Stack: Next.js 16.3.3 (App Router, Turbopack), React 19.2.8, TypeScript 5, Tailw
 - Check that both live demo URLs in `projects.ts` load correctly.
 
 ## Next phase
-- **Phase 1: critical bugs** (canonical URL, CV download fallback copy, no-JS content visibility, theme FOUC + provider refactor, Contact link in desktop navbar).
+- **Phase 2: visual and layout bugs** (split into 2 parts if needed) (canonical URL, CV download fallback copy, no-JS content visibility, theme FOUC + provider refactor, Contact link in desktop navbar).

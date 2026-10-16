@@ -16,8 +16,8 @@ import { CheckCircle2, ArrowRight, ShieldCheck, Layers, Terminal } from "lucide-
 
 export default function SkillsPage() {
   return (
-    <div className="py-12 sm:py-16 space-y-16">
-      <Container size="xl">
+    <div className="py-12 sm:py-16">
+      <Container size="xl" className="space-y-12 sm:space-y-16">
         <Breadcrumb items={[{ label: "Skills & Capabilities" }]} />
 
         {/* 1. Header */}

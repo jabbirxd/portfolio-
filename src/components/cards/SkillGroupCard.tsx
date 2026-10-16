@@ -65,7 +65,7 @@ export function SkillGroupCard({ category }: SkillGroupCardProps) {
               {category.name}
             </h3>
           </div>
-          <Badge variant={getBadgeVariant(category.id)} size="sm">
+          <Badge variant={getBadgeVariant(category.id)} size="sm" className="whitespace-nowrap shrink-0">
             {category.skills.length} CONFIRMED
           </Badge>
         </div>
@@ -99,14 +99,14 @@ export function SkillGroupCard({ category }: SkillGroupCardProps) {
 
               {/* Evidence-based link to actual project */}
               {skill.relatedProject && (
-                <div className="pt-1.5 flex items-center justify-between text-xs font-mono border-t border-[var(--border-subtle)]">
-                  <span className="text-[var(--text-muted)]">Evidence:</span>
+                <div className="pt-1.5 flex items-center justify-between gap-3 text-xs font-mono border-t border-[var(--border-subtle)]">
+                  <span className="text-[var(--text-muted)] shrink-0">Evidence:</span>
                   <Link
                     href={skill.relatedProject.url}
-                    className="inline-flex items-center gap-1 text-[var(--accent-studio)] hover:text-[var(--accent-studio)] transition-colors font-medium"
+                    className="inline-flex items-center gap-1 text-[var(--accent-studio)] hover:text-[var(--accent-studio)] transition-colors font-medium text-right"
                   >
                     <span>{skill.relatedProject.projectTitle}</span>
-                    <ArrowUpRight className="w-3 h-3" />
+                    <ArrowUpRight className="w-3 h-3 shrink-0" />
                   </Link>
                 </div>
               )}

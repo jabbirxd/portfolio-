@@ -104,8 +104,8 @@ export default async function ProjectDetailPage({
   );
 
   return (
-    <div className="py-12 sm:py-16 space-y-16">
-      <Container size="lg">
+    <div className="py-12 sm:py-16">
+      <Container size="lg" className="space-y-12">
         {/* Breadcrumb Navigation */}
         <Breadcrumb
           items={[

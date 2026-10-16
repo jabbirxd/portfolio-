@@ -17,22 +17,23 @@ type CommitNode = {
   appearAt: number; // normalized time 0..1
   msg?: string;
   merge?: boolean;
+  labelBelow?: boolean; // draw the commit label under the line (avoids branch-curve overlap)
 };
 
 const MAIN_COMMITS: CommitNode[] = [
-  { fx: 0.05, fy: 0.62, branch: "main", appearAt: 0.02 },
-  { fx: 0.19, fy: 0.62, branch: "main", appearAt: 0.1, msg: "init: portfolio" },
-  { fx: 0.33, fy: 0.62, branch: "main", appearAt: 0.18, msg: "feat: theme toggle" },
-  { fx: 0.47, fy: 0.62, branch: "main", appearAt: 0.42 },
-  { fx: 0.61, fy: 0.62, branch: "main", appearAt: 0.56, msg: "feat: scrollspy" },
+  { fx: 0.04, fy: 0.62, branch: "main", appearAt: 0.02 },
+  { fx: 0.18, fy: 0.62, branch: "main", appearAt: 0.1, msg: "init: portfolio", labelBelow: true },
+  { fx: 0.32, fy: 0.62, branch: "main", appearAt: 0.18, msg: "feat: theme toggle" },
+  { fx: 0.46, fy: 0.62, branch: "main", appearAt: 0.42 },
+  { fx: 0.60, fy: 0.62, branch: "main", appearAt: 0.56, msg: "feat: scrollspy" },
   { fx: 0.75, fy: 0.62, branch: "main", appearAt: 0.64, msg: "fix: fonts" },
-  { fx: 0.9, fy: 0.62, branch: "main", appearAt: 0.72, msg: "ship it" },
+  { fx: 0.93, fy: 0.62, branch: "main", appearAt: 0.72, msg: "ship it" },
 ];
 
 const FEATURE_COMMITS: CommitNode[] = [
-  { fx: 0.27, fy: 0.3, branch: "feature", appearAt: 0.3, msg: "feat: animations" },
-  { fx: 0.4, fy: 0.3, branch: "feature", appearAt: 0.38 },
-  { fx: 0.53, fy: 0.3, branch: "feature", appearAt: 0.46, msg: "polish: motion" },
+  { fx: 0.26, fy: 0.3, branch: "feature", appearAt: 0.3, msg: "feat: animations" },
+  { fx: 0.38, fy: 0.3, branch: "feature", appearAt: 0.38 },
+  { fx: 0.50, fy: 0.3, branch: "feature", appearAt: 0.46, msg: "polish: motion" },
 ];
 
 const LOOP_SECONDS = 11;
@@ -205,7 +206,7 @@ export function GitGraphCanvas({ className }: { className?: string }) {
           ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, monospace";
           ctx.fillStyle = c.text;
           ctx.textAlign = "center";
-          ctx.fillText(n.msg, p.x, p.y - 16);
+          ctx.fillText(n.msg, p.x, n.labelBelow ? p.y + 26 : p.y - 16);
         }
       };
 
@@ -223,8 +224,9 @@ export function GitGraphCanvas({ className }: { className?: string }) {
       }
       if (t > 0.34 && w > 520) {
         ctx.fillStyle = c.feature;
-        ctx.textAlign = "left";
-        ctx.fillText("feature/animations", featPts[0].x - 8, featPts[0].y - 26);
+        ctx.textAlign = "center";
+        const midX = (featPts[0].x + featPts[featPts.length - 1].x) / 2;
+        ctx.fillText("feature/animations", midX, featPts[0].y + 24);
       }
       // HEAD tag on the last commit during hold
       if (t > 0.78) {

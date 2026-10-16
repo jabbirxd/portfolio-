@@ -18,8 +18,8 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="py-12 sm:py-16 space-y-12">
-      <Container size="lg">
+    <div className="py-12 sm:py-16">
+      <Container size="lg" className="space-y-12">
         <Breadcrumb items={[{ label: "Contact" }]} />
 
         <div className="space-y-6 pb-10 border-b border-[var(--border-default)]">

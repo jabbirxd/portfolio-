@@ -9,18 +9,18 @@ export function SystemVisual() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div className="relative w-full max-w-lg lg:max-w-xl mx-auto p-4 sm:p-6 select-none">
+    <div className="relative w-full max-w-lg lg:max-w-xl mx-auto p-0 sm:p-6 select-none">
       {/* Outer Studio Frame with scientific grid backdrop */}
-      <div className="relative rounded-2xl border border-white/[0.08] bg-[#070a10]/80 backdrop-blur-sm p-6 sm:p-8 shadow-2xl overflow-hidden">
+      <div className="relative rounded-2xl border border-white/10 bg-[#0a0e14] p-4 sm:p-8 shadow-2xl overflow-hidden">
         {/* Subtle background coordinate markings */}
         <div className="absolute inset-0 bg-dot-matrix opacity-30 pointer-events-none" />
         
-        <div className="flex items-center justify-between border-b border-white/[0.06] pb-3 mb-6 font-mono text-[11px] text-slate-500 tracking-wider">
-          <div className="flex items-center gap-2 text-indigo-400/90">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>SYSTEM_PIPELINE // ACTIVE</span>
+        <div className="flex items-center justify-between gap-3 border-b border-white/[0.06] pb-3 mb-4 sm:mb-6 font-mono text-[11px] text-slate-500 tracking-wider">
+          <div className="flex items-center gap-2 text-indigo-400/90 min-w-0">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+            <span className="truncate">SYSTEM_PIPELINE // ACTIVE</span>
           </div>
-          <span>COORDINATE [42.10, 88.34]</span>
+          <span className="hidden min-[420px]:block shrink-0">COORDINATE [42.10, 88.34]</span>
         </div>
 
         {/* Abstract 3-Node Architecture (BUILD -> DESIGN -> RESEARCH) */}
@@ -30,7 +30,7 @@ export function SystemVisual() {
             initial={{ opacity: 0, x: -12 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4, delay: shouldReduceMotion ? 0 : 0.3 }}
-            className="group relative p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-indigo-500/40 transition-all duration-200"
+            className="group relative p-3 sm:p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-indigo-500/40 transition-all duration-200"
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
@@ -68,7 +68,7 @@ export function SystemVisual() {
             initial={{ opacity: 0, x: 12 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4, delay: shouldReduceMotion ? 0 : 0.4 }}
-            className="group relative p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-cyan-500/40 transition-all duration-200"
+            className="group relative p-3 sm:p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-cyan-500/40 transition-all duration-200"
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
@@ -106,7 +106,7 @@ export function SystemVisual() {
             initial={{ opacity: 0, x: -12 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4, delay: shouldReduceMotion ? 0 : 0.5 }}
-            className="group relative p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-emerald-500/40 transition-all duration-200"
+            className="group relative p-3 sm:p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-emerald-500/40 transition-all duration-200"
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
@@ -140,7 +140,7 @@ export function SystemVisual() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: shouldReduceMotion ? 0 : 0.7 }}
-          className="mt-6 rounded-xl bg-black/40 border border-white/[0.06] p-3.5"
+          className="hidden sm:block mt-6 rounded-xl bg-black/40 border border-white/[0.06] p-3.5"
         >
           <Typewriter
             lines={[
@@ -152,7 +152,7 @@ export function SystemVisual() {
         </motion.div>
 
         {/* Bottom Technical Telemetry Footer */}
-        <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-slate-500">
+        <div className="hidden sm:flex mt-4 pt-3 border-t border-white/[0.06] items-center justify-between text-[11px] font-mono text-slate-500">
           <span>PARADIGM: INTEGRATED_DISCOVERY</span>
           <span className="text-indigo-400/80">LATENCY: 0.12ms</span>
         </div>

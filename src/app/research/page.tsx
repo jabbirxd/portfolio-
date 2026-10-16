@@ -12,8 +12,8 @@ import { FlaskConical } from "lucide-react";
 
 export default function ResearchPage() {
   return (
-    <div className="py-12 sm:py-16 space-y-20">
-      <Container size="xl">
+    <div className="py-12 sm:py-16">
+      <Container size="xl" className="space-y-16 sm:space-y-20">
         <Breadcrumb items={[{ label: "Research Interests" }]} />
 
         {/* 1. Research Hero Section */}

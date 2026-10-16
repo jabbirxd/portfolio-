@@ -82,7 +82,7 @@ export function Navbar() {
           </Link>
 
           {/* Center / Right: Main Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 sm:gap-2">
+          <nav className="hidden lg:flex items-center gap-1 sm:gap-2">
             {mainNavLinks.map((item) => {
               const isActive = isActiveLink(item.href);
 
@@ -122,7 +122,7 @@ export function Navbar() {
           </nav>
 
           {/* Right: CV, GitHub, LinkedIn */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             <Link
               href="/resume"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] bg-[var(--bg-surface-subtle)] hover:bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)] transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
@@ -155,7 +155,7 @@ export function Navbar() {
           </div>
 
           {/* Mobile: theme toggle + menu button */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-2">
             <ThemeToggle />
             <button
               type="button"
@@ -172,7 +172,7 @@ export function Navbar() {
 
       {/* Mobile Animated Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-[var(--border-default)] bg-[var(--bg-app)]/98 backdrop-blur-xl px-5 pt-3 pb-6 space-y-4">
+        <div className="lg:hidden border-b border-[var(--border-default)] bg-[var(--bg-app)]/98 backdrop-blur-xl px-5 pt-3 pb-6 space-y-4">
           <nav className="flex flex-col space-y-1">
             <Link
               href="/"
