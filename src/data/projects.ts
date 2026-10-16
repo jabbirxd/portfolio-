@@ -115,7 +115,7 @@ export const projectsData: ProjectItem[] = [
     category: "development",
     filterCategory: "DEVELOPMENT",
     displaySize: "medium",
-    visualType: "code-terminal",
+    visualType: "server-terminal",
     previewAccent: "studio",
     disciplines: ["Backend Development", "MVC Architecture", "Databases"],
     techStack: ["PHP", "Laravel", "Blade", "MySQL"],

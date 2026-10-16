@@ -41,6 +41,39 @@ export function ProjectVisualPreview({ project, className }: ProjectVisualPrevie
         </div>
       );
 
+    case "server-terminal":
+      return (
+        <div className="w-full h-full min-h-[160px] bg-[#06080d] rounded-xl border border-white/[0.06] p-4 flex flex-col justify-between font-mono text-[11px] select-none">
+          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2 text-slate-500 text-[11px]">
+            <div className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-rose-500/80" />
+              <span className="w-2 h-2 rounded-full bg-amber-500/80" />
+              <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
+              <span className="ml-2 text-slate-400">artisan</span>
+            </div>
+            <span className="text-rose-400">PHP · LARAVEL</span>
+          </div>
+          <div className="space-y-1.5 py-2 text-slate-400">
+            <div className="text-slate-400">
+              <span className="text-slate-500">$</span> php artisan migrate
+            </div>
+            <div className="text-emerald-400/90">
+              ✓ Database migrated
+            </div>
+            <div className="text-slate-400">
+              <span className="text-slate-500">$</span> php artisan serve
+            </div>
+            <div className="text-emerald-400/90">
+              ✓ Server running · localhost:8000
+            </div>
+          </div>
+          <div className="flex items-center justify-between text-[11px] text-slate-500 pt-2 border-t border-white/[0.04]">
+            <span>STATUS: IN PROGRESS</span>
+            <span className="text-rose-400">ENV: LOCAL</span>
+          </div>
+        </div>
+      );
+
     case "mobile-ui":
       return (
         <div className="w-full h-full min-h-[160px] bg-[#06080d] rounded-xl border border-white/[0.06] p-4 flex flex-col justify-between select-none">
