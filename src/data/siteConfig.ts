@@ -1,19 +1,19 @@
 import { NavItem } from "@/types";
 
 export const siteConfig = {
-  name: "Mohammad Jabbir",
-  title: "Mohammad Jabbir | Developer · Designer · Researcher",
+  name: "Md. Jabbir Ali",
+  title: "Md. Jabbir Ali | Web Developer",
   description:
-    "Personal portfolio & research journal of Mohammad Jabbir. Building practical solutions across technology, design, automation, and biomedical sciences.",
-  url: "https://jabbir.dev",
-  tagline: "Build. Design. Investigate.",
-  bio: "Multidisciplinary developer, designer, and researcher with active interests across full-stack systems, PHP/Laravel, workflow automation, interface engineering, and computational biology.",
-  location: "Bangladesh",
+    "Portfolio of Md. Jabbir Ali, a final-year Computer Science student building real web projects with Next.js, TypeScript, and Laravel.",
+  url: "https://portfolio-jabbirxd.vercel.app",
+  tagline: "Learn. Build. Ship.",
+  bio: "Final-year CSE student from Khulna, Bangladesh. I bring the ideas and direction, and build with modern tools to ship real projects fast.",
+  location: "Khulna, Bangladesh",
   availableFor: [
-    "Full-stack Software Engineering",
-    "Automation & Scraping Systems",
-    "UI/UX & Creative Direction",
-    "Computational Biology & Biomedical Research Projects",
+    "Junior Web Developer roles",
+    "Frontend development with Next.js and React",
+    "Backend development with PHP and Laravel",
+    "Internships and entry-level positions",
   ],
   navItems: [
     { title: "Home", href: "/" },
@@ -25,9 +25,8 @@ export const siteConfig = {
     { title: "Contact", href: "/contact" },
   ] as NavItem[],
   socials: {
-    github: "https://github.com/godspeed630",
-    linkedin: "https://linkedin.com/in/[PLACEHOLDER_LINKEDIN_USERNAME]",
-    twitter: "https://x.com/[PLACEHOLDER_TWITTER_USERNAME]",
-    email: "contact@example.com",
+    github: "https://github.com/jabbirxd",
+    linkedin: "https://www.linkedin.com/in/md-jabbir-ali-436613226",
+    email: "jabbirali00@gmail.com",
   },
 };

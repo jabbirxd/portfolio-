@@ -1,5 +1,5 @@
 /**
- * Centralized Design Tokens for Mohammad Jabbir's Portfolio & Research Journal
+ * Centralized Design Tokens for Md. Jabbir Ali's Portfolio & Research Journal
  * Visual Identity: Premium Technology Studio × Modern Scientific Research Lab
  */
 
