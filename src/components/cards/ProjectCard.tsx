@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import { ProjectItem } from "@/types";
-import { Badge } from "@/components/ui/Badge";
 import { ProjectVisualPreview } from "@/components/cards/ProjectVisualPreview";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -17,23 +16,6 @@ interface ProjectCardProps {
 export function ProjectCard({ project, className, headingLevel = "h3", showLearning = false }: ProjectCardProps) {
   const isLarge = project.displaySize === "large";
   const isWide = project.displaySize === "wide";
-
-  const getBadgeVariant = (filterCat: ProjectItem["filterCategory"]) => {
-    switch (filterCat) {
-      case "DEVELOPMENT":
-        return "studio";
-      case "UI/UX":
-        return "studio";
-      case "AUTOMATION":
-        return "system";
-      case "CREATIVE":
-        return "creative";
-      case "RESEARCH":
-        return "research";
-      default:
-        return "default";
-    }
-  };
 
   return (
     <Spotlight

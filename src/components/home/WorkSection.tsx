@@ -2,7 +2,7 @@
 
 import { Reveal } from "@/components/motion/Reveal";
 
-import React, { useState } from "react";
+import React from "react";
 ;
 import { projectsData } from "@/data/projects";
 import { Container } from "@/components/ui/Container";
