@@ -18,22 +18,24 @@ type CommitNode = {
   msg?: string;
   merge?: boolean;
   labelBelow?: boolean; // draw the commit label under the line (avoids branch-curve overlap)
+  short?: string; // shorter label used on narrow canvases (phones)
+  shortBelow?: boolean; // placement of the short label on narrow canvases
 };
 
 const MAIN_COMMITS: CommitNode[] = [
   { fx: 0.04, fy: 0.62, branch: "main", appearAt: 0.02 },
-  { fx: 0.18, fy: 0.62, branch: "main", appearAt: 0.1, msg: "init: portfolio", labelBelow: true },
-  { fx: 0.32, fy: 0.62, branch: "main", appearAt: 0.18, msg: "feat: theme toggle" },
+  { fx: 0.18, fy: 0.62, branch: "main", appearAt: 0.1, msg: "init: portfolio", labelBelow: true, short: "init", shortBelow: true },
+  { fx: 0.32, fy: 0.62, branch: "main", appearAt: 0.18, msg: "feat: theme toggle", short: "theme" },
   { fx: 0.46, fy: 0.62, branch: "main", appearAt: 0.42 },
-  { fx: 0.60, fy: 0.62, branch: "main", appearAt: 0.56, msg: "feat: scrollspy", labelBelow: true },
-  { fx: 0.75, fy: 0.62, branch: "main", appearAt: 0.64, msg: "fix: fonts" },
-  { fx: 0.93, fy: 0.62, branch: "main", appearAt: 0.72, msg: "ship it" },
+  { fx: 0.60, fy: 0.62, branch: "main", appearAt: 0.56, msg: "feat: scrollspy", labelBelow: true, short: "scrollspy", shortBelow: true },
+  { fx: 0.75, fy: 0.62, branch: "main", appearAt: 0.64, msg: "fix: fonts", short: "fonts" },
+  { fx: 0.93, fy: 0.62, branch: "main", appearAt: 0.72, msg: "ship it", short: "ship it" },
 ];
 
 const FEATURE_COMMITS: CommitNode[] = [
-  { fx: 0.26, fy: 0.3, branch: "feature", appearAt: 0.3, msg: "feat: animations" },
+  { fx: 0.26, fy: 0.3, branch: "feature", appearAt: 0.3, msg: "feat: animations", short: "animations" },
   { fx: 0.38, fy: 0.3, branch: "feature", appearAt: 0.38 },
-  { fx: 0.50, fy: 0.3, branch: "feature", appearAt: 0.46, msg: "polish: motion" },
+  { fx: 0.50, fy: 0.3, branch: "feature", appearAt: 0.46, msg: "polish: motion", short: "polish" },
 ];
 
 const LOOP_SECONDS = 11;
@@ -210,11 +212,15 @@ export function GitGraphCanvas({ className }: { className?: string }) {
         ctx.stroke();
         ctx.restore();
 
-        if (n.msg && local > 0.6 && w > 520) {
-          ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, monospace";
+        // Phones get short labels in a smaller font so they never overlap.
+        const narrow = w <= 520;
+        const label = narrow ? n.short : n.msg;
+        const below = narrow ? n.shortBelow : n.labelBelow;
+        if (label && local > 0.6) {
+          ctx.font = `${narrow ? 10 : 11}px ui-monospace, SFMono-Regular, Menlo, monospace`;
           ctx.fillStyle = c.text;
           ctx.textAlign = "center";
-          ctx.fillText(n.msg, p.x, n.labelBelow ? p.y + 26 : p.y - 16);
+          ctx.fillText(label, p.x, below ? p.y + 26 : p.y - 16);
         }
       };
 
@@ -230,11 +236,13 @@ export function GitGraphCanvas({ className }: { className?: string }) {
         ctx.fillStyle = c.main;
         ctx.fillText("main", 8, mainPts[0].y + 26);
       }
-      if (t > 0.34 && w > 520) {
+      if (t > 0.34) {
+        const narrow = w <= 520;
+        ctx.font = `${narrow ? 10 : 11}px ui-monospace, SFMono-Regular, Menlo, monospace`;
         ctx.fillStyle = c.feature;
         ctx.textAlign = "center";
         const midX = (featPts[0].x + featPts[featPts.length - 1].x) / 2;
-        ctx.fillText("feature/animations", midX, featPts[0].y + 24);
+        ctx.fillText(narrow ? "feature" : "feature/animations", midX, featPts[0].y + 24);
       }
       // HEAD tag on the last commit during hold
       if (t > 0.78) {
