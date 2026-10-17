@@ -55,7 +55,7 @@ export function Footer() {
               MD. JABBIR ALI
             </h2>
             <p className="text-xs font-mono text-[var(--accent-studio)]">
-              Web Developer · CADD Researcher
+              Web Developer | CADD Researcher
             </p>
           </div>
 
