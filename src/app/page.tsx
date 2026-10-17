@@ -107,7 +107,7 @@ export default function HomePage() {
                 What I Can Do
               </h2>
               <p className="text-[var(--text-secondary)] text-xs sm:text-sm leading-relaxed">
-                An honest map of my skills: what I'm comfortable with, what I'm learning, and what I'm curious about.
+                An honest map of my skills: what I&apos;m comfortable with, what I&apos;m learning, and what I&apos;m curious about.
               </p>
             </div>
 
@@ -141,7 +141,7 @@ export default function HomePage() {
                 Let&apos;s build something meaningful
               </h2>
               <p className="text-[var(--text-secondary)] text-xs sm:text-sm leading-relaxed">
-                I'm looking for junior web developer roles and internships. If you're hiring, I'd love to talk.
+                I&apos;m looking for junior web developer roles and internships. If you&apos;re hiring, I&apos;d love to talk.
               </p>
               <div className="pt-4 flex flex-wrap justify-center gap-4">
                 <Button href="/contact" variant="primary" size="lg">
