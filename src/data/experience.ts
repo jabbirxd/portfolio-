@@ -22,7 +22,7 @@ export const experiencesData: ExperienceItem[] = [
     role: "Undergraduate Researcher (Co-First Author)",
     organization: "Northern University of Business and Technology Khulna, in collaboration with University of Dhaka",
     location: "Khulna, Bangladesh",
-    period: "2024 - Present",
+    period: "2026 - Present",
     type: "Research",
     description:
       "Computer-aided drug discovery research.",
@@ -31,7 +31,7 @@ export const experiencesData: ExperienceItem[] = [
       "Molecular docking (AutoDock Vina), 100 ns MD simulations with RMSD, RMSF, Rg, PCA and DCCM analysis, and MM/GBSA binding free energy calculations.",
       "Manuscript submitted to a journal; currently under review.",
     ],
-    skillsUsed: ["Molecular Docking", "Molecular Dynamics", "MM/GBSA", "RDKit", "AutoDock Vina"],
+    skillsUsed: ["Molecular Docking", "Molecular Dynamics", "OpenMM", "MM/GBSA", "RDKit", "AutoDock Vina"],
   },
 ];
 
