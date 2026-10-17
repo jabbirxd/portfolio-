@@ -246,21 +246,21 @@ export default async function ProjectDetailPage({
 
             {/* Problem Statement */}
             {project.problem && (
-              <Card variant="solid" className="space-y-4">
+              <section className="space-y-4">
                 <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
-                  <span className="text-[var(--accent-creative)] font-mono text-base">{sectionNum("challenge")}.</span> The Challenge & Problem Scope
+                  <span className="text-[var(--accent-studio)] font-mono text-base">{sectionNum("challenge")}.</span> The Challenge & Problem Scope
                 </h2>
                 <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed">
                   {project.problem}
                 </p>
-              </Card>
+              </section>
             )}
 
             {/* Approach */}
             {project.approach && (
               <section className="space-y-4">
                 <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
-                  <span className="text-[var(--accent-system)] font-mono text-base">{sectionNum("approach")}.</span> Strategic Approach & Solution
+                  <span className="text-[var(--accent-studio)] font-mono text-base">{sectionNum("approach")}.</span> Strategic Approach & Solution
                 </h2>
                 <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed">
                   {project.approach}
@@ -297,7 +297,7 @@ export default async function ProjectDetailPage({
             {project.implementation && project.implementation.length > 0 && (
               <section className="space-y-6">
                 <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
-                  <span className="text-[var(--accent-research)] font-mono text-base">{sectionNum("implementation")}.</span> Implementation Architecture
+                  <span className="text-[var(--accent-studio)] font-mono text-base">{sectionNum("implementation")}.</span> Implementation Architecture
                 </h2>
                 <div className="space-y-4">
                   {project.implementation.map((item, idx) => (
@@ -326,7 +326,7 @@ export default async function ProjectDetailPage({
             {project.results && project.results.length > 0 && (
               <section className="space-y-6">
                 <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
-                  <span className="text-[var(--accent-research)] font-mono text-base">{sectionNum("results")}.</span> Results & Outcomes
+                  <span className="text-[var(--accent-studio)] font-mono text-base">{sectionNum("results")}.</span> Results & Outcomes
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {project.results.map((res, idx) => (
@@ -351,9 +351,9 @@ export default async function ProjectDetailPage({
 
             {/* What I Learned */}
             {project.whatILearned && project.whatILearned.length > 0 && (
-              <Card variant="solid" className="space-y-4">
+              <section className="space-y-4">
                 <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
-                  <span className="text-[var(--accent-creative)] font-mono text-base">{sectionNum("learnings")}.</span>
+                  <span className="text-[var(--accent-studio)] font-mono text-base">{sectionNum("learnings")}.</span>
                   What I Learned & Key Takeaways
                 </h2>
                 <ul className="space-y-3 pt-2">
@@ -367,7 +367,7 @@ export default async function ProjectDetailPage({
                     </li>
                   ))}
                 </ul>
-              </Card>
+              </section>
             )}
           </div>
 

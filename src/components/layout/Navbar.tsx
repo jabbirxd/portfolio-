@@ -36,7 +36,9 @@ export function Navbar() {
   );
 
   // Scrollspy: on the home page, highlight the nav item whose preview
-  // section is currently in view (single-page feel on a multi-page site).
+  // section is currently in view. Only sections with a clear 1:1 page
+  // mapping participate — home-intro, home-ship and home-exploring map to
+  // nothing, so the pill clears while they are in view.
   const HOME_SPY_IDS = [
     "home-intro",
     "home-ship",
@@ -46,21 +48,22 @@ export function Navbar() {
     "home-capabilities",
   ];
   const SPY_HREF: Record<string, string> = {
-    "home-intro": "/about",
-    "home-ship": "/work",
     "home-work": "/work",
-    "home-exploring": "/skills",
     "home-research": "/research",
     "home-capabilities": "/skills",
   };
   const isHomePage = pathname === "/";
   const spyId = useScrollSpy(isHomePage ? HOME_SPY_IDS : []);
   const spyHref = spyId ? SPY_HREF[spyId] ?? null : null;
-  // Exact path match only (plus scrollspy override on the home page).
-  // Never highlight a nav item via prefix matching — e.g. /work/[slug]
-  // must not light up "Work".
-  const isActiveLink = (href: string) =>
-    spyHref ? href === spyHref : pathname === href;
+  const isActiveLink = (href: string) => {
+    if (isHomePage) {
+      // Scrollspy only on home: highlight mapped sections, nothing otherwise.
+      // The pill clears when no mapped section is in view (hero, intro, etc.).
+      return spyHref ? href === spyHref : false;
+    }
+    // Child pages highlight their parent: /work/[slug] lights up "Work".
+    return pathname === href || pathname.startsWith(href + "/");
+  };
 
   return (
     <header
@@ -182,10 +185,7 @@ export function Navbar() {
         <div className="lg:hidden border-b border-[var(--border-default)] bg-[var(--bg-app)]/98 backdrop-blur-xl px-5 pt-3 pb-6 space-y-4">
           <nav className="flex flex-col space-y-1">
             {siteConfig.navItems.map((item) => {
-              const isActive =
-                item.href === "/"
-                  ? pathname === "/" && !spyHref
-                  : isActiveLink(item.href);
+              const isActive = isActiveLink(item.href);
               const isResume = item.href === "/resume";
               return (
                 <Link

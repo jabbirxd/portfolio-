@@ -133,7 +133,7 @@ export default function HomePage() {
 
       {/* 7. CTA Section */}
       <section>
-        <Container size="lg">
+        <Container size="xl">
           <Reveal>
           <Card variant="studio" className="text-center p-8 sm:p-10 relative overflow-hidden">
             <div className="max-w-xl mx-auto space-y-4">
