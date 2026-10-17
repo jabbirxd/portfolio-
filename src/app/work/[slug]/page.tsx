@@ -177,7 +177,7 @@ export default async function ProjectDetailPage({
                 </Button>
               ) : (
                 <span className="text-xs font-mono text-[var(--text-muted)] border border-[var(--border-subtle)] rounded-lg px-3 py-2">
-                  Runs locally — no public demo yet
+                  Runs locally — not deployed
                 </span>
               )}
               {project.repoUrl && (

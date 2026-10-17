@@ -24,9 +24,9 @@ import { socialMetadata } from "@/lib/social-metadata";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Junior web developer and final-year CSE student. I build with Next.js and TypeScript, I'm learning Laravel, and I do independent study in computational biology.",
+    "Junior web developer and final-year CSE student. I build with Next.js and TypeScript, I built a Laravel e-commerce app for my university field work, and I do independent study in computational biology.",
   alternates: { canonical: "/about" },
-  ...socialMetadata("About", "Junior web developer and final-year CSE student. I build with Next.js and TypeScript, I'm learning Laravel, and I do independent study in computational biology.", "/about"),
+  ...socialMetadata("About", "Junior web developer and final-year CSE student. I build with Next.js and TypeScript, I built a Laravel e-commerce app for my university field work, and I do independent study in computational biology.", "/about"),
 };
 
 export default function AboutPage() {
@@ -82,7 +82,7 @@ export default function AboutPage() {
 
           <div className="max-w-3xl text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed space-y-4 pt-2 font-sans">
             <p>
-              I work with Next.js and TypeScript on the frontend and I&apos;m learning PHP and Laravel for the backend. I&apos;m honest about where I am: I can read and explain code well, and I&apos;m building the ability to create from scratch by finishing one project at a time.
+              I work with Next.js and TypeScript on the frontend, and I built a complete Laravel e-commerce app for my university field work. I&apos;m honest about where I am: I can read and explain code well, and I&apos;m building the ability to create from scratch by finishing one project at a time.
             </p>
             <p>
               Outside of web dev, I&apos;m doing independent study in computational biology. My approach everywhere is the same: understand how the thing works, then build something small that proves it.
@@ -284,7 +284,7 @@ export default function AboutPage() {
             <div className="pt-4 border-t border-[var(--border-subtle)] flex flex-wrap gap-4 items-center justify-between text-xs font-mono text-[var(--text-secondary)]">
               <div className="flex items-center gap-3">
                 <span className="text-[var(--text-muted)]">Currently:</span>
-                <span className="text-[var(--text-secondary)]">Building with Next.js · Learning Laravel · Open to work</span>
+                <span className="text-[var(--text-secondary)]">Building with Next.js · Built a Laravel e-commerce app · Open to work</span>
               </div>
               <Button href="/contact" variant="primary" size="sm" icon={<ArrowRight className="w-4 h-4" />}>
                 Get in Touch

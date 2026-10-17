@@ -21,7 +21,7 @@ export function WorkClient() {
           <SectionHeader
             eyebrow="Portfolio & Case Studies"
             title="Selected Work"
-            description="Real projects I designed, built, and shipped. Each one taught me something."
+            description="Real projects I designed and built. Each one taught me something."
             className="mb-0 max-w-2xl"
             headingLevel="h1"
           />
