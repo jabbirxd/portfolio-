@@ -35,6 +35,7 @@ export default function WorkPage() {
             title="Selected Work"
             description="Real projects I designed, built, and shipped. Each one taught me something."
             className="mb-0 max-w-2xl"
+            headingLevel="h1"
           />
 
         </div>
@@ -88,7 +89,7 @@ export default function WorkPage() {
                   project.displaySize === "wide" && "md:col-span-2"
                 )}
               >
-                <ProjectCard project={project} />
+                <ProjectCard project={project} headingLevel="h2" />
               </motion.div>
             ))}
           </AnimatePresence>

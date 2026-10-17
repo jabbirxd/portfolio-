@@ -223,7 +223,7 @@ export default async function ProjectDetailPage({
                 <div className="text-sm sm:text-2xl font-extrabold text-[var(--text-primary)] font-mono break-words">
                   {metric.value}
                 </div>
-                <div className="text-[10px] sm:text-xs text-[var(--text-secondary)] uppercase tracking-wider font-mono mt-1">
+                <div className="text-xs text-[var(--text-secondary)] uppercase tracking-wider font-mono mt-1">
                   {metric.label}
                 </div>
               </div>

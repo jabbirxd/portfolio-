@@ -61,9 +61,9 @@ export function SkillGroupCard({ category }: SkillGroupCardProps) {
             <div className="p-2.5 rounded-xl bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)]">
               {getIcon(category.iconName)}
             </div>
-            <h3 className="text-xl font-bold text-[var(--text-primary)] tracking-tight font-sans">
+            <h2 className="text-xl font-bold text-[var(--text-primary)] tracking-tight font-sans">
               {category.name}
-            </h3>
+            </h2>
           </div>
           <Badge variant={getBadgeVariant(category.id)} size="sm" className="whitespace-nowrap shrink-0 self-start sm:self-auto">
             {category.skills.length} skills

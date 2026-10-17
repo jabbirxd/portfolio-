@@ -15,7 +15,7 @@ export function SystemVisual() {
         {/* Subtle background coordinate markings */}
         <div className="absolute inset-0 bg-dot-matrix opacity-30 pointer-events-none" />
         
-        <div className="flex items-center border-b border-white/[0.06] pb-3 mb-4 sm:mb-6 font-mono text-[11px] text-slate-500 tracking-wider">
+        <div className="flex items-center border-b border-white/[0.06] pb-3 mb-4 sm:mb-6 font-mono text-xs text-[#8a9bb0] tracking-wider">
           <div className="flex items-center gap-2 text-indigo-400/90">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
             <span className="whitespace-nowrap">SYSTEM_PIPELINE // ACTIVE</span>
@@ -42,7 +42,7 @@ export function SystemVisual() {
                       01 // Build
                     </span>
                   </div>
-                  <p className="text-[11px] text-slate-400 font-mono mt-0.5">
+                  <p className="text-xs text-slate-400 font-mono mt-0.5">
                     Next.js · TypeScript · Tailwind CSS
                   </p>
                 </div>
@@ -73,7 +73,7 @@ export function SystemVisual() {
                       02 // Design
                     </span>
                   </div>
-                  <p className="text-[11px] text-slate-400 font-mono mt-0.5">
+                  <p className="text-xs text-slate-400 font-mono mt-0.5">
                     Responsive UI · Readable · Fast
                   </p>
                 </div>
@@ -104,7 +104,7 @@ export function SystemVisual() {
                       03 // Investigate
                     </span>
                   </div>
-                  <p className="text-[11px] text-slate-400 font-mono mt-0.5">
+                  <p className="text-xs text-slate-400 font-mono mt-0.5">
                     Curiosity · Reading · Learning
                   </p>
                 </div>

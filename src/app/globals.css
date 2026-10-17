@@ -12,7 +12,7 @@
     /* High-contrast Editorial Typography */
     --text-primary: #f1f5f9;
     --text-secondary: #94a3b8;
-    --text-muted: #64748b;
+    --text-muted: #8a9bb0;
     --text-subtle: #475569;
 
     /* Crisp Subtle Borders */
@@ -48,8 +48,8 @@
 
     --text-primary: #0f172a;
     --text-secondary: #475569;
-    --text-muted: #64748b;
-    --text-subtle: #94a3b8;
+    --text-muted: #5b6b7f;
+    --text-subtle: #64748b;
 
     --border-subtle: rgba(15, 23, 42, 0.07);
     --border-default: rgba(15, 23, 42, 0.12);
@@ -59,7 +59,7 @@
     --accent-studio-subtle: rgba(79, 70, 229, 0.08);
     --accent-studio-border: rgba(79, 70, 229, 0.30);
 
-    --accent-research: #059669;
+    --accent-research: #047857;
     --accent-research-subtle: rgba(5, 150, 105, 0.08);
     --accent-research-border: rgba(5, 150, 105, 0.30);
 
@@ -240,6 +240,12 @@ footer,
   .spotlight-glow {
     display: none !important;
   }
+}
+
+/* Visible focus indicator for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--accent-studio);
+  outline-offset: 2px;
 }
 
 /* Precision scrollbar */

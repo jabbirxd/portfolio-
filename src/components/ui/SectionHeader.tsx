@@ -11,6 +11,7 @@ interface SectionHeaderProps {
   description?: string;
   align?: "left" | "center";
   className?: string;
+  headingLevel?: "h1" | "h2";
 }
 
 export function SectionHeader({
@@ -18,6 +19,7 @@ export function SectionHeader({
   title,
   description,
   align = "left",
+  headingLevel = "h2",
   className,
 }: SectionHeaderProps) {
   const shouldReduceMotion = useReducedMotion();
@@ -48,9 +50,14 @@ export function SectionHeader({
           {eyebrow}
         </Eyebrow>
       )}
-      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[var(--text-primary)]">
-        {title}
-      </h2>
+      {React.createElement(
+        headingLevel,
+        {
+          className:
+            "text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[var(--text-primary)]",
+        },
+        title
+      )}
       {description && (
         <p className="mt-3 text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed">
           {description}

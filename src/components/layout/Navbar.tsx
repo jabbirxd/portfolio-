@@ -16,6 +16,7 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const menuButtonRef = React.useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +29,32 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Mobile menu: Esc closes, focus returns to button, body scroll locks,
+  // and the menu closes when the route changes.
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [mobileMenuOpen]);
+
+  // Close the mobile menu when the route changes (e.g., browser back/forward).
+  // Links inside the menu also close it via onClick.
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMobileMenuOpen(false);
+  }, [pathname]);
 
   // Single source of truth for nav links (titles/hrefs live in siteConfig).
   // Desktop shows the 4 section links + a Contact button; mobile shows all.
@@ -169,6 +196,7 @@ export function Navbar() {
             <ThemeToggle />
             <button
               type="button"
+              ref={menuButtonRef}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}

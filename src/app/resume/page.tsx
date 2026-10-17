@@ -170,7 +170,7 @@ export default function ResumePage() {
                     </span>
                   </div>
                   <p className="text-xs font-mono text-[var(--text-secondary)]">
-                    {edu.institution} ({edu.field})
+                    {edu.institution}
                   </p>
                   {edu.honorsOrNotes && (
                     <p className="text-xs text-[var(--text-secondary)]">{edu.honorsOrNotes}</p>
@@ -239,7 +239,7 @@ export default function ResumePage() {
                     {proj.techStack.slice(0, 4).map((tech) => (
                       <span
                         key={tech}
-                        className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[var(--bg-surface-subtle)] text-[var(--text-secondary)] border border-[var(--border-subtle)]"
+                        className="text-xs font-mono px-1.5 py-0.5 rounded bg-[var(--bg-surface-subtle)] text-[var(--text-secondary)] border border-[var(--border-subtle)]"
                       >
                         {tech}
                       </span>

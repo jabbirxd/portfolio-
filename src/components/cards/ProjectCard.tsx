@@ -10,9 +10,10 @@ import { Spotlight } from "@/components/motion/Spotlight";
 interface ProjectCardProps {
   project: ProjectItem;
   className?: string;
+  headingLevel?: "h2" | "h3";
 }
 
-export function ProjectCard({ project, className }: ProjectCardProps) {
+export function ProjectCard({ project, className, headingLevel = "h3" }: ProjectCardProps) {
   const isLarge = project.displaySize === "large";
   const isWide = project.displaySize === "wide";
 
@@ -59,17 +60,19 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
         </div>
 
         {/* Title */}
-        <h3
-          className={cn(
-            "font-extrabold text-[var(--text-primary)] group-hover:text-[var(--accent-studio)] transition-colors font-sans tracking-tight mb-2",
-            isLarge ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl"
-          )}
-        >
+        {React.createElement(
+          headingLevel,
+          {
+            className: cn(
+              "font-extrabold text-[var(--text-primary)] group-hover:text-[var(--accent-studio)] transition-colors font-sans tracking-tight mb-2",
+              isLarge ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl"
+            ),
+          },
           <Link href={`/work/${project.slug}`} className="focus:outline-none">
             <span className="absolute inset-0 z-10" aria-hidden="true" />
             {project.title}
           </Link>
-        </h3>
+        )}
 
         {/* Tagline */}
         <p className="text-xs sm:text-sm font-mono text-[var(--text-secondary)] mb-4 leading-relaxed">
