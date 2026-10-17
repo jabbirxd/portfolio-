@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { siteConfig } from "@/data/siteConfig";
 import { Container } from "@/components/ui/Container";
 import { GithubIcon, LinkedinIcon } from "@/components/icons/BrandIcons";
-import { Menu, X, FileText, ArrowUpRight } from "lucide-react";
+import { Menu, X, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
@@ -56,8 +56,11 @@ export function Navbar() {
   const isHomePage = pathname === "/";
   const spyId = useScrollSpy(isHomePage ? HOME_SPY_IDS : []);
   const spyHref = spyId ? SPY_HREF[spyId] ?? null : null;
+  // Exact path match only (plus scrollspy override on the home page).
+  // Never highlight a nav item via prefix matching — e.g. /work/[slug]
+  // must not light up "Work".
   const isActiveLink = (href: string) =>
-    spyHref ? href === spyHref : pathname.startsWith(href);
+    spyHref ? href === spyHref : pathname === href;
 
   return (
     <header
@@ -107,6 +110,18 @@ export function Navbar() {
                 </Link>
               );
             })}
+            {/* Resume link (from siteConfig order) */}
+            <Link
+              href="/resume"
+              className={cn(
+                "relative px-3.5 py-1.5 rounded-lg text-xs font-mono tracking-wide transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500/50",
+                pathname === "/resume"
+                  ? "text-[var(--text-primary)] font-bold"
+                  : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+              )}
+            >
+              Resume
+            </Link>
             {/* Contact: small primary button at the end of the links */}
             <Link
               href="/contact"
@@ -120,15 +135,8 @@ export function Navbar() {
             </Link>
           </nav>
 
-          {/* Right: Resume, GitHub, LinkedIn */}
+          {/* Right: GitHub, LinkedIn */}
           <div className="hidden lg:flex items-center gap-3">
-            <Link
-              href="/resume"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] bg-[var(--bg-surface-subtle)] hover:bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)] transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
-            >
-              <FileText className="w-3.5 h-3.5 text-[var(--accent-studio)]" />
-              <span>Resume</span>
-            </Link>
 
             <a
               href={siteConfig.socials.github}
@@ -223,14 +231,6 @@ export function Navbar() {
               </a>
             </div>
 
-            <Link
-              href="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="inline-flex items-center gap-1.5 text-xs font-mono text-[var(--accent-studio)] hover:text-[var(--accent-studio)]"
-            >
-              <span>Contact</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </Link>
           </div>
         </div>
       )}

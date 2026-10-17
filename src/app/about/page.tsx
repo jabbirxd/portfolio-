@@ -276,7 +276,7 @@ export default function AboutPage() {
               <div className="p-2 rounded-xl bg-amber-500/10 border border-amber-500/20 text-[var(--accent-creative)]">
                 <Wrench className="w-5 h-5" />
               </div>
-              <Badge variant="creative">Hands-On Curiosity</Badge>
+              <Eyebrow variant="studio">Hands-On Curiosity</Eyebrow>
             </div>
 
             <div className="max-w-3xl space-y-4">

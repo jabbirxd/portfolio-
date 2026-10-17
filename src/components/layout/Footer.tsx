@@ -6,11 +6,12 @@ import { GithubIcon, LinkedinIcon } from "@/components/icons/BrandIcons";
 import { Mail, ArrowUpRight, Cpu, Layers, Dna } from "lucide-react";
 
 export function Footer() {
+  // Page links come from the single nav source (Work, Research, About,
+  // Skills, Resume, Contact — same order as desktop nav and mobile menu).
   const footerLinks = [
-    { label: "Work", href: "/work", isExternal: false },
-    { label: "Research", href: "/research", isExternal: false },
-    { label: "About", href: "/about", isExternal: false },
-    { label: "Resume", href: "/resume", isExternal: false },
+    ...siteConfig.navItems
+      .filter((item) => item.href !== "/")
+      .map((item) => ({ label: item.title, href: item.href, isExternal: false })),
     { label: "GitHub", href: siteConfig.socials.github, isExternal: true },
     { label: "LinkedIn", href: siteConfig.socials.linkedin, isExternal: true },
     { label: "Email", href: `mailto:${siteConfig.socials.email}`, isExternal: true },

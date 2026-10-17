@@ -60,14 +60,14 @@ export default function ResumePage() {
   return (
     <div className="py-12 sm:py-16 space-y-12">
       <Container size="lg">
-        <Breadcrumb items={[{ label: "Curriculum Vitae" }]} />
+        <Breadcrumb items={[{ label: "Resume" }]} />
 
         {/* Action Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 border-b border-[var(--border-default)]">
           <div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)]">Curriculum Vitae</h1>
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)]">Resume</h1>
             <p className="text-[var(--text-secondary)] text-sm mt-1">
-              Interactive & printable resume record for Md. Jabbir Ali.
+              Education, projects, skills, and experience — printable as a PDF.
             </p>
           </div>
 
@@ -158,9 +158,10 @@ export default function ResumePage() {
             </h3>
             <div className="space-y-4">
               {educationData.map((edu) => (
-                <div
+                <Card
+                  variant="subtle"
                   key={edu.id}
-                  className="p-5 rounded-2xl bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)] space-y-2"
+                  className="p-5 space-y-2"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                     <h4 className="text-base font-bold text-[var(--text-primary)]">{edu.degree}</h4>
@@ -186,7 +187,7 @@ export default function ResumePage() {
                       ))}
                     </div>
                   )}
-                </div>
+                </Card>
               ))}
             </div>
           </div>
@@ -199,7 +200,7 @@ export default function ResumePage() {
               <FlaskConical className="w-4 h-4" />
               02. Research Interest
             </h3>
-            <div className="p-5 rounded-2xl bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)] space-y-2">
+            <Card variant="subtle" className="p-5 space-y-2">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                 <h4 className="text-base font-bold text-[var(--text-primary)]">
                   Independent Study — Computational Drug Design
@@ -211,7 +212,7 @@ export default function ResumePage() {
                 (molecular docking, dynamics simulations, trajectory analysis).
                 Manuscript in preparation — details stay private until published.
               </p>
-            </div>
+            </Card>
           </div>
           </Reveal>
 
@@ -224,9 +225,10 @@ export default function ResumePage() {
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {projectsData.slice(0, 4).map((proj, i, arr) => (
-                <div
+                <Card
+                  variant="subtle"
                   key={proj.id}
-                  className={`p-4 rounded-xl bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)] space-y-2${arr.length % 2 === 1 && i === arr.length - 1 ? " sm:col-span-2" : ""}`}
+                  className={`p-4 rounded-xl space-y-2${arr.length % 2 === 1 && i === arr.length - 1 ? " sm:col-span-2" : ""}`}
                 >
                   <div className="flex items-center justify-between">
                     <h4 className="text-xs font-bold text-[var(--text-primary)]">{proj.title}</h4>
@@ -245,7 +247,7 @@ export default function ResumePage() {
                       </span>
                     ))}
                   </div>
-                </div>
+                </Card>
               ))}
             </div>
           </div>
@@ -260,15 +262,16 @@ export default function ResumePage() {
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {skillsCategories.map((category, i, arr) => (
-                <div
+                <Card
+                  variant="subtle"
                   key={category.id}
-                  className={`p-4 rounded-xl bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)] space-y-1.5${arr.length % 2 === 1 && i === arr.length - 1 ? " sm:col-span-2" : ""}`}
+                  className={`p-4 rounded-xl space-y-1.5${arr.length % 2 === 1 && i === arr.length - 1 ? " sm:col-span-2" : ""}`}
                 >
                   <h4 className="text-xs font-bold text-[var(--text-primary)]">{category.name}</h4>
                   <p className="text-xs text-[var(--text-secondary)]">
                     {category.skills.map((s) => s.name).join(" · ")}
                   </p>
-                </div>
+                </Card>
               ))}
             </div>
           </div>
@@ -283,9 +286,10 @@ export default function ResumePage() {
             </h3>
             <div className="space-y-4">
               {experiencesData.map((exp) => (
-                <div
+                <Card
+                  variant="subtle"
                   key={exp.id}
-                  className="p-5 rounded-2xl bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)] space-y-2"
+                  className="p-5 space-y-2"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                     <div>
@@ -306,7 +310,7 @@ export default function ResumePage() {
                       <li key={i}>{b}</li>
                     ))}
                   </ul>
-                </div>
+                </Card>
               ))}
             </div>
           </div>

@@ -7,7 +7,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Card } from "@/components/ui/Card";
 import { GithubIcon, LinkedinIcon } from "@/components/icons/BrandIcons";
-import { Mail, ArrowUpRight, MapPin, Clock } from "lucide-react";
+import { Mail, ArrowUpRight, MapPin } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -110,10 +110,6 @@ export default function ContactPage() {
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-[var(--text-muted)]" />
               {siteConfig.location}
-            </div>
-            <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-[var(--text-muted)]" />
-              Usually replies within 24–48 hours
             </div>
           </div>
         </Card>

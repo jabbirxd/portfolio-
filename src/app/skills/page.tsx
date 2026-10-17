@@ -11,7 +11,6 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { SkillGroupCard } from "@/components/cards/SkillGroupCard";
 import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { CheckCircle2, ArrowRight, ShieldCheck, Layers, Terminal } from "lucide-react";
 
@@ -53,7 +52,7 @@ export default function SkillsPage() {
         <Reveal>
         <Card variant="studio" className="p-8 sm:p-12 border-[var(--border-default)] bg-[var(--bg-surface)] space-y-6">
           <div className="max-w-3xl space-y-4">
-            <Badge variant="studio">Engineering Standard</Badge>
+            <Eyebrow variant="studio">Engineering Standard</Eyebrow>
             <h2 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)] font-sans">
               Evidence-Based Capabilities
             </h2>

@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { researchInterestsData } from "@/data/research";
 import { skillsCategories } from "@/data/skills";
 import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { ResearchInterestCard } from "@/components/research/ResearchInterestCard";
 import { Hero } from "@/components/hero/Hero";
@@ -80,7 +80,7 @@ export default function HomePage() {
               description="Topics I'm learning about alongside my degree. Interests, not credentials."
               className="mb-0"
             />
-            <Button href="/research" variant="research" size="sm" icon={<ArrowRight className="w-4 h-4" />}>
+            <Button href="/research" variant="outline" size="sm" icon={<ArrowRight className="w-4 h-4" />}>
               View All Interests
             </Button>
           </div>
@@ -102,7 +102,7 @@ export default function HomePage() {
           <Reveal>
           <Card variant="studio" className="p-8 sm:p-12 relative overflow-hidden">
             <div className="max-w-2xl space-y-4 mb-8">
-              <Badge variant="studio">Capabilities</Badge>
+              <Eyebrow variant="studio">Capabilities</Eyebrow>
               <h2 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)] font-sans">
                 What I Can Do
               </h2>
