@@ -35,7 +35,7 @@ export default async function Image() {
           Md. Jabbir Ali
         </div>
         <div style={{ fontSize: "32px", color: "#94a3b8" }}>
-          Web Developer · CADD Researcher
+          Web Developer | CADD Researcher
         </div>
       </div>
     ),

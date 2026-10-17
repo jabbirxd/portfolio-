@@ -93,16 +93,49 @@ export const skillsCategories: SkillCategory[] = [
     ],
   },
   {
+    id: "research",
+    name: "CADD Research",
+    iconName: "FlaskConical",
+    description: "Computer-Aided Drug Discovery methods I used as co-first author on a manuscript under review.",
+    skills: [
+      {
+        name: "CADD",
+        discipline: "Computer-Aided Drug Discovery",
+        description: "Co-first author on a CADD manuscript under review, in collaboration with University of Dhaka.",
+        relatedProject: { projectTitle: "CADD research (under review)", projectSlug: "research", url: "/research" },
+      },
+      {
+        name: "Molecular Docking",
+        discipline: "AutoDock Vina",
+        description: "Ran molecular docking of the designed derivatives with AutoDock Vina.",
+        relatedProject: { projectTitle: "CADD research (under review)", projectSlug: "research", url: "/research" },
+      },
+      {
+        name: "MD Simulations",
+        discipline: "Molecular Dynamics",
+        description: "Ran 100 ns MD simulations with RMSD, RMSF, Rg, PCA and DCCM analysis.",
+        relatedProject: { projectTitle: "CADD research (under review)", projectSlug: "research", url: "/research" },
+      },
+      {
+        name: "MM/GBSA",
+        discipline: "Binding Free Energy",
+        description: "Calculated binding free energies with MM/GBSA.",
+        relatedProject: { projectTitle: "CADD research (under review)", projectSlug: "research", url: "/research" },
+      },
+      {
+        name: "RDKit",
+        discipline: "Cheminformatics",
+        description: "Designed and validated 9 derivatives of 3 parent flavonoids with RDKit.",
+        relatedProject: { projectTitle: "CADD research (under review)", projectSlug: "research", url: "/research" },
+      },
+    ],
+  },
+  {
     id: "interests",
     name: "Also Interested In",
     iconName: "FlaskConical",
     description: "Areas I explore outside of coursework and keep learning about.",
     skills: [
-      {
-        name: "CADD",
-        discipline: "Research",
-        description: "Computer-Aided Drug Discovery: molecular docking, MD simulations and MM/GBSA — co-first author, manuscript under review.",
-      },
       {
         name: "UI Design",
         discipline: "Design Basics",
