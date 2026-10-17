@@ -4,6 +4,7 @@ export const projectsData: ProjectItem[] = [
   {
     id: "proj-weather-app",
     slug: "weather-app-ajker-akash",
+    screenshot: "/projects/weather-app-ajker-akash.png",
     title: "Ajker Akash — Weather Dashboard",
     tagline: "A weather app whose sky changes with the actual weather",
     summary:
@@ -65,6 +66,7 @@ export const projectsData: ProjectItem[] = [
   {
     id: "proj-task-manager",
     slug: "task-manager-app",
+    screenshot: "/projects/task-manager-app.png",
     title: "Task Manager",
     tagline: "A clean task manager with priorities, filters, and persistence",
     summary:
