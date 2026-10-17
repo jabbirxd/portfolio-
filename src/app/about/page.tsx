@@ -27,9 +27,9 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Me | Md. Jabbir Ali",
+  title: "About | Md. Jabbir Ali",
   description:
-    "Multidisciplinary Developer · Designer · Researcher working at the intersection of software engineering, design systems, and computational biology.",
+    "Junior web developer and final-year CSE student. I build with Next.js and TypeScript, I'm learning Laravel, and I do independent study in computational biology.",
   alternates: { canonical: "/about" },
 };
 
@@ -40,7 +40,7 @@ export default function AboutPage() {
       title: "Understand first.",
       tagline: "Break the problem down before building.",
       description:
-        "Before writing a single line of code or drafting an interface, I deconstruct the problem to understand how the underlying system behaves, where the real bottlenecks exist, and what the core objective demands.",
+        "Before I write code, I try to understand what the problem actually is. Asking questions first saves me from rebuilding later.",
       icon: <Compass className="w-5 h-5 text-[var(--accent-studio)]" />,
       accent: "studio",
     },
@@ -49,7 +49,7 @@ export default function AboutPage() {
       title: "Build practically.",
       tagline: "Prefer solutions that actually work over unnecessary complexity.",
       description:
-        "I favor clean architecture, measurable reliability, and direct utility over superficial trends or convoluted abstractions. The best solution is the one that solves the actual problem cleanly and stays maintainable.",
+        "I pick the simplest solution that works. Clever code that is hard to read usually causes problems later.",
       icon: <Hammer className="w-5 h-5 text-[var(--accent-research)]" />,
       accent: "research",
     },
@@ -58,7 +58,7 @@ export default function AboutPage() {
       title: "Keep learning.",
       tagline: "Move across disciplines when the problem requires it.",
       description:
-        "Complex challenges rarely fit into neat departmental silos. When a project demands full-stack backend performance, nuanced interface accessibility, automated data extraction, or biological informatics, I learn whatever is necessary to deliver the outcome.",
+        "When a project needs something I do not know yet, I learn it. My research work had me reading about bioinformatics from scratch — I worked through it one paper and one tool at a time.",
       icon: <Brain className="w-5 h-5 text-purple-400" />,
       accent: "creative",
     },
@@ -101,7 +101,7 @@ export default function AboutPage() {
           <SectionHeader
             eyebrow="Core Philosophy"
             title="My Approach"
-            description="The foundational principles that guide how I solve technical challenges, design interfaces, and conduct research."
+            description="How I try to work: understand the problem, keep it simple, learn what I don't know yet."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
@@ -134,9 +134,6 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                <div className="pt-2 text-xs font-mono text-[var(--text-secondary)]">
-                  STANDARD: RIGOROUS_EXECUTION
-                </div>
               </Card>
             ))}
           </div>

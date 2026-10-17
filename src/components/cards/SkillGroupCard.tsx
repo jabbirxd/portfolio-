@@ -115,9 +115,6 @@ export function SkillGroupCard({ category }: SkillGroupCardProps) {
         </div>
       </div>
 
-      <div className="pt-2 text-xs font-mono text-[var(--text-secondary)]">
-        STANDARD: EVIDENCE_BASED_VERIFICATION
-      </div>
     </Card>
   );
 }

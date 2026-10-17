@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion, useReducedMotion } from "motion/react";
-import { Code2, Sparkles, FlaskConical, Terminal, Dna, Layers } from "lucide-react";
+import { Code2, Sparkles, FlaskConical } from "lucide-react";
 import { Typewriter } from "@/components/motion/Typewriter";
 
 export function SystemVisual() {
@@ -41,18 +41,11 @@ export function SystemVisual() {
                     <span className="text-xs font-mono font-bold tracking-wider text-white uppercase">
                       01 // Build
                     </span>
-                    <span className="text-[11px] font-mono text-indigo-400 bg-indigo-500/10 px-1.5 py-0.2 rounded border border-indigo-500/20">
-                      STACK_ENGINE
-                    </span>
                   </div>
                   <p className="text-[11px] text-slate-400 font-mono mt-0.5">
                     Next.js · TypeScript · Tailwind CSS
                   </p>
                 </div>
-              </div>
-              <div className="hidden sm:flex items-center gap-1 font-mono text-[11px] text-slate-500">
-                <Terminal className="w-3 h-3 text-indigo-400" />
-                <span>99.9% UPTIME</span>
               </div>
             </div>
           </motion.div>
@@ -79,18 +72,11 @@ export function SystemVisual() {
                     <span className="text-xs font-mono font-bold tracking-wider text-white uppercase">
                       02 // Design
                     </span>
-                    <span className="text-[11px] font-mono text-cyan-400 bg-cyan-500/10 px-1.5 py-0.2 rounded border border-cyan-500/20">
-                      INTERFACE
-                    </span>
                   </div>
                   <p className="text-[11px] text-slate-400 font-mono mt-0.5">
                     Responsive UI · Readable · Fast
                   </p>
                 </div>
-              </div>
-              <div className="hidden sm:flex items-center gap-1 font-mono text-[11px] text-slate-500">
-                <Layers className="w-3 h-3 text-cyan-400" />
-                <span>60 FPS</span>
               </div>
             </div>
           </motion.div>
@@ -117,18 +103,11 @@ export function SystemVisual() {
                     <span className="text-xs font-mono font-bold tracking-wider text-white uppercase">
                       03 // Investigate
                     </span>
-                    <span className="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-1.5 py-0.2 rounded border border-emerald-500/20">
-                      COMP_BIO
-                    </span>
                   </div>
                   <p className="text-[11px] text-slate-400 font-mono mt-0.5">
                     Curiosity · Reading · Learning
                   </p>
                 </div>
-              </div>
-              <div className="hidden sm:flex items-center gap-1 font-mono text-[11px] text-slate-500">
-                <Dna className="w-3 h-3 text-emerald-400" />
-                <span>FAIR_SCHEMA</span>
               </div>
             </div>
           </motion.div>

@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { Terminal, ArrowLeft } from "lucide-react";
+import { Terminal } from "lucide-react";
 
 export default function NotFound() {
   return (
@@ -23,12 +23,15 @@ export default function NotFound() {
           </div>
 
           <p className="text-sm text-[var(--text-secondary)] max-w-sm mx-auto leading-relaxed">
-            The route or resource you requested could not be located in this directory index.
+            This page doesn't exist — maybe the link moved or I renamed something. Here's where you can go instead.
           </p>
 
-          <div className="pt-4">
-            <Button href="/" variant="primary" size="md" icon={<ArrowLeft className="w-4 h-4" />} iconPosition="left">
-              Return to Homepage
+          <div className="pt-4 flex flex-wrap justify-center gap-3">
+            <Button href="/work" variant="primary" size="md">
+              See My Work
+            </Button>
+            <Button href="/contact" variant="outline" size="md">
+              Get in Touch
             </Button>
           </div>
         </div>

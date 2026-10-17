@@ -53,7 +53,7 @@ export interface ProjectItem {
   role: string;
   timeline: string;
   isFeatured?: boolean;
-  visualType?: "code-terminal" | "server-terminal" | "mobile-ui" | "design-system" | "automation-workflow" | "media-timeline" | "molecular-graph";
+  visualType?: "code-terminal" | "server-terminal" | "task-list";
   previewAccent?: "studio" | "research" | "system" | "creative";
   // Optional real screenshot (public/projects/<slug>.png). When set,
   // the card shows the image instead of the illustrated visual.
