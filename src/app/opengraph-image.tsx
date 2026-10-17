@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Md. Jabbir Ali — Web Developer";
+export const alt = "Md. Jabbir Ali — Web Developer & CADD Researcher";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -35,7 +35,7 @@ export default async function Image() {
           Md. Jabbir Ali
         </div>
         <div style={{ fontSize: "32px", color: "#94a3b8" }}>
-          Web Developer — Next.js · TypeScript · Laravel
+          Web Developer · CADD Researcher
         </div>
       </div>
     ),

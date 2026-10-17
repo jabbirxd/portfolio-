@@ -19,17 +19,19 @@ export const experiencesData: ExperienceItem[] = [
   },
   {
     id: "exp-research-interest",
-    role: "Undergraduate Researcher (Independent Study)",
-    organization: "Northern University of Business and Technology",
+    role: "Undergraduate Researcher (Co-First Author)",
+    organization: "Northern University of Business and Technology Khulna, in collaboration with University of Dhaka",
     location: "Khulna, Bangladesh",
     period: "2024 - Present",
     type: "Research",
     description:
-      "Independent study in computational drug design. Details stay private until published.",
+      "Computer-aided drug discovery research.",
     bullets: [
-      "Keeping all code, data, and manuscripts private until published",
+      "Designed 9 derivatives of 3 parent flavonoids through 7-position modifications, validated with RDKit.",
+      "Molecular docking (AutoDock Vina), 100 ns MD simulations with RMSD, RMSF, Rg, PCA and DCCM analysis, and MM/GBSA binding free energy calculations.",
+      "Manuscript submitted to a journal; currently under review.",
     ],
-    skillsUsed: ["Python", "Computational Biology", "Data Analysis"],
+    skillsUsed: ["Molecular Docking", "Molecular Dynamics", "MM/GBSA", "RDKit", "AutoDock Vina"],
   },
 ];
 

@@ -59,7 +59,7 @@ export function Hero() {
             >
               <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-[var(--text-secondary)] font-mono tracking-tight">
                 <RotatingWord
-                  words={["Web Developer", "Interface Builder", "Problem Solver"]}
+                  words={["Web Developer", "CADD Researcher", "Interface Builder", "Problem Solver"]}
                 />
               </p>
             </motion.div>
@@ -112,6 +112,9 @@ export function Hero() {
               </span>
               <span className="px-2.5 py-1 rounded bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)]">
                 PHP & Laravel
+              </span>
+              <span className="px-2.5 py-1 rounded bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)]">
+                CADD Research
               </span>
               <span className="px-2.5 py-1 rounded bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)]">
                 Responsive UI

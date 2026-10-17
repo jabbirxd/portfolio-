@@ -38,7 +38,7 @@ export function Footer() {
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <span className="text-[var(--text-primary)] font-bold">03 // INVESTIGATE</span>
-              <span className="text-[var(--text-muted)] hidden sm:inline">Computational Biology</span>
+              <span className="text-[var(--text-muted)] hidden sm:inline">CADD Research</span>
             </div>
           </div>
 
@@ -55,7 +55,7 @@ export function Footer() {
               MD. JABBIR ALI
             </h2>
             <p className="text-xs font-mono text-[var(--accent-studio)]">
-              Web Developer
+              Web Developer · CADD Researcher
             </p>
           </div>
 

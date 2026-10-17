@@ -2,9 +2,9 @@ import { NavItem } from "@/types";
 
 export const siteConfig = {
   name: "Md. Jabbir Ali",
-  title: "Md. Jabbir Ali | Web Developer",
+  title: "Md. Jabbir Ali | Web Developer & CADD Researcher",
   description:
-    "Portfolio of Md. Jabbir Ali, a final-year Computer Science student building real web projects with Next.js, TypeScript, and Laravel.",
+    "Portfolio of Md. Jabbir Ali, a final-year Computer Science student building real web projects with Next.js, TypeScript, and Laravel, and doing Computer-Aided Drug Discovery research.",
   url: "https://jabbirxd.online",
   tagline: "Learn. Build. Ship.",
   bio: "Final-year CSE student from Khulna, Bangladesh. I bring the ideas and direction, and build with modern tools to ship real projects fast.",

@@ -127,7 +127,7 @@ export function ResumeClient() {
               {siteConfig.name}
             </h2>
             <p className="text-base font-semibold text-[var(--accent-studio)] font-mono">
-              Web Developer
+              Web Developer | Computer-Aided Drug Discovery (CADD) Researcher
             </p>
             <p className="text-sm text-[var(--text-secondary)] max-w-2xl leading-relaxed font-sans">
               Final-year CSE student building real web projects with Next.js, TypeScript, and Laravel.
@@ -140,7 +140,7 @@ export function ResumeClient() {
               </span>
               <span className="flex items-center gap-1.5">
                 <Globe className="w-3.5 h-3.5 text-[var(--accent-studio)]" />
-                {siteConfig.url}
+                {siteConfig.url.replace(/^https?:\/\//, "")}
               </span>
               <span className="flex items-center gap-1.5">
                 <Mail className="w-3.5 h-3.5 text-[var(--accent-studio)]" />
@@ -238,13 +238,18 @@ export function ResumeClient() {
             <Card variant="subtle" className="p-5 space-y-2">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                 <h4 className="text-base font-bold text-[var(--text-primary)]">
-                  Independent Study — Computational Drug Design
+                  Undergraduate Researcher (Co-First Author) — Computer-Aided Drug Discovery
                 </h4>
                 <span className="text-xs font-mono text-[var(--text-secondary)]">2024 - Present</span>
               </div>
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed font-sans">
-                Independent study in computational drug design. Details stay private until published.
+                Northern University of Business and Technology Khulna, in collaboration with University of Dhaka
               </p>
+              <ul className="text-xs text-[var(--text-secondary)] leading-relaxed font-sans list-disc list-inside space-y-1 mt-2">
+                <li>Designed 9 derivatives of 3 parent flavonoids through 7-position modifications, validated with RDKit.</li>
+                <li>Molecular docking (AutoDock Vina), 100 ns MD simulations with RMSD, RMSF, Rg, PCA and DCCM analysis, and MM/GBSA binding free energy calculations.</li>
+                <li>Manuscript submitted to a journal; currently under review.</li>
+              </ul>
             </Card>
           </div>
           </Reveal>

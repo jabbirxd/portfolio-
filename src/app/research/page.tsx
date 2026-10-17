@@ -4,9 +4,9 @@ import { ResearchClient } from "./ResearchClient";
 
 export const metadata: Metadata = {
   title: "Research Interests",
-  description: "Topics I read about and study alongside my coursework — computational biology, drug design, and learning in public.",
+  description: "Computer-Aided Drug Discovery research alongside my degree — co-first author, manuscript under review.",
   alternates: { canonical: "/research" },
-  ...socialMetadata("Research Interests", "Topics I read about and study alongside my coursework — computational biology, drug design, and learning in public.", "/research"),
+  ...socialMetadata("Research Interests", "Computer-Aided Drug Discovery research alongside my degree — co-first author, manuscript under review.", "/research"),
 };
 
 export default function ResearchPage() {
