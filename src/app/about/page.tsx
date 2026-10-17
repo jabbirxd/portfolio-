@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { Reveal } from "@/components/motion/Reveal";
 import { educationData, experiencesData } from "@/data/experience";
@@ -72,9 +73,19 @@ export default function AboutPage() {
             MD. JABBIR ALI // BIOGRAPHY & APPROACH
           </Eyebrow>
 
-          <h1 className="text-4xl sm:text-6xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight font-sans">
-            About Me
-          </h1>
+          <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-6">
+            <h1 className="text-4xl sm:text-6xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight font-sans">
+              About Me
+            </h1>
+            <Image
+              src="/avatar.webp"
+              alt="Portrait of Md. Jabbir Ali"
+              width={240}
+              height={240}
+              priority
+              className="w-36 h-36 sm:w-52 sm:h-52 lg:w-60 lg:h-60 rounded-full shrink-0 drop-shadow-[0_0_28px_rgba(59,130,246,0.35)]"
+            />
+          </div>
 
           <p className="text-xl sm:text-3xl font-medium text-[var(--text-primary)] max-w-3xl leading-relaxed font-sans">
             I&apos;m a final-year CSE student learning web development by <span className="text-[var(--accent-studio)] font-semibold">building real projects</span> and <span className="text-[var(--accent-research)] font-semibold">shipping them</span>.
