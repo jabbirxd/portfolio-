@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 ;
 import { motion, useReducedMotion } from "motion/react";
@@ -30,7 +31,16 @@ export function Hero() {
               initial={{ y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={getTransition(0.05)}
+              className="flex items-center gap-4 sm:gap-5"
             >
+              <Image
+                src="/avatar.webp"
+                alt="Portrait of Md. Jabbir Ali"
+                width={112}
+                height={112}
+                priority
+                className="w-20 h-20 sm:w-28 sm:h-28 rounded-full shrink-0 drop-shadow-[0_0_18px_rgba(59,130,246,0.35)]"
+              />
               <Eyebrow
                 icon={<span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />}
                 className="tracking-wide"
