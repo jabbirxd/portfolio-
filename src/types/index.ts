@@ -156,7 +156,7 @@ export interface ResearchInterest {
   id: string;
   title: string;
   subtitle: string;
-  category: "Molecular Oncology" | "Structural Biology" | "Computational Informatics";
+  category: "Molecular Oncology" | "Structural Biology" | "Computational Informatics" | "Molecular Biology";
   description: string;
   keyConcepts: string[];
   iconType: "cancer" | "apoptosis" | "bcl2" | "comp-bio" | "drug-discovery" | "mol-bio";

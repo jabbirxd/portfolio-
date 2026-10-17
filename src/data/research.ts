@@ -27,7 +27,7 @@ export const researchInterestsData: ResearchInterest[] = [
     subtitle: "Pro- & Anti-Apoptotic Regulators",
     category: "Structural Biology",
     description:
-      "Trying to understand how Bcl-2 family proteins like Mcl-1 bind their targets. This connects directly to the docking work I am doing.",
+      "Trying to understand how Bcl-2 family proteins like Mcl-1 bind their targets.",
     keyConcepts: ["Bcl-2 / Bcl-xL / Mcl-1", "BH3-Mimetic Selectivity", "Hydrophobic Pocket Dynamics"],
     iconType: "bcl2",
   },
@@ -55,7 +55,7 @@ export const researchInterestsData: ResearchInterest[] = [
     id: "int-mol-bio",
     title: "Molecular Biology",
     subtitle: "Gene Expression & Biochemical Networks",
-    category: "Molecular Oncology",
+    category: "Molecular Biology",
     description:
       "Going back to basics: how proteins interact with each other, and how cells control which genes are turned on.",
     keyConcepts: ["Protein-Protein Interfaces", "Biochemical Assays", "Gene Regulation"],

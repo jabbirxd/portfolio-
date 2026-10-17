@@ -168,7 +168,7 @@ export default function AboutPage() {
 
                   <div className="space-y-1">
                     <h4 className="text-sm sm:text-base font-semibold text-[var(--text-primary)]">
-                      {edu.degree} — <span className="text-[var(--text-secondary)]">{edu.field}</span>
+                      {edu.degree}
                     </h4>
                     {edu.honorsOrNotes && (
                       <p className="text-xs font-mono text-[var(--text-secondary)]">{edu.honorsOrNotes}</p>

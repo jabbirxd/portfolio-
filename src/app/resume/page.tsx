@@ -170,7 +170,7 @@ export default function ResumePage() {
                     </span>
                   </div>
                   <p className="text-xs font-mono text-[var(--text-secondary)]">
-                    {edu.institution} — {edu.location} ({edu.field})
+                    {edu.institution} ({edu.field})
                   </p>
                   {edu.honorsOrNotes && (
                     <p className="text-xs text-[var(--text-secondary)]">{edu.honorsOrNotes}</p>
@@ -208,9 +208,7 @@ export default function ResumePage() {
                 <span className="text-xs font-mono text-[var(--text-secondary)]">2024 - Present</span>
               </div>
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed font-sans">
-                Independent academic exploration of computational drug design
-                (molecular docking, dynamics simulations, trajectory analysis).
-                Manuscript in preparation — details stay private until published.
+                Independent study in computational drug design. Details stay private until published.
               </p>
             </Card>
           </div>

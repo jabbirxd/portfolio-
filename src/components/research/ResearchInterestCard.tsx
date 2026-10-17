@@ -54,7 +54,7 @@ export function ResearchInterestCard({ interest }: ResearchInterestCardProps) {
 
       <div className="pt-4 border-t border-[var(--border-subtle)] mt-auto">
         <div className="text-xs font-mono text-[var(--text-secondary)] uppercase mb-2">
-          Key Investigative Themes
+          Topics
         </div>
         <div className="flex flex-wrap gap-1.5 min-h-[96px] content-start">
           {interest.keyConcepts.map((concept) => (

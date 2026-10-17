@@ -23,7 +23,7 @@ export default function NotFound() {
           </div>
 
           <p className="text-sm text-[var(--text-secondary)] max-w-sm mx-auto leading-relaxed">
-            This page doesn't exist — maybe the link moved or I renamed something. Here's where you can go instead.
+            This page doesn&apos;t exist — maybe the link moved or I renamed something. Here&apos;s where you can go instead.
           </p>
 
           <div className="pt-4 flex flex-wrap justify-center gap-3">
