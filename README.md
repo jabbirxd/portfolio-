@@ -3,7 +3,7 @@
 My personal portfolio site. A final-year CSE student showing real projects,
 honest skills, and what I'm learning.
 
-**Live:** https://portfolio-jabbirxd.vercel.app
+**Live:** https://jabbirxd.online
 
 ## What's inside
 

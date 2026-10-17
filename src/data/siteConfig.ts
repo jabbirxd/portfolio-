@@ -5,7 +5,7 @@ export const siteConfig = {
   title: "Md. Jabbir Ali | Web Developer",
   description:
     "Portfolio of Md. Jabbir Ali, a final-year Computer Science student building real web projects with Next.js, TypeScript, and Laravel.",
-  url: "https://portfolio-jabbirxd.vercel.app",
+  url: "https://jabbirxd.online",
   tagline: "Learn. Build. Ship.",
   bio: "Final-year CSE student from Khulna, Bangladesh. I bring the ideas and direction, and build with modern tools to ship real projects fast.",
   location: "Khulna, Bangladesh",
