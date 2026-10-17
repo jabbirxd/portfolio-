@@ -48,9 +48,6 @@ export function ProjectCard({ project, className, headingLevel = "h3", showLearn
         {/* Top Meta Bar */}
         <div className="flex items-center justify-between gap-3 mb-5">
           <div className="flex items-center gap-2">
-            <Badge variant={getBadgeVariant(project.filterCategory)} size="sm">
-              {project.filterCategory}
-            </Badge>
             <span className="text-xs font-mono text-[var(--text-secondary)] hidden sm:inline">
               {"//"} {project.role}
             </span>
@@ -80,15 +77,40 @@ export function ProjectCard({ project, className, headingLevel = "h3", showLearn
           {project.tagline}
         </p>
 
-        {/* Summary Description */}
-        <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed line-clamp-3 mb-4">
-          {project.summary}
+        {/* Summary Description - full on /work, teaser on home */}
+        <p className={`text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-4 ${showLearning ? "" : "line-clamp-3"}`}>
+          {showLearning ? project.description : project.summary}
         </p>
 
         {showLearning && project.whatILearned && project.whatILearned[0] && (
-          <p className="text-xs text-[var(--text-muted)] italic leading-relaxed mb-6 border-l-2 border-[var(--accent-studio)] pl-3">
+          <p className="text-xs text-[var(--text-muted)] italic leading-relaxed mb-4 border-l-2 border-[var(--accent-studio)] pl-3">
             What I learned: {project.whatILearned[0]}
           </p>
+        )}
+
+        {showLearning && (project.liveUrl || project.repoUrl) && (
+          <div className="flex flex-wrap gap-3 mb-6">
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-[var(--accent-studio)] hover:underline"
+              >
+                Live demo <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            )}
+            {project.repoUrl && (
+              <a
+                href={project.repoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:underline"
+              >
+                Source code <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            )}
+          </div>
         )}
 
         {/* Visual Mockup Preview */}

@@ -5,7 +5,6 @@ import { Reveal } from "@/components/motion/Reveal";
 import React, { useState } from "react";
 ;
 import { projectsData } from "@/data/projects";
-import { ProjectFilter } from "@/types";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ProjectCard } from "@/components/cards/ProjectCard";
@@ -14,19 +13,8 @@ import { ArrowRight } from "lucide-react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
 
-const filterTabs: { label: string; value: ProjectFilter }[] = [
-  { label: "ALL", value: "ALL" },
-  { label: "DEVELOPMENT", value: "DEVELOPMENT" },
-];
-
 export function WorkSection() {
-  const [activeFilter, setActiveFilter] = useState<ProjectFilter>("ALL");
   const shouldReduceMotion = useReducedMotion();
-
-  const filteredProjects =
-    activeFilter === "ALL"
-      ? projectsData
-      : projectsData.filter((p) => p.filterCategory === activeFilter);
 
   return (
     <section id="home-work" className="relative pt-12 sm:pt-16 scroll-mt-24">
@@ -41,38 +29,6 @@ export function WorkSection() {
             className="mb-0 max-w-2xl"
           />
 
-          <div className="hidden md:flex items-center gap-3">
-            <span className="text-xs font-mono text-[var(--text-muted)]">
-              Showing {filteredProjects.length} of {projectsData.length} Case Studies
-            </span>
-          </div>
-        </div>
-
-        {/* Accessible Filter Navigation Tabs */}
-        <div
-          role="tablist"
-          aria-label="Filter projects by discipline"
-          className="flex flex-wrap items-center gap-2 pb-8 pt-2"
-        >
-          {filterTabs.map((tab) => {
-            const isActive = activeFilter === tab.value;
-            return (
-              <button
-                key={tab.value}
-                role="tab"
-                aria-selected={isActive}
-                onClick={() => setActiveFilter(tab.value)}
-                className={cn(
-                  "px-4 py-2 rounded-xl text-xs font-mono tracking-wider uppercase transition-all duration-150 cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500",
-                  isActive
-                    ? "bg-[var(--text-primary)] text-[var(--bg-app)] font-extrabold shadow-lg border border-[var(--border-strong)]"
-                    : "bg-[var(--bg-surface-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)]"
-                )}
-              >
-                {tab.label}
-              </button>
-            );
-          })}
         </div>
 
         {/* Editorial Project Layout Grid */}
@@ -81,7 +37,7 @@ export function WorkSection() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8"
         >
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
+            {projectsData.map((project) => (
               <motion.div data-anim
                 key={project.id}
                 layout

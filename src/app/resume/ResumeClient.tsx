@@ -192,13 +192,48 @@ export function ResumeClient() {
             </div>
           </div>
           </Reveal>
+<Reveal>
+          <div className="space-y-4">
+            <h3 className="text-xs font-mono tracking-wider uppercase text-[var(--accent-studio)] flex items-center gap-2">
+              <Briefcase className="w-4 h-4" />
+              02. Practical Experience
+            </h3>
+            <div className="space-y-4">
+              {experiencesData.map((exp) => (
+                <Card
+                  variant="subtle"
+                  key={exp.id}
+                  className="p-5 space-y-2"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                    <div>
+                      <h4 className="text-sm sm:text-base font-bold text-[var(--text-primary)]">{exp.role}</h4>
+                      <p className="text-xs font-mono text-[var(--accent-studio)]">
+                        {exp.organization} — {exp.location}
+                      </p>
+                    </div>
+                    <span className="self-start sm:self-auto text-xs font-mono text-[var(--text-secondary)]">{exp.period}</span>
+                  </div>
 
-          {/* 2. Research Interest */}
-          <Reveal>
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed font-sans">
+                    {exp.description}
+                  </p>
+
+                  <ul className="space-y-1 pl-4 list-disc text-xs text-[var(--text-secondary)]">
+                    {exp.bullets.map((b, i) => (
+                      <li key={i}>{b}</li>
+                    ))}
+                  </ul>
+                </Card>
+              ))}
+            </div>
+          </div>
+          </Reveal>
+<Reveal>
           <div className="space-y-4">
             <h3 className="text-xs font-mono tracking-wider uppercase text-[var(--accent-research)] flex items-center gap-2">
               <FlaskConical className="w-4 h-4" />
-              02. Research Interest
+              03. Research Interest
             </h3>
             <Card variant="subtle" className="p-5 space-y-2">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
@@ -213,13 +248,11 @@ export function ResumeClient() {
             </Card>
           </div>
           </Reveal>
-
-          {/* 3. Selected Projects & Engineering Systems */}
-          <Reveal>
+<Reveal>
           <div className="space-y-4">
             <h3 className="text-xs font-mono tracking-wider uppercase text-[var(--accent-studio)] flex items-center gap-2">
               <Code className="w-4 h-4" />
-              03. Selected Engineering Projects
+              04. Selected Engineering Projects
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {projectsData.slice(0, 4).map((proj, i, arr) => (
@@ -250,13 +283,11 @@ export function ResumeClient() {
             </div>
           </div>
           </Reveal>
-
-          {/* 4. Core Competencies */}
-          <Reveal>
+<Reveal>
           <div className="space-y-4">
             <h3 className="text-xs font-mono tracking-wider uppercase text-[var(--accent-studio)] flex items-center gap-2">
               <Layers className="w-4 h-4" />
-              04. Technical & Methodological Competencies
+              05. Technical & Methodological Competencies
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {skillsCategories.map((category, i, arr) => (
@@ -269,45 +300,6 @@ export function ResumeClient() {
                   <p className="text-xs text-[var(--text-secondary)]">
                     {category.skills.map((s) => s.name).join(" · ")}
                   </p>
-                </Card>
-              ))}
-            </div>
-          </div>
-          </Reveal>
-
-          {/* 5. Experience */}
-          <Reveal>
-          <div className="space-y-4">
-            <h3 className="text-xs font-mono tracking-wider uppercase text-[var(--accent-studio)] flex items-center gap-2">
-              <Briefcase className="w-4 h-4" />
-              05. Practical Experience
-            </h3>
-            <div className="space-y-4">
-              {experiencesData.map((exp) => (
-                <Card
-                  variant="subtle"
-                  key={exp.id}
-                  className="p-5 space-y-2"
-                >
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                    <div>
-                      <h4 className="text-sm sm:text-base font-bold text-[var(--text-primary)]">{exp.role}</h4>
-                      <p className="text-xs font-mono text-[var(--accent-studio)]">
-                        {exp.organization} — {exp.location}
-                      </p>
-                    </div>
-                    <span className="self-start sm:self-auto text-xs font-mono text-[var(--text-secondary)]">{exp.period}</span>
-                  </div>
-
-                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed font-sans">
-                    {exp.description}
-                  </p>
-
-                  <ul className="space-y-1 pl-4 list-disc text-xs text-[var(--text-secondary)]">
-                    {exp.bullets.map((b, i) => (
-                      <li key={i}>{b}</li>
-                    ))}
-                  </ul>
                 </Card>
               ))}
             </div>

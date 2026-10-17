@@ -22,15 +22,17 @@ export function CopyEmailButton({ email }: { email: string }) {
       aria-label={copied ? "Email copied" : "Copy email address"}
       className="inline-flex items-center gap-1.5 text-xs font-mono text-[var(--text-secondary)] hover:text-[var(--accent-studio)] transition-colors cursor-pointer border border-[var(--border-subtle)] rounded-lg px-2.5 py-1.5 mt-3"
     >
-      {copied ? (
-        <>
-          <Check className="w-3.5 h-3.5" /> Copied
-        </>
-      ) : (
-        <>
-          <Copy className="w-3.5 h-3.5" /> Copy
-        </>
-      )}
+      <span aria-live="polite" role="status" className="inline-flex items-center gap-1.5">
+        {copied ? (
+          <>
+            <Check className="w-3.5 h-3.5" /> Copied
+          </>
+        ) : (
+          <>
+            <Copy className="w-3.5 h-3.5" /> Copy
+          </>
+        )}
+      </span>
     </button>
   );
 }
