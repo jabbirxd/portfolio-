@@ -67,7 +67,7 @@ export function Navbar() {
 
   // Scrollspy: on the home page, highlight the nav item whose preview
   // section is currently in view. Only sections with a clear 1:1 page
-  // mapping participate — home-intro, home-ship and home-exploring map to
+  // mapping participate — home-ship and home-exploring map to
   // nothing, so the pill clears while they are in view.
   const HOME_SPY_IDS = [
     "home-intro",
@@ -78,6 +78,7 @@ export function Navbar() {
     "home-capabilities",
   ];
   const SPY_HREF: Record<string, string> = {
+    "home-intro": "/about",
     "home-work": "/work",
     "home-research": "/research",
     "home-capabilities": "/skills",
@@ -109,7 +110,7 @@ export function Navbar() {
           {/* Left: Brand Identity */}
           <Link
             href="/"
-            className="flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-lg py-1 px-1.5"
+            className="flex items-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg py-1 px-1.5"
           >
             <span className="text-sm sm:text-base font-extrabold tracking-wider text-[var(--text-primary)] group-hover:text-[var(--accent-studio)] transition-colors uppercase font-mono">
               Md. Jabbir Ali
@@ -126,7 +127,7 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "relative px-3.5 py-1.5 rounded-lg text-xs font-mono tracking-wide transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500/50",
+                    "relative px-3.5 py-1.5 rounded-lg text-xs font-mono tracking-wide transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/50",
                     isActive
                       ? "text-[var(--text-primary)] font-bold"
                       : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
@@ -147,7 +148,7 @@ export function Navbar() {
             <Link
               href="/resume"
               className={cn(
-                "relative px-3.5 py-1.5 rounded-lg text-xs font-mono tracking-wide transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500/50",
+                "relative px-3.5 py-1.5 rounded-lg text-xs font-mono tracking-wide transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/50",
                 pathname === "/resume"
                   ? "text-[var(--text-primary)] font-bold"
                   : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
@@ -159,7 +160,7 @@ export function Navbar() {
             <Link
               href="/contact"
               className={cn(
-                "relative px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold tracking-wide transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500/50",
+                "relative px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold tracking-wide transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/50",
                 "bg-indigo-600 hover:bg-indigo-500 text-white",
                 pathname === "/contact" && "ring-2 ring-indigo-400/60"
               )}
@@ -175,7 +176,7 @@ export function Navbar() {
               href={siteConfig.socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] bg-[var(--bg-surface-subtle)] hover:bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)] transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+              className="p-2 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] bg-[var(--bg-surface-subtle)] hover:bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/50"
               aria-label="GitHub Profile"
             >
               <GithubIcon className="w-4 h-4" />
@@ -185,7 +186,7 @@ export function Navbar() {
               href={siteConfig.socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] bg-[var(--bg-surface-subtle)] hover:bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)] transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+              className="p-2 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] bg-[var(--bg-surface-subtle)] hover:bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/50"
               aria-label="LinkedIn Profile"
             >
               <LinkedinIcon className="w-4 h-4" />
@@ -201,7 +202,7 @@ export function Navbar() {
               type="button"
               ref={menuButtonRef}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={mobileMenuOpen}
             >

@@ -34,7 +34,7 @@ export function ThemeToggle({ className }: { className?: string }) {
         "relative p-2 rounded-lg border border-[var(--border-subtle)]",
         "bg-[var(--bg-surface-subtle)] text-[var(--text-secondary)]",
         "hover:text-[var(--text-primary)] hover:border-[var(--border-default)]",
-        "transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500/50",
+        "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/50",
         className
       )}
     >

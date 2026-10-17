@@ -67,7 +67,7 @@ export function IntroSection() {
           >
             <Link
               href="/work"
-              className="group relative flex flex-col h-full p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-default)] hover:border-indigo-500/40 hover:bg-[var(--bg-surface-raised)] transition-all duration-200 shadow-lg hover:shadow-indigo-500/10 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 block"
+              className="group relative flex flex-col h-full p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-default)] hover:border-indigo-500/40 hover:bg-[var(--bg-surface-raised)] transition-all duration-200 shadow-lg hover:shadow-indigo-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/50 block"
             >
               <div className="flex items-center justify-between mb-6">
                 <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-[var(--accent-studio)] group-hover:scale-105 transition-transform">
@@ -110,7 +110,7 @@ export function IntroSection() {
           >
             <Link
               href="/skills"
-              className="group relative flex flex-col h-full p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-default)] hover:border-[var(--accent-system-border)] hover:bg-[var(--bg-surface-raised)] transition-all duration-200 shadow-lg hover:shadow-cyan-500/10 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 block"
+              className="group relative flex flex-col h-full p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-default)] hover:border-[var(--accent-system-border)] hover:bg-[var(--bg-surface-raised)] transition-all duration-200 shadow-lg hover:shadow-cyan-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50 block"
             >
               <div className="flex items-center justify-between mb-6">
                 <div className="w-10 h-10 rounded-xl bg-[var(--accent-system-subtle)] border border-[var(--accent-system-border)] flex items-center justify-center text-[var(--accent-system)] group-hover:scale-105 transition-transform">
@@ -153,7 +153,7 @@ export function IntroSection() {
           >
             <Link
               href="/research"
-              className="group relative flex flex-col h-full p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-default)] hover:border-emerald-500/40 hover:bg-[var(--bg-surface-raised)] transition-all duration-200 shadow-lg hover:shadow-emerald-500/10 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 block"
+              className="group relative flex flex-col h-full p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-default)] hover:border-emerald-500/40 hover:bg-[var(--bg-surface-raised)] transition-all duration-200 shadow-lg hover:shadow-emerald-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/50 block"
             >
               <div className="flex items-center justify-between mb-6">
                 <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-[var(--accent-research)] group-hover:scale-105 transition-transform">
