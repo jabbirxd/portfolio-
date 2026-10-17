@@ -59,6 +59,19 @@ export function GitGraphCanvas({ className }: { className?: string }) {
     let h = 0;
     let raf = 0;
     let start: number | null = null;
+    let isVisible = true;
+
+    // Pause the animation when offscreen to save CPU/battery.
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible && !reducedMotion && !raf) {
+          raf = requestAnimationFrame(draw);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(canvas);
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
@@ -238,14 +251,17 @@ export function GitGraphCanvas({ className }: { className?: string }) {
         ctx.fillText("HEAD", head.x, head.y + 30 + bob);
       }
 
-      if (!reducedMotion) {
+      if (!reducedMotion && isVisible) {
         raf = requestAnimationFrame(draw);
+      } else {
+        raf = 0;
       }
     };
 
     raf = requestAnimationFrame(draw);
     return () => {
       cancelAnimationFrame(raf);
+      observer.disconnect();
       window.removeEventListener("resize", resize);
     };
   }, []);

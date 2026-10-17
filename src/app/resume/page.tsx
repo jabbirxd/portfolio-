@@ -92,6 +92,7 @@ export default function ResumePage() {
               href="/contact"
               variant="ghost"
               size="sm"
+              className="no-print"
               icon={<Mail className="w-4 h-4" />}
             >
               Contact Me

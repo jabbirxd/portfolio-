@@ -63,13 +63,13 @@
     --accent-research-subtle: rgba(5, 150, 105, 0.08);
     --accent-research-border: rgba(5, 150, 105, 0.30);
 
-    --accent-system: #0284c7;
-    --accent-system-subtle: rgba(2, 132, 199, 0.08);
-    --accent-system-border: rgba(2, 132, 199, 0.30);
+    --accent-system: #0369a1;
+    --accent-system-subtle: rgba(3, 105, 161, 0.08);
+    --accent-system-border: rgba(3, 105, 161, 0.30);
 
-    --accent-creative: #d97706;
-    --accent-creative-subtle: rgba(217, 119, 6, 0.10);
-    --accent-creative-border: rgba(217, 119, 6, 0.32);
+    --accent-creative: #b45309;
+    --accent-creative-subtle: rgba(180, 83, 9, 0.10);
+    --accent-creative-border: rgba(180, 83, 9, 0.32);
   }
 }
 
@@ -265,4 +265,75 @@ footer,
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-muted);
+}
+
+/* ---- Print stylesheet for /resume ---- */
+@media print {
+  /* Hide navigation, footer, buttons, and interactive elements */
+  header,
+  footer,
+  nav,
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Force light theme for print */
+  :root {
+    --bg-app: #ffffff;
+    --bg-surface: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --text-muted: #555555;
+  }
+
+  /* Remove dark backgrounds and shadows */
+  * {
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Ensure text is black on white */
+  body {
+    color: #000;
+    background: #fff;
+    font-size: 9pt;
+    line-height: 1.3;
+  }
+
+  h1 { font-size: 18pt !important; margin-bottom: 0.25rem !important; }
+  h2 { font-size: 14pt !important; margin-bottom: 0.25rem !important; }
+  h3 { font-size: 10pt !important; margin-bottom: 0.2rem !important; }
+  h4 { font-size: 9pt !important; }
+  p, li, span { font-size: 9pt !important; line-height: 1.3 !important; }
+
+  /* Compact spacing for 1-2 pages */
+  .py-12, .sm\:py-16 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .space-y-12 > * + *,
+  .space-y-10 > * + * {
+    margin-top: 1rem !important;
+  }
+
+  .p-6, .sm\:p-12 {
+    padding: 1rem !important;
+  }
+
+  .p-5 {
+    padding: 0.75rem !important;
+  }
+
+  /* Avoid breaking inside cards */
+  .print-avoid-break {
+    break-inside: avoid;
+  }
+
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
 }
