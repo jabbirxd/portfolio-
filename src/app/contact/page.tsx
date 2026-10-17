@@ -11,7 +11,7 @@ import { Mail, ArrowUpRight, MapPin } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact | Md. Jabbir Ali",
+  title: "Contact",
   description:
     "Get in touch with Md. Jabbir Ali — email, GitHub, and LinkedIn.",
   alternates: { canonical: "/contact" },
