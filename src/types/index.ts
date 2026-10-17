@@ -55,6 +55,10 @@ export interface ProjectItem {
   isFeatured?: boolean;
   visualType?: "code-terminal" | "server-terminal" | "mobile-ui" | "design-system" | "automation-workflow" | "media-timeline" | "molecular-graph";
   previewAccent?: "studio" | "research" | "system" | "creative";
+  // Optional real screenshot (public/projects/<slug>.png). When set,
+  // the card shows the image instead of the illustrated visual.
+  // Never fabricate: leave empty until a real screenshot exists.
+  screenshot?: string;
   
   // Case Study Sections
   problem?: string;

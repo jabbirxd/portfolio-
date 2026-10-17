@@ -66,7 +66,7 @@ export function SkillGroupCard({ category }: SkillGroupCardProps) {
             </h3>
           </div>
           <Badge variant={getBadgeVariant(category.id)} size="sm" className="whitespace-nowrap shrink-0 self-start sm:self-auto">
-            {category.skills.length} CONFIRMED
+            {category.skills.length} skills
           </Badge>
         </div>
 

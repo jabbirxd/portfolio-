@@ -149,12 +149,6 @@ export function SystemVisual() {
             ]}
           />
         </motion.div>
-
-        {/* Bottom Technical Telemetry Footer */}
-        <div className="hidden sm:flex mt-4 pt-3 border-t border-white/[0.06] items-center justify-between text-[11px] font-mono text-slate-500">
-          <span>PARADIGM: INTEGRATED_DISCOVERY</span>
-          <span className="text-indigo-400/80">LATENCY: 0.12ms</span>
-        </div>
       </div>
     </div>
   );

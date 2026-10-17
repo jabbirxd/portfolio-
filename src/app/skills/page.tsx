@@ -26,7 +26,7 @@ export default function SkillsPage() {
             variant="studio"
             icon={<ShieldCheck className="w-3.5 h-3.5 text-[var(--accent-research)]" />}
           >
-            CONFIRMED TECHNICAL & METHODOLOGICAL MATRIX
+            TECHNICAL SKILLS & TOOLS
           </Eyebrow>
 
           <h1 className="text-4xl sm:text-6xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight font-sans">
