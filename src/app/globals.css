@@ -327,8 +327,12 @@ footer,
     padding: 0.75rem !important;
   }
 
-  /* Avoid breaking inside resume cards — but only the cards, not every div */
-  .print-avoid-break {
+  /* In print, grids become single-column blocks so cards never split across pages */
+  .grid {
+    display: block !important;
+  }
+  .grid > * {
+    margin-bottom: 0.75rem !important;
     break-inside: avoid;
     page-break-inside: avoid;
   }
