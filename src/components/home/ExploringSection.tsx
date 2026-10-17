@@ -60,7 +60,7 @@ export function ExploringSection() {
             <Card
               key={item.id}
               variant="interactive"
-              className="flex flex-col justify-between p-6 sm:p-8 space-y-6 bg-[var(--bg-surface)] border-[var(--border-default)] hover:border-[var(--border-strong)] transition-all duration-200"
+              className="h-full flex flex-col justify-between p-6 sm:p-8 space-y-6 bg-[var(--bg-surface)] border-[var(--border-default)] hover:border-[var(--border-strong)] transition-all duration-200"
             >
               <div className="space-y-4">
                 {/* Top Number & Tag */}

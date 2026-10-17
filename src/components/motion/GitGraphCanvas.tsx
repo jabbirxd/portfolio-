@@ -25,7 +25,7 @@ const MAIN_COMMITS: CommitNode[] = [
   { fx: 0.18, fy: 0.62, branch: "main", appearAt: 0.1, msg: "init: portfolio", labelBelow: true },
   { fx: 0.32, fy: 0.62, branch: "main", appearAt: 0.18, msg: "feat: theme toggle" },
   { fx: 0.46, fy: 0.62, branch: "main", appearAt: 0.42 },
-  { fx: 0.60, fy: 0.62, branch: "main", appearAt: 0.56, msg: "feat: scrollspy" },
+  { fx: 0.60, fy: 0.62, branch: "main", appearAt: 0.56, msg: "feat: scrollspy", labelBelow: true },
   { fx: 0.75, fy: 0.62, branch: "main", appearAt: 0.64, msg: "fix: fonts" },
   { fx: 0.93, fy: 0.62, branch: "main", appearAt: 0.72, msg: "ship it" },
 ];

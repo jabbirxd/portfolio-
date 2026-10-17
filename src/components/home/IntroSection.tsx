@@ -24,7 +24,7 @@ export function IntroSection() {
           <div className="flex items-center justify-between py-2 text-xs font-mono text-[var(--text-secondary)] uppercase tracking-widest">
             <span>01 // How I work</span>
             <span className="hidden sm:inline">Perspective: Curious generalist</span>
-            <span>Axis [Build × Learn × Explore]</span>
+            <span className="hidden sm:inline">Axis [Build × Learn × Explore]</span>
           </div>
         </Container>
       </div>

@@ -21,7 +21,7 @@ export function ProjectVisualPreview({ project, className }: ProjectVisualPrevie
               <span className="w-2 h-2 rounded-full bg-emerald-500/80 shrink-0" />
               <span className="ml-2 text-slate-400 truncate">build output</span>
             </div>
-            <span className="text-indigo-400 shrink-0">NEXT.JS · TYPESCRIPT</span>
+            <span className="hidden sm:inline text-indigo-400 shrink-0">NEXT.JS · TYPESCRIPT</span>
           </div>
           <div className="space-y-1.5 py-2 text-slate-400">
             <div className="text-slate-400">
@@ -51,7 +51,7 @@ export function ProjectVisualPreview({ project, className }: ProjectVisualPrevie
               <span className="w-2 h-2 rounded-full bg-emerald-500/80 shrink-0" />
               <span className="ml-2 text-slate-400 truncate">artisan</span>
             </div>
-            <span className="text-rose-400 shrink-0">PHP · LARAVEL</span>
+            <span className="hidden sm:inline text-rose-400 shrink-0">PHP · LARAVEL</span>
           </div>
           <div className="space-y-1.5 py-2 text-slate-400">
             <div className="text-slate-400">

@@ -223,10 +223,10 @@ export default function ResumePage() {
               03. Selected Engineering Projects
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {projectsData.slice(0, 4).map((proj) => (
+              {projectsData.slice(0, 4).map((proj, i, arr) => (
                 <div
                   key={proj.id}
-                  className="p-4 rounded-xl bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)] space-y-2"
+                  className={`p-4 rounded-xl bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)] space-y-2${arr.length % 2 === 1 && i === arr.length - 1 ? " sm:col-span-2" : ""}`}
                 >
                   <div className="flex items-center justify-between">
                     <h4 className="text-xs font-bold text-[var(--text-primary)]">{proj.title}</h4>
@@ -259,10 +259,10 @@ export default function ResumePage() {
               04. Technical & Methodological Competencies
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {skillsCategories.map((category) => (
+              {skillsCategories.map((category, i, arr) => (
                 <div
                   key={category.id}
-                  className="p-4 rounded-xl bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)] space-y-1.5"
+                  className={`p-4 rounded-xl bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)] space-y-1.5${arr.length % 2 === 1 && i === arr.length - 1 ? " sm:col-span-2" : ""}`}
                 >
                   <h4 className="text-xs font-bold text-[var(--text-primary)]">{category.name}</h4>
                   <p className="text-xs text-[var(--text-secondary)]">

@@ -197,16 +197,16 @@ export default async function ProjectDetailPage({
 
         {/* 2. Key Metrics Bar (if provided) */}
         {project.metrics && project.metrics.length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-2 sm:gap-4">
             {project.metrics.map((metric) => (
               <div
                 key={metric.label}
-                className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-center"
+                className="p-3 sm:p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-center"
               >
-                <div className="text-2xl font-extrabold text-[var(--text-primary)] font-mono">
+                <div className="text-sm sm:text-2xl font-extrabold text-[var(--text-primary)] font-mono break-words">
                   {metric.value}
                 </div>
-                <div className="text-xs text-[var(--text-secondary)] uppercase tracking-wider font-mono mt-1">
+                <div className="text-[10px] sm:text-xs text-[var(--text-secondary)] uppercase tracking-wider font-mono mt-1">
                   {metric.label}
                 </div>
               </div>

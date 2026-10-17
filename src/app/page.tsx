@@ -112,10 +112,10 @@ export default function HomePage() {
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-8">
-              {skillsCategories.map((cat) => (
+              {skillsCategories.map((cat, i, arr) => (
                 <div
                   key={cat.id}
-                  className="p-4 rounded-xl bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)] flex flex-col justify-between"
+                  className={`p-4 rounded-xl bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)] flex flex-col justify-between${arr.length % 2 === 1 && i === arr.length - 1 ? " col-span-2 sm:col-span-1" : ""}`}
                 >
                   <span className="text-xs font-bold text-[var(--text-primary)] mb-2">{cat.name}</span>
                   <span className="text-xs font-mono text-[var(--text-secondary)]"><Counter to={cat.skills.length} suffix=" skills" /></span>

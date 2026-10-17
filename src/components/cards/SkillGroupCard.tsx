@@ -56,7 +56,7 @@ export function SkillGroupCard({ category }: SkillGroupCardProps) {
     <Card variant="studio" className="h-full flex flex-col justify-between p-6 sm:p-8 space-y-6">
       <div>
         {/* Header with category icon and badge */}
-        <div className="flex items-center justify-between gap-3 mb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
           <div className="flex items-center gap-3">
             <div className="p-2.5 rounded-xl bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)]">
               {getIcon(category.iconName)}
@@ -65,7 +65,7 @@ export function SkillGroupCard({ category }: SkillGroupCardProps) {
               {category.name}
             </h3>
           </div>
-          <Badge variant={getBadgeVariant(category.id)} size="sm" className="whitespace-nowrap shrink-0">
+          <Badge variant={getBadgeVariant(category.id)} size="sm" className="whitespace-nowrap shrink-0 self-start sm:self-auto">
             {category.skills.length} CONFIRMED
           </Badge>
         </div>

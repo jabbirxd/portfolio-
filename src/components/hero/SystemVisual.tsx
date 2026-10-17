@@ -15,12 +15,11 @@ export function SystemVisual() {
         {/* Subtle background coordinate markings */}
         <div className="absolute inset-0 bg-dot-matrix opacity-30 pointer-events-none" />
         
-        <div className="flex items-center justify-between gap-3 border-b border-white/[0.06] pb-3 mb-4 sm:mb-6 font-mono text-[11px] text-slate-500 tracking-wider">
-          <div className="flex items-center gap-2 text-indigo-400/90 min-w-0">
+        <div className="flex items-center border-b border-white/[0.06] pb-3 mb-4 sm:mb-6 font-mono text-[11px] text-slate-500 tracking-wider">
+          <div className="flex items-center gap-2 text-indigo-400/90">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-            <span className="truncate">SYSTEM_PIPELINE // ACTIVE</span>
+            <span className="whitespace-nowrap">SYSTEM_PIPELINE // ACTIVE</span>
           </div>
-          <span className="hidden min-[420px]:block shrink-0">COORDINATE [42.10, 88.34]</span>
         </div>
 
         {/* Abstract 3-Node Architecture (BUILD -> DESIGN -> RESEARCH) */}
