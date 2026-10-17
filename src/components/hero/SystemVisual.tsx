@@ -122,7 +122,7 @@ export function SystemVisual() {
         >
           <Typewriter
             lines={[
-              { command: "whoami", output: "jabbir — web developer & CADD researcher, khulna" },
+              { command: "whoami", output: "jabbir — web dev & CADD researcher, khulna" },
               { command: "git push origin main", output: "✓ deployed · vercel · 38s" },
               { command: "npm run build", output: "✓ compiled successfully" },
             ]}

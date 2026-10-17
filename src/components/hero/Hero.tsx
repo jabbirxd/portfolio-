@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import React from "react";
-;
 import { motion, useReducedMotion } from "motion/react";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";

@@ -240,7 +240,7 @@ export function ResumeClient() {
                 <h4 className="text-base font-bold text-[var(--text-primary)]">
                   Undergraduate Researcher (Co-First Author) — Computer-Aided Drug Discovery
                 </h4>
-                <span className="text-xs font-mono text-[var(--text-secondary)]">2024 - Present</span>
+                <span className="text-xs font-mono text-[var(--text-secondary)]">2026 - Present</span>
               </div>
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed font-sans">
                 Northern University of Business and Technology Khulna, in collaboration with University of Dhaka

@@ -112,8 +112,8 @@ export const skillsCategories: SkillCategory[] = [
       },
       {
         name: "MD Simulations",
-        discipline: "Molecular Dynamics",
-        description: "Ran 100 ns MD simulations with RMSD, RMSF, Rg, PCA and DCCM analysis.",
+        discipline: "OpenMM",
+        description: "Ran 100 ns MD simulations in OpenMM with RMSD, RMSF, Rg, PCA and DCCM analysis.",
         relatedProject: { projectTitle: "CADD research (under review)", projectSlug: "research", url: "/research" },
       },
       {
