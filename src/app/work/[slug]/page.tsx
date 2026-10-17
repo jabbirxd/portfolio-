@@ -165,7 +165,7 @@ export default async function ProjectDetailPage({
           {/* External Action Links (Only rendered if they exist) */}
           {hasAnyLink && (
             <div className="pt-2 flex flex-wrap items-center gap-4">
-              {project.liveUrl && (
+              {project.liveUrl ? (
                 <Button
                   href={project.liveUrl}
                   variant="primary"
@@ -175,6 +175,10 @@ export default async function ProjectDetailPage({
                 >
                   Live Demonstration
                 </Button>
+              ) : (
+                <span className="text-xs font-mono text-[var(--text-muted)] border border-[var(--border-subtle)] rounded-lg px-3 py-2">
+                  Runs locally — no public demo yet
+                </span>
               )}
               {project.repoUrl && (
                 <Button

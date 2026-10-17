@@ -232,7 +232,7 @@ export function ResumeClient() {
                     <h4 className="text-xs font-bold text-[var(--text-primary)]">{proj.title}</h4>
                     <span className="text-xs font-mono text-[var(--text-secondary)]">{proj.timeline}</span>
                   </div>
-                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed line-clamp-2">
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
                     {proj.summary}
                   </p>
                   <div className="flex flex-wrap gap-1 pt-1">

@@ -11,9 +11,10 @@ interface ProjectCardProps {
   project: ProjectItem;
   className?: string;
   headingLevel?: "h2" | "h3";
+  showLearning?: boolean;
 }
 
-export function ProjectCard({ project, className, headingLevel = "h3" }: ProjectCardProps) {
+export function ProjectCard({ project, className, headingLevel = "h3", showLearning = false }: ProjectCardProps) {
   const isLarge = project.displaySize === "large";
   const isWide = project.displaySize === "wide";
 
@@ -80,9 +81,15 @@ export function ProjectCard({ project, className, headingLevel = "h3" }: Project
         </p>
 
         {/* Summary Description */}
-        <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed line-clamp-3 mb-6">
+        <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed line-clamp-3 mb-4">
           {project.summary}
         </p>
+
+        {showLearning && project.whatILearned && project.whatILearned[0] && (
+          <p className="text-xs text-[var(--text-muted)] italic leading-relaxed mb-6 border-l-2 border-[var(--accent-studio)] pl-3">
+            What I learned: {project.whatILearned[0]}
+          </p>
+        )}
 
         {/* Visual Mockup Preview */}
         <div className="mb-6 rounded-xl overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-app)]/60 group-hover:border-[var(--border-default)] transition-colors">

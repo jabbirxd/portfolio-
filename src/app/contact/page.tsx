@@ -2,12 +2,13 @@ import React from "react";
 import { Reveal } from "@/components/motion/Reveal";
 import { siteConfig } from "@/data/siteConfig";
 import { Container } from "@/components/ui/Container";
+import { CopyEmailButton } from "./CopyEmailButton";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 ;
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Card } from "@/components/ui/Card";
 import { GithubIcon, LinkedinIcon } from "@/components/icons/BrandIcons";
-import { Mail, ArrowUpRight, MapPin } from "lucide-react";
+import { Mail, ArrowUpRight, MapPin, FileText } from "lucide-react";
 import type { Metadata } from "next";
 import { socialMetadata } from "@/lib/social-metadata";
 
@@ -58,6 +59,7 @@ export default function ContactPage() {
                 Write me <ArrowUpRight className="w-3.5 h-3.5" />
               </div>
             </a>
+            <CopyEmailButton email={siteConfig.socials.email} />
           </Card>
 
           <Card variant="interactive" className="p-6 sm:p-8">
@@ -101,6 +103,25 @@ export default function ContactPage() {
               <div className="flex items-center gap-1 text-xs text-[var(--text-secondary)]">
                 Connect <ArrowUpRight className="w-3.5 h-3.5" />
               </div>
+            </a>
+          </Card>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-6 mt-6">
+          <Card variant="interactive" className="p-6 sm:p-8">
+            <a href="/resume" className="group flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-xl bg-[var(--accent-research-subtle)] text-[var(--accent-research)] w-fit">
+                  <FileText className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-xs font-mono text-[var(--text-muted)] uppercase mb-1">Resume</div>
+                  <div className="text-sm text-[var(--text-primary)]">
+                    Education, projects, skills and experience — printable as PDF
+                  </div>
+                </div>
+              </div>
+              <ArrowUpRight className="w-5 h-5 text-[var(--text-secondary)] group-hover:text-[var(--accent-research)] transition-colors" />
             </a>
           </Card>
         </div>
