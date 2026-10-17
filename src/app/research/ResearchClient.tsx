@@ -35,7 +35,7 @@ export function ResearchClient() {
           </p>
 
           <p className="text-sm sm:text-base text-[var(--text-secondary)] max-w-3xl leading-relaxed font-sans">
-            With collaborators at Northern University of Business and Technology Khulna and University of Dhaka, I designed 9 derivatives of 3 parent flavonoids, ran molecular docking (AutoDock Vina), 100 ns MD simulations, and MM/GBSA binding free energy calculations.
+            At Northern University of Business and Technology Khulna, in collaboration with University of Dhaka, I designed 9 derivatives of 3 parent flavonoids, ran molecular docking (AutoDock Vina), 100 ns MD simulations, and MM/GBSA binding free energy calculations.
           </p>
         </div>
 
@@ -61,13 +61,10 @@ export function ResearchClient() {
           <section>
           <Card variant="studio" className="p-8 sm:p-10">
             <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-3 font-sans">
-              Why so little detail?
+              Where the research stands
             </h2>
             <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed font-sans max-w-3xl">
-              A manuscript under review means the details live with the journal for now.
-              I would rather show an honest short page than a long impressive
-              one I cannot back up. If you are curious about the computational
-              side, my web projects are a better window into how I work.
+              The manuscript is under review at a journal, so results and figures are not public yet. I will add a link to the paper here once it is out.
             </p>
           </Card>
           </section>

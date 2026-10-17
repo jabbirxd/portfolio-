@@ -25,7 +25,7 @@ export const experiencesData: ExperienceItem[] = [
     period: "2024 - Present",
     type: "Research",
     description:
-      "Computer-aided drug discovery research. Manuscript submitted to a journal; currently under review.",
+      "Computer-aided drug discovery research.",
     bullets: [
       "Designed 9 derivatives of 3 parent flavonoids through 7-position modifications, validated with RDKit.",
       "Molecular docking (AutoDock Vina), 100 ns MD simulations with RMSD, RMSF, Rg, PCA and DCCM analysis, and MM/GBSA binding free energy calculations.",
