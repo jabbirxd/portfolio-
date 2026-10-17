@@ -22,33 +22,38 @@ const ThemeContext = createContext<ThemeContextValue>({
   toggleTheme: () => {},
 });
 
-function getInitialTheme(): Theme {
-  if (typeof window === "undefined") return "dark";
-  const stored = window.localStorage.getItem(STORAGE_KEY);
-  if (stored === "dark" || stored === "light") return stored;
-  return window.matchMedia("(prefers-color-scheme: light)").matches
+/**
+ * Reads the theme the blocking <head> script already resolved
+ * (localStorage, falling back to prefers-color-scheme) into
+ * document.documentElement.dataset.theme before first paint.
+ * Using it as the lazy state initializer means the provider never
+ * needs a setState-inside-effect to catch up — no theme flash.
+ */
+function readThemeFromDOM(): Theme {
+  if (typeof document === "undefined") return "dark";
+  return document.documentElement.dataset.theme === "light"
     ? "light"
     : "dark";
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("dark");
-  const [mounted, setMounted] = useState(false);
+  const [theme, setTheme] = useState<Theme>(readThemeFromDOM);
 
+  // Sync outward only: keep the DOM attribute (and color-scheme) in step.
+  // localStorage is written ONLY when the user clicks the toggle —
+  // never on first visit — so a visitor's OS preference keeps being
+  // followed until they make an explicit choice.
   useEffect(() => {
-    setTheme(getInitialTheme());
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
-    window.localStorage.setItem(STORAGE_KEY, theme);
-  }, [theme, mounted]);
+  }, [theme]);
 
   const toggleTheme = useCallback(() => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+    setTheme((prev) => {
+      const next = prev === "dark" ? "light" : "dark";
+      window.localStorage.setItem(STORAGE_KEY, next);
+      return next;
+    });
   }, []);
 
   return (

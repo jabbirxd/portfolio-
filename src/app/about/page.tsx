@@ -2,6 +2,7 @@ import React from "react";
 import { Reveal } from "@/components/motion/Reveal";
 import { educationData, experiencesData } from "@/data/experience";
 import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Card } from "@/components/ui/Card";
@@ -13,22 +14,19 @@ import {
   GraduationCap,
   Briefcase,
   Wrench,
-  Cpu,
-  Layers,
   Sparkles,
   Compass,
   ArrowRight,
-  CheckCircle2,
-  Calendar,
-  MapPin,
-  Flame,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { socialMetadata } from "@/lib/social-metadata";
 
 export const metadata: Metadata = {
-  title: "About Me | Md. Jabbir Ali",
+  title: "About",
   description:
-    "Multidisciplinary Developer · Designer · Researcher working at the intersection of software engineering, design systems, and computational biology.",
+    "Junior web developer and final-year CSE student. I build with Next.js and TypeScript, I'm learning Laravel, and I do independent study in computational biology.",
+  alternates: { canonical: "/about" },
+  ...socialMetadata("About", "Junior web developer and final-year CSE student. I build with Next.js and TypeScript, I'm learning Laravel, and I do independent study in computational biology.", "/about"),
 };
 
 export default function AboutPage() {
@@ -38,7 +36,7 @@ export default function AboutPage() {
       title: "Understand first.",
       tagline: "Break the problem down before building.",
       description:
-        "Before writing a single line of code or drafting an interface, I deconstruct the problem to understand how the underlying system behaves, where the real bottlenecks exist, and what the core objective demands.",
+        "Before I write code, I try to understand what the problem actually is. Asking questions first saves me from rebuilding later.",
       icon: <Compass className="w-5 h-5 text-[var(--accent-studio)]" />,
       accent: "studio",
     },
@@ -47,7 +45,7 @@ export default function AboutPage() {
       title: "Build practically.",
       tagline: "Prefer solutions that actually work over unnecessary complexity.",
       description:
-        "I favor clean architecture, measurable reliability, and direct utility over superficial trends or convoluted abstractions. The best solution is the one that solves the actual problem cleanly and stays maintainable.",
+        "I pick the simplest solution that works. Clever code that is hard to read usually causes problems later.",
       icon: <Hammer className="w-5 h-5 text-[var(--accent-research)]" />,
       accent: "research",
     },
@@ -56,24 +54,23 @@ export default function AboutPage() {
       title: "Keep learning.",
       tagline: "Move across disciplines when the problem requires it.",
       description:
-        "Complex challenges rarely fit into neat departmental silos. When a project demands full-stack backend performance, nuanced interface accessibility, automated data extraction, or biological informatics, I learn whatever is necessary to deliver the outcome.",
+        "When a project needs something I do not know yet, I learn it. My research work had me reading about bioinformatics from scratch — I worked through it one paper and one tool at a time.",
       icon: <Brain className="w-5 h-5 text-purple-400" />,
       accent: "creative",
     },
   ];
 
   return (
-    <div className="py-12 sm:py-16 space-y-20">
-      <Container size="xl">
+    <div className="py-12 sm:py-16">
+      <Container size="xl" className="space-y-16 sm:space-y-20">
         <Breadcrumb items={[{ label: "About Me" }]} />
 
-        {/* 1. Opening Hero Section */}
-        <Reveal>
+        {/* 1. Opening Hero Section — no Reveal: above the fold, must paint immediately for LCP */}
+        <div>
           <section className="space-y-6 pb-12 border-b border-[var(--border-default)]">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-[var(--bg-surface-hover)] text-[var(--text-secondary)] border border-[var(--border-default)]">
-            <Sparkles className="w-3.5 h-3.5 text-[var(--accent-studio)]" />
-            <span>MD. JABBIR ALI // BIOGRAPHY & APPROACH</span>
-          </div>
+          <Eyebrow icon={<Sparkles className="w-3.5 h-3.5 text-[var(--accent-studio)]" />}>
+            MD. JABBIR ALI // BIOGRAPHY & APPROACH
+          </Eyebrow>
 
           <h1 className="text-4xl sm:text-6xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight font-sans">
             About Me
@@ -92,7 +89,7 @@ export default function AboutPage() {
             </p>
           </div>
           </section>
-        </Reveal>
+        </div>
 
         {/* 2. My Approach — Three Core Principles */}
         <Reveal>
@@ -100,7 +97,7 @@ export default function AboutPage() {
           <SectionHeader
             eyebrow="Core Philosophy"
             title="My Approach"
-            description="The foundational principles that guide how I solve technical challenges, design interfaces, and conduct research."
+            description="How I try to work: understand the problem, keep it simple, learn what I don't know yet."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
@@ -133,9 +130,6 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                <div className="pt-2 text-xs font-mono text-[var(--text-secondary)]">
-                  STANDARD: RIGOROUS_EXECUTION
-                </div>
               </Card>
             ))}
           </div>
@@ -144,7 +138,7 @@ export default function AboutPage() {
 
         {/* 3. Education Timeline */}
         <Reveal>
-          <section className="space-y-8 pt-4">
+          <section className="space-y-8">
           <SectionHeader
             eyebrow="Academic Foundations"
             title="Education"
@@ -163,15 +157,15 @@ export default function AboutPage() {
                       <GraduationCap className="w-4 h-4 text-[var(--accent-research)]" />
                       <span className="text-base font-bold text-[var(--text-primary)]">{edu.institution}</span>
                     </div>
-                    <span className="text-xs font-mono text-[var(--accent-research)] bg-[var(--accent-research-subtle)] px-2 py-0.5 rounded border border-[var(--accent-research-border)]">
+                    <span className="self-start text-xs font-mono text-[var(--accent-research)] bg-[var(--accent-research-subtle)] px-2 py-0.5 rounded border border-[var(--accent-research-border)]">
                       {edu.period}
                     </span>
                   </div>
 
                   <div className="space-y-1">
-                    <h4 className="text-sm sm:text-base font-semibold text-[var(--text-primary)]">
-                      {edu.degree} — <span className="text-[var(--text-secondary)]">{edu.field}</span>
-                    </h4>
+                    <h3 className="text-sm sm:text-base font-semibold text-[var(--text-primary)]">
+                      {edu.degree}
+                    </h3>
                     {edu.honorsOrNotes && (
                       <p className="text-xs font-mono text-[var(--text-secondary)]">{edu.honorsOrNotes}</p>
                     )}
@@ -203,7 +197,7 @@ export default function AboutPage() {
 
         {/* 4. Experience Timeline */}
         <Reveal>
-          <section className="space-y-8 pt-4">
+          <section className="space-y-8">
           <SectionHeader
             eyebrow="Practical Experience"
             title="Experience & Engagements"
@@ -226,7 +220,7 @@ export default function AboutPage() {
                       <Badge variant={exp.type === "Research" ? "research" : "studio"} size="sm">
                         {exp.type}
                       </Badge>
-                      <span className="text-xs font-mono text-[var(--text-secondary)]">{exp.period}</span>
+                      <span className="self-start sm:self-auto text-xs font-mono text-[var(--text-secondary)]">{exp.period}</span>
                     </div>
                   </div>
 
@@ -275,7 +269,7 @@ export default function AboutPage() {
               <div className="p-2 rounded-xl bg-amber-500/10 border border-amber-500/20 text-[var(--accent-creative)]">
                 <Wrench className="w-5 h-5" />
               </div>
-              <Badge variant="creative">Hands-On Curiosity</Badge>
+              <Eyebrow variant="studio">Hands-On Curiosity</Eyebrow>
             </div>
 
             <div className="max-w-3xl space-y-4">

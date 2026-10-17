@@ -3,6 +3,7 @@
 import React from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 interface SectionHeaderProps {
   eyebrow?: string;
@@ -10,6 +11,7 @@ interface SectionHeaderProps {
   description?: string;
   align?: "left" | "center";
   className?: string;
+  headingLevel?: "h1" | "h2";
 }
 
 export function SectionHeader({
@@ -17,12 +19,14 @@ export function SectionHeader({
   title,
   description,
   align = "left",
+  headingLevel = "h2",
   className,
 }: SectionHeaderProps) {
   const shouldReduceMotion = useReducedMotion();
 
   return (
     <motion.div
+      data-anim
       initial={{
         opacity: 0,
         y: shouldReduceMotion ? 0 : 14,
@@ -38,14 +42,22 @@ export function SectionHeader({
       )}
     >
       {eyebrow && (
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono tracking-wider uppercase bg-[var(--accent-studio-subtle)] text-[var(--accent-studio)] border border-[var(--accent-studio-border)] mb-3">
-          <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-studio)] animate-pulse" />
+        <Eyebrow
+          variant="studio"
+          icon={<span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-studio)] animate-pulse" />}
+          className="tracking-wider uppercase mb-3"
+        >
           {eyebrow}
-        </div>
+        </Eyebrow>
       )}
-      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[var(--text-primary)]">
-        {title}
-      </h2>
+      {React.createElement(
+        headingLevel,
+        {
+          className:
+            "text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[var(--text-primary)]",
+        },
+        title
+      )}
       {description && (
         <p className="mt-3 text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed">
           {description}

@@ -20,15 +20,13 @@ export const experiencesData: ExperienceItem[] = [
   {
     id: "exp-research-interest",
     role: "Undergraduate Researcher (Independent Study)",
-    organization: "Northern University of Business and Technology, Khulna",
+    organization: "Northern University of Business and Technology",
     location: "Khulna, Bangladesh",
     period: "2024 - Present",
     type: "Research",
     description:
-      "Independent academic exploration of computational drug design: molecular docking, dynamics simulations, and trajectory analysis. Manuscript in preparation; details stay private until publication.",
+      "Independent study in computational drug design. Details stay private until published.",
     bullets: [
-      "Molecular docking and dynamics simulations with open-source tools",
-      "Trajectory analysis: RMSD, RMSF, hydrogen bonds, and binding free energy",
       "Keeping all code, data, and manuscripts private until published",
     ],
     skillsUsed: ["Python", "Computational Biology", "Data Analysis"],

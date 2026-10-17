@@ -1,12 +1,13 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
+;
 import { motion, useReducedMotion } from "motion/react";
 import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
 import { SystemVisual } from "@/components/hero/SystemVisual";
-import { ArrowRight, FileText, Sparkles } from "lucide-react";
+import { ArrowRight, FileText } from "lucide-react";
 import { RotatingWord } from "@/components/motion/RotatingWord";
 
 export function Hero() {
@@ -26,19 +27,21 @@ export function Hero() {
           <div className="lg:col-span-7 space-y-6 sm:space-y-8">
             {/* Status / Category Tag */}
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={getTransition(0.05)}
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-[var(--bg-surface-subtle)] text-[var(--text-secondary)] border border-[var(--border-default)]">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="tracking-wide">LEARN · BUILD · SHIP</span>
-              </div>
+              <Eyebrow
+                icon={<span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />}
+                className="tracking-wide"
+              >
+                LEARN · BUILD · SHIP
+              </Eyebrow>
             </motion.div>
 
             {/* 1. Name */}
             <motion.div
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={getTransition(0.1)}
               className="space-y-2"
@@ -50,7 +53,7 @@ export function Hero() {
 
             {/* 2. Title Subheading */}
             <motion.div
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={getTransition(0.18)}
             >
@@ -63,7 +66,7 @@ export function Hero() {
 
             {/* 3. Supporting Statement */}
             <motion.div
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={getTransition(0.26)}
             >
@@ -74,7 +77,7 @@ export function Hero() {
 
             {/* 4. Action CTAs */}
             <motion.div
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={getTransition(0.34)}
               className="pt-2 flex flex-wrap items-center gap-4"
@@ -93,13 +96,13 @@ export function Hero() {
                 size="lg"
                 icon={<FileText className="w-4 h-4" />}
               >
-                View CV
+                View Resume
               </Button>
             </motion.div>
 
             {/* Quick Micro-Domain Pills */}
             <motion.div
-              initial={{ opacity: 0 }}
+              initial={{ y: 8 }}
               animate={{ opacity: 1 }}
               transition={getTransition(0.42)}
               className="pt-4 flex flex-wrap gap-2 text-xs font-mono text-[var(--text-secondary)]"
@@ -121,7 +124,7 @@ export function Hero() {
 
           {/* Right Column: Abstract Scientific & Technical Visual (5 Cols) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
+            initial={{ scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={getTransition(0.3)}
             className="lg:col-span-5 flex justify-center"

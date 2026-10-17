@@ -26,9 +26,6 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   metadataBase: new URL(siteConfig.url),
-  alternates: {
-    canonical: siteConfig.url,
-  },
   keywords: [
     "Md. Jabbir Ali",
     "Web Developer",
@@ -101,6 +98,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {/* No-JS fallback: motion components render with inline opacity:0 /
+            transforms in the server HTML. Force them visible when JS is off. */}
+        <noscript>
+          <style>{`[data-anim]{opacity:1!important;transform:none!important;filter:none!important;}`}</style>
+        </noscript>
       </head>
       <body className="min-h-full flex flex-col bg-[var(--bg-app)] text-[var(--text-primary)] bg-technical-grid selection:bg-indigo-500/30 selection:text-white">
         <MotionConfig reducedMotion="user">

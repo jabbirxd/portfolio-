@@ -14,13 +14,7 @@ import {
   UserCheck,
   Cpu,
   Layers,
-  CheckCircle2,
-  AlertCircle,
-  Lightbulb,
   Workflow,
-  Sparkles,
-  BookOpen,
-  ArrowRight,
   Film,
   Dna,
   Layout,
@@ -37,6 +31,8 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
+import { socialMetadata } from "@/lib/social-metadata";
+
 export async function generateMetadata({
   params,
 }: ProjectDetailPageProps): Promise<Metadata> {
@@ -50,6 +46,12 @@ export async function generateMetadata({
   return {
     title: `${project.title} | Selected Work`,
     description: project.summary,
+    alternates: { canonical: `/work/${slug}` },
+    ...socialMetadata(
+      `${project.title} | Selected Work`,
+      project.summary,
+      `/work/${slug}`
+    ),
   };
 }
 
@@ -62,6 +64,23 @@ export default async function ProjectDetailPage({
   if (!project) {
     notFound();
   }
+
+  // Section numbering: only sections with content get numbers, in order.
+  // This keeps numbering sequential (01, 02, 03…) even when a project
+  // skips optional sections like Implementation or Results.
+  const sectionOrder = [
+    { key: "overview", show: true },
+    { key: "challenge", show: !!project.problem },
+    { key: "approach", show: !!project.approach },
+    { key: "process", show: !!project.process && project.process.length > 0 },
+    { key: "implementation", show: !!project.implementation && project.implementation.length > 0 },
+    { key: "results", show: !!project.results && project.results.length > 0 },
+    { key: "learnings", show: !!project.whatILearned && project.whatILearned.length > 0 },
+  ];
+  const sectionNum = (key: string) =>
+    String(
+      sectionOrder.filter((s) => s.show).findIndex((s) => s.key === key) + 1
+    ).padStart(2, "0");
 
   const getCategoryBadgeVariant = (cat: typeof project.filterCategory) => {
     switch (cat) {
@@ -103,8 +122,8 @@ export default async function ProjectDetailPage({
   );
 
   return (
-    <div className="py-12 sm:py-16 space-y-16">
-      <Container size="lg">
+    <div className="py-12 sm:py-16">
+      <Container size="lg" className="space-y-12">
         {/* Breadcrumb Navigation */}
         <Breadcrumb
           items={[
@@ -146,7 +165,7 @@ export default async function ProjectDetailPage({
           {/* External Action Links (Only rendered if they exist) */}
           {hasAnyLink && (
             <div className="pt-2 flex flex-wrap items-center gap-4">
-              {project.liveUrl && (
+              {project.liveUrl ? (
                 <Button
                   href={project.liveUrl}
                   variant="primary"
@@ -156,6 +175,10 @@ export default async function ProjectDetailPage({
                 >
                   Live Demonstration
                 </Button>
+              ) : (
+                <span className="text-xs font-mono text-[var(--text-muted)] border border-[var(--border-subtle)] rounded-lg px-3 py-2">
+                  Runs locally — no public demo yet
+                </span>
               )}
               {project.repoUrl && (
                 <Button
@@ -196,13 +219,13 @@ export default async function ProjectDetailPage({
 
         {/* 2. Key Metrics Bar (if provided) */}
         {project.metrics && project.metrics.length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-2 sm:gap-4">
             {project.metrics.map((metric) => (
               <div
                 key={metric.label}
-                className="p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-center"
+                className="p-3 sm:p-5 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-center"
               >
-                <div className="text-2xl font-extrabold text-[var(--text-primary)] font-mono">
+                <div className="text-sm sm:text-2xl font-extrabold text-[var(--text-primary)] font-mono break-words">
                   {metric.value}
                 </div>
                 <div className="text-xs text-[var(--text-secondary)] uppercase tracking-wider font-mono mt-1">
@@ -219,7 +242,7 @@ export default async function ProjectDetailPage({
             {/* Overview */}
             <section className="space-y-4">
               <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
-                <span className="text-[var(--accent-studio)] font-mono text-base">01.</span> Overview
+                <span className="text-[var(--accent-studio)] font-mono text-base">{sectionNum("overview")}.</span> Overview
               </h2>
               <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed">
                 {project.description}
@@ -228,9 +251,9 @@ export default async function ProjectDetailPage({
 
             {/* Problem Statement */}
             {project.problem && (
-              <section className="space-y-4 p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)]">
+              <section className="space-y-4">
                 <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
-                  <span className="text-[var(--accent-creative)] font-mono text-base">02.</span> The Challenge & Problem Scope
+                  <span className="text-[var(--accent-studio)] font-mono text-base">{sectionNum("challenge")}.</span> The Challenge & Problem Scope
                 </h2>
                 <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed">
                   {project.problem}
@@ -242,7 +265,7 @@ export default async function ProjectDetailPage({
             {project.approach && (
               <section className="space-y-4">
                 <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
-                  <span className="text-[var(--accent-system)] font-mono text-base">03.</span> Strategic Approach & Solution
+                  <span className="text-[var(--accent-studio)] font-mono text-base">{sectionNum("approach")}.</span> Strategic Approach & Solution
                 </h2>
                 <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed">
                   {project.approach}
@@ -254,7 +277,7 @@ export default async function ProjectDetailPage({
             {project.process && project.process.length > 0 && (
               <section className="space-y-6">
                 <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
-                  <span className="text-[var(--accent-studio)] font-mono text-base">04.</span> Execution & Process
+                  <span className="text-[var(--accent-studio)] font-mono text-base">{sectionNum("process")}.</span> Execution & Process
                 </h2>
                 <div className="space-y-4">
                   {project.process.map((step, idx) => (
@@ -279,7 +302,7 @@ export default async function ProjectDetailPage({
             {project.implementation && project.implementation.length > 0 && (
               <section className="space-y-6">
                 <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
-                  <span className="text-[var(--accent-research)] font-mono text-base">05.</span> Implementation Architecture
+                  <span className="text-[var(--accent-studio)] font-mono text-base">{sectionNum("implementation")}.</span> Implementation Architecture
                 </h2>
                 <div className="space-y-4">
                   {project.implementation.map((item, idx) => (
@@ -308,7 +331,7 @@ export default async function ProjectDetailPage({
             {project.results && project.results.length > 0 && (
               <section className="space-y-6">
                 <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
-                  <span className="text-[var(--accent-research)] font-mono text-base">06.</span> Results & Outcomes
+                  <span className="text-[var(--accent-studio)] font-mono text-base">{sectionNum("results")}.</span> Results & Outcomes
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {project.results.map((res, idx) => (
@@ -333,9 +356,9 @@ export default async function ProjectDetailPage({
 
             {/* What I Learned */}
             {project.whatILearned && project.whatILearned.length > 0 && (
-              <section className="space-y-4 p-6 sm:p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-default)]">
+              <section className="space-y-4">
                 <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
-                  <Lightbulb className="w-5 h-5 text-[var(--accent-creative)]" />
+                  <span className="text-[var(--accent-studio)] font-mono text-base">{sectionNum("learnings")}.</span>
                   What I Learned & Key Takeaways
                 </h2>
                 <ul className="space-y-3 pt-2">
@@ -388,17 +411,19 @@ export default async function ProjectDetailPage({
               </div>
             </Card>
 
-            <div className="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-default)] text-center space-y-4">
-              <h4 className="text-sm font-bold text-[var(--text-primary)]">Questions about this project?</h4>
-              <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                The code is on GitHub — or just ask me about it directly.
-              </p>
-              <Button href="/contact" variant="primary" size="sm" className="w-full">
-                Get in Touch
-              </Button>
-            </div>
           </aside>
         </div>
+
+        {/* Closing CTA: full-width, not squeezed into the sidebar */}
+        <Card variant="solid" className="mt-12 p-8 sm:p-10 text-center space-y-4">
+          <h4 className="text-lg font-bold text-[var(--text-primary)]">Questions about this project?</h4>
+          <p className="text-sm text-[var(--text-secondary)] leading-relaxed max-w-xl mx-auto">
+            The code is on GitHub — or just ask me about it directly.
+          </p>
+          <Button href="/contact" variant="primary" size="md">
+            Get in Touch
+          </Button>
+        </Card>
       </Container>
     </div>
   );

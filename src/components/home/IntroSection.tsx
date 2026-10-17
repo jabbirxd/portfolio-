@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
-import { Code2, Sparkles, FlaskConical, ArrowUpRight, Terminal, Layers, Dna } from "lucide-react";
+import { Code2, Sparkles, FlaskConical, ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
 export function IntroSection() {
@@ -24,7 +24,7 @@ export function IntroSection() {
           <div className="flex items-center justify-between py-2 text-xs font-mono text-[var(--text-secondary)] uppercase tracking-widest">
             <span>01 // How I work</span>
             <span className="hidden sm:inline">Perspective: Curious generalist</span>
-            <span>Axis [Build × Learn × Explore]</span>
+            <span className="hidden sm:inline">Axis [Build × Learn × Explore]</span>
           </div>
         </Container>
       </div>
@@ -32,7 +32,7 @@ export function IntroSection() {
       <Container size="xl">
         {/* Editorial Heading & Supporting Copy */}
         <div className="max-w-3xl space-y-4 mb-12 sm:mb-16">
-          <motion.div
+          <motion.div data-anim
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -43,7 +43,7 @@ export function IntroSection() {
             </h2>
           </motion.div>
 
-          <motion.div
+          <motion.div data-anim
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -58,7 +58,7 @@ export function IntroSection() {
         {/* 3 Distinct Capability Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {/* Card 1: BUILD */}
-          <motion.div
+          <motion.div data-anim
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -101,7 +101,7 @@ export function IntroSection() {
           </motion.div>
 
           {/* Card 2: DESIGN */}
-          <motion.div
+          <motion.div data-anim
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -144,7 +144,7 @@ export function IntroSection() {
           </motion.div>
 
           {/* Card 3: RESEARCH */}
-          <motion.div
+          <motion.div data-anim
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}

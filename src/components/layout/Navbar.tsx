@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { siteConfig } from "@/data/siteConfig";
 import { Container } from "@/components/ui/Container";
 import { GithubIcon, LinkedinIcon } from "@/components/icons/BrandIcons";
-import { Menu, X, FileText, ArrowUpRight } from "lucide-react";
+import { Menu, X, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
@@ -16,6 +16,7 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const menuButtonRef = React.useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,15 +30,45 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const mainNavLinks = [
-    { title: "Work", href: "/work" },
-    { title: "Research", href: "/research" },
-    { title: "About", href: "/about" },
-    { title: "Skills", href: "/skills" },
-  ];
+  // Mobile menu: Esc closes, focus returns to button, body scroll locks,
+  // and the menu closes when the route changes.
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [mobileMenuOpen]);
+
+  // Close the mobile menu when the route changes (e.g., browser back/forward).
+  // Links inside the menu also close it via onClick.
+  const [lastPathname, setLastPathname] = useState(pathname);
+  if (pathname !== lastPathname) {
+    setLastPathname(pathname);
+    if (mobileMenuOpen) {
+      setMobileMenuOpen(false);
+    }
+  }
+
+  // Single source of truth for nav links (titles/hrefs live in siteConfig).
+  // Desktop shows the 4 section links + a Contact button; mobile shows all.
+  const mainNavLinks = siteConfig.navItems.filter((item) =>
+    ["/work", "/research", "/about", "/skills"].includes(item.href)
+  );
 
   // Scrollspy: on the home page, highlight the nav item whose preview
-  // section is currently in view (single-page feel on a multi-page site).
+  // section is currently in view. Only sections with a clear 1:1 page
+  // mapping participate — home-intro, home-ship and home-exploring map to
+  // nothing, so the pill clears while they are in view.
   const HOME_SPY_IDS = [
     "home-intro",
     "home-ship",
@@ -47,18 +78,22 @@ export function Navbar() {
     "home-capabilities",
   ];
   const SPY_HREF: Record<string, string> = {
-    "home-intro": "/about",
-    "home-ship": "/work",
     "home-work": "/work",
-    "home-exploring": "/skills",
     "home-research": "/research",
     "home-capabilities": "/skills",
   };
   const isHomePage = pathname === "/";
   const spyId = useScrollSpy(isHomePage ? HOME_SPY_IDS : []);
   const spyHref = spyId ? SPY_HREF[spyId] ?? null : null;
-  const isActiveLink = (href: string) =>
-    spyHref ? href === spyHref : pathname.startsWith(href);
+  const isActiveLink = (href: string) => {
+    if (isHomePage) {
+      // Scrollspy only on home: highlight mapped sections, nothing otherwise.
+      // The pill clears when no mapped section is in view (hero, intro, etc.).
+      return spyHref ? href === spyHref : false;
+    }
+    // Child pages highlight their parent: /work/[slug] lights up "Work".
+    return pathname === href || pathname.startsWith(href + "/");
+  };
 
   return (
     <header
@@ -82,7 +117,7 @@ export function Navbar() {
           </Link>
 
           {/* Center / Right: Main Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 sm:gap-2">
+          <nav className="hidden lg:flex items-center gap-1 sm:gap-2">
             {mainNavLinks.map((item) => {
               const isActive = isActiveLink(item.href);
 
@@ -108,17 +143,33 @@ export function Navbar() {
                 </Link>
               );
             })}
-          </nav>
-
-          {/* Right: CV, GitHub, LinkedIn */}
-          <div className="hidden md:flex items-center gap-3">
+            {/* Resume link (from siteConfig order) */}
             <Link
               href="/resume"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] bg-[var(--bg-surface-subtle)] hover:bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)] transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+              className={cn(
+                "relative px-3.5 py-1.5 rounded-lg text-xs font-mono tracking-wide transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500/50",
+                pathname === "/resume"
+                  ? "text-[var(--text-primary)] font-bold"
+                  : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+              )}
             >
-              <FileText className="w-3.5 h-3.5 text-[var(--accent-studio)]" />
-              <span>CV</span>
+              Resume
             </Link>
+            {/* Contact: small primary button at the end of the links */}
+            <Link
+              href="/contact"
+              className={cn(
+                "relative px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold tracking-wide transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500/50",
+                "bg-indigo-600 hover:bg-indigo-500 text-white",
+                pathname === "/contact" && "ring-2 ring-indigo-400/60"
+              )}
+            >
+              Contact
+            </Link>
+          </nav>
+
+          {/* Right: GitHub, LinkedIn */}
+          <div className="hidden lg:flex items-center gap-3">
 
             <a
               href={siteConfig.socials.github}
@@ -144,10 +195,11 @@ export function Navbar() {
           </div>
 
           {/* Mobile: theme toggle + menu button */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-2">
             <ThemeToggle />
             <button
               type="button"
+              ref={menuButtonRef}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -161,22 +213,11 @@ export function Navbar() {
 
       {/* Mobile Animated Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-[var(--border-default)] bg-[var(--bg-app)]/98 backdrop-blur-xl px-5 pt-3 pb-6 space-y-4">
+        <div className="lg:hidden border-b border-[var(--border-default)] bg-[var(--bg-app)]/98 backdrop-blur-xl px-5 pt-3 pb-6 space-y-4">
           <nav className="flex flex-col space-y-1">
-            <Link
-              href="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className={cn(
-                "px-3.5 py-2.5 rounded-lg text-sm font-mono transition-colors",
-                pathname === "/" && !spyHref
-                  ? "text-[var(--text-primary)] bg-[var(--bg-surface-hover)] font-bold"
-                  : "text-[var(--text-secondary)] hover:bg-[var(--bg-surface-hover)]"
-              )}
-            >
-              Home
-            </Link>
-            {mainNavLinks.map((item) => {
+            {siteConfig.navItems.map((item) => {
               const isActive = isActiveLink(item.href);
+              const isResume = item.href === "/resume";
               return (
                 <Link
                   key={item.href}
@@ -184,23 +225,19 @@ export function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={cn(
                     "px-3.5 py-2.5 rounded-lg text-sm font-mono transition-colors",
+                    isResume && "flex items-center gap-2",
                     isActive
                       ? "text-[var(--accent-studio)] bg-[var(--accent-studio-subtle)] font-bold border border-[var(--accent-studio-border)]"
                       : "text-[var(--text-secondary)] hover:bg-[var(--bg-surface-hover)]"
                   )}
                 >
-                  {item.title}
+                  {isResume && (
+                    <FileText className="w-4 h-4 text-[var(--accent-studio)]" />
+                  )}
+                  <span>{item.title}</span>
                 </Link>
               );
             })}
-            <Link
-              href="/resume"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3.5 py-2.5 rounded-lg text-sm font-mono text-[var(--text-secondary)] hover:bg-[var(--bg-surface-hover)] flex items-center gap-2"
-            >
-              <FileText className="w-4 h-4 text-[var(--accent-studio)]" />
-              <span>Curriculum Vitae (CV)</span>
-            </Link>
           </nav>
 
           <div className="pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between">
@@ -225,14 +262,6 @@ export function Navbar() {
               </a>
             </div>
 
-            <Link
-              href="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="inline-flex items-center gap-1.5 text-xs font-mono text-[var(--accent-studio)] hover:text-[var(--accent-studio)]"
-            >
-              <span>Contact</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </Link>
           </div>
         </div>
       )}

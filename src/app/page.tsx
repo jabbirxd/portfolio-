@@ -1,10 +1,11 @@
 import React from "react";
+import type { Metadata } from "next";
 import { researchInterestsData } from "@/data/research";
 import { skillsCategories } from "@/data/skills";
 import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { ResearchInterestCard } from "@/components/research/ResearchInterestCard";
 import { Hero } from "@/components/hero/Hero";
@@ -15,6 +16,10 @@ import { ArrowRight } from "lucide-react";
 import { Reveal, Counter } from "@/components/motion/Reveal";
 import { Marquee } from "@/components/motion/Marquee";
 import { GitGraphCanvas } from "@/components/motion/GitGraphCanvas";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function HomePage() {
   const featuredInterests = researchInterestsData.slice(0, 3);
@@ -75,7 +80,7 @@ export default function HomePage() {
               description="Topics I'm learning about alongside my degree. Interests, not credentials."
               className="mb-0"
             />
-            <Button href="/research" variant="research" size="sm" icon={<ArrowRight className="w-4 h-4" />}>
+            <Button href="/research" variant="outline" size="sm" icon={<ArrowRight className="w-4 h-4" />}>
               View All Interests
             </Button>
           </div>
@@ -97,20 +102,20 @@ export default function HomePage() {
           <Reveal>
           <Card variant="studio" className="p-8 sm:p-12 relative overflow-hidden">
             <div className="max-w-2xl space-y-4 mb-8">
-              <Badge variant="studio">Capabilities</Badge>
+              <Eyebrow variant="studio">Capabilities</Eyebrow>
               <h2 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)] font-sans">
                 What I Can Do
               </h2>
               <p className="text-[var(--text-secondary)] text-xs sm:text-sm leading-relaxed">
-                An honest map of my skills: what I'm comfortable with, what I'm learning, and what I'm curious about.
+                An honest map of my skills: what I&apos;m comfortable with, what I&apos;m learning, and what I&apos;m curious about.
               </p>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-8">
-              {skillsCategories.map((cat) => (
+              {skillsCategories.map((cat, i, arr) => (
                 <div
                   key={cat.id}
-                  className="p-4 rounded-xl bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)] flex flex-col justify-between"
+                  className={`p-4 rounded-xl bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)] flex flex-col justify-between${arr.length % 2 === 1 && i === arr.length - 1 ? " col-span-2 sm:col-span-1" : ""}`}
                 >
                   <span className="text-xs font-bold text-[var(--text-primary)] mb-2">{cat.name}</span>
                   <span className="text-xs font-mono text-[var(--text-secondary)]"><Counter to={cat.skills.length} suffix=" skills" /></span>
@@ -128,7 +133,7 @@ export default function HomePage() {
 
       {/* 7. CTA Section */}
       <section>
-        <Container size="lg">
+        <Container size="xl">
           <Reveal>
           <Card variant="studio" className="text-center p-8 sm:p-10 relative overflow-hidden">
             <div className="max-w-xl mx-auto space-y-4">
@@ -136,7 +141,7 @@ export default function HomePage() {
                 Let&apos;s build something meaningful
               </h2>
               <p className="text-[var(--text-secondary)] text-xs sm:text-sm leading-relaxed">
-                I'm looking for junior web developer roles and internships. If you're hiring, I'd love to talk.
+                I&apos;m looking for junior web developer roles and internships. If you&apos;re hiring, I&apos;d love to talk.
               </p>
               <div className="pt-4 flex flex-wrap justify-center gap-4">
                 <Button href="/contact" variant="primary" size="lg">

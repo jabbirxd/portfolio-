@@ -56,17 +56,17 @@ export function SkillGroupCard({ category }: SkillGroupCardProps) {
     <Card variant="studio" className="h-full flex flex-col justify-between p-6 sm:p-8 space-y-6">
       <div>
         {/* Header with category icon and badge */}
-        <div className="flex items-center justify-between gap-3 mb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
           <div className="flex items-center gap-3">
             <div className="p-2.5 rounded-xl bg-[var(--bg-surface-subtle)] border border-[var(--border-subtle)]">
               {getIcon(category.iconName)}
             </div>
-            <h3 className="text-xl font-bold text-[var(--text-primary)] tracking-tight font-sans">
+            <h2 className="text-xl font-bold text-[var(--text-primary)] tracking-tight font-sans">
               {category.name}
-            </h3>
+            </h2>
           </div>
-          <Badge variant={getBadgeVariant(category.id)} size="sm">
-            {category.skills.length} CONFIRMED
+          <Badge variant={getBadgeVariant(category.id)} size="sm" className="whitespace-nowrap shrink-0 self-start sm:self-auto">
+            {category.skills.length} skills
           </Badge>
         </div>
 
@@ -99,14 +99,14 @@ export function SkillGroupCard({ category }: SkillGroupCardProps) {
 
               {/* Evidence-based link to actual project */}
               {skill.relatedProject && (
-                <div className="pt-1.5 flex items-center justify-between text-xs font-mono border-t border-[var(--border-subtle)]">
-                  <span className="text-[var(--text-muted)]">Evidence:</span>
+                <div className="pt-1.5 flex items-center justify-between gap-3 text-xs font-mono border-t border-[var(--border-subtle)]">
+                  <span className="text-[var(--text-muted)] shrink-0">Evidence:</span>
                   <Link
                     href={skill.relatedProject.url}
-                    className="inline-flex items-center gap-1 text-[var(--accent-studio)] hover:text-[var(--accent-studio)] transition-colors font-medium"
+                    className="inline-flex items-center gap-1 text-[var(--accent-studio)] hover:text-[var(--accent-studio)] transition-colors font-medium text-right"
                   >
                     <span>{skill.relatedProject.projectTitle}</span>
-                    <ArrowUpRight className="w-3 h-3" />
+                    <ArrowUpRight className="w-3 h-3 shrink-0" />
                   </Link>
                 </div>
               )}
@@ -115,9 +115,6 @@ export function SkillGroupCard({ category }: SkillGroupCardProps) {
         </div>
       </div>
 
-      <div className="pt-2 text-xs font-mono text-[var(--text-secondary)]">
-        STANDARD: EVIDENCE_BASED_VERIFICATION
-      </div>
     </Card>
   );
 }

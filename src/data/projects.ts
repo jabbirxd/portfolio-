@@ -74,7 +74,7 @@ export const projectsData: ProjectItem[] = [
     category: "development",
     filterCategory: "DEVELOPMENT",
     displaySize: "medium",
-    visualType: "design-system",
+    visualType: "task-list",
     previewAccent: "studio",
     disciplines: ["Frontend Development", "State Management", "UI Design"],
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "localStorage"],

@@ -2,15 +2,16 @@ import React from "react";
 import Link from "next/link";
 import { siteConfig } from "@/data/siteConfig";
 import { Container } from "@/components/ui/Container";
-import { GithubIcon, LinkedinIcon } from "@/components/icons/BrandIcons";
-import { Mail, ArrowUpRight, Cpu, Layers, Dna } from "lucide-react";
+;
+import { ArrowUpRight } from "lucide-react";
 
 export function Footer() {
+  // Page links come from the single nav source (Work, Research, About,
+  // Skills, Resume, Contact — same order as desktop nav and mobile menu).
   const footerLinks = [
-    { label: "Work", href: "/work", isExternal: false },
-    { label: "Research", href: "/research", isExternal: false },
-    { label: "About", href: "/about", isExternal: false },
-    { label: "CV", href: "/resume", isExternal: false },
+    ...siteConfig.navItems
+      .filter((item) => item.href !== "/")
+      .map((item) => ({ label: item.title, href: item.href, isExternal: false })),
     { label: "GitHub", href: siteConfig.socials.github, isExternal: true },
     { label: "LinkedIn", href: siteConfig.socials.linkedin, isExternal: true },
     { label: "Email", href: `mailto:${siteConfig.socials.email}`, isExternal: true },
@@ -21,19 +22,19 @@ export function Footer() {
       <Container size="xl">
         {/* Subtle Visual Motif: Build · Design · Research Nodal Bridge */}
         <div className="mb-10 p-4 sm:p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex flex-col md:flex-row items-center justify-between gap-4 select-none">
-          <div className="flex items-center gap-6 text-xs font-mono text-[var(--text-secondary)]">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-xs font-mono text-[var(--text-secondary)]">
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
               <span className="text-[var(--text-primary)] font-bold">01 // BUILD</span>
               <span className="text-[var(--text-muted)] hidden sm:inline">Web Apps</span>
             </div>
-            <span className="text-[var(--text-muted)]">→</span>
+            <span className="text-[var(--text-muted)] rotate-90 sm:rotate-0 self-start sm:self-auto">→</span>
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
               <span className="text-[var(--text-primary)] font-bold">02 // DESIGN</span>
               <span className="text-[var(--text-muted)] hidden sm:inline">Interfaces</span>
             </div>
-            <span className="text-[var(--text-muted)]">→</span>
+            <span className="text-[var(--text-muted)] rotate-90 sm:rotate-0 self-start sm:self-auto">→</span>
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <span className="text-[var(--text-primary)] font-bold">03 // INVESTIGATE</span>
@@ -91,12 +92,12 @@ export function Footer() {
         {/* Copyright & Technical Signature */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[var(--text-muted)]">
           <p>© 2026 Md. Jabbir Ali</p>
-          <div className="flex items-center gap-3 text-xs">
-            <span>Next.js App Router</span>
-            <span>·</span>
-            <span>TypeScript</span>
-            <span>·</span>
-            <span>Tailwind CSS</span>
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs">
+            <span className="whitespace-nowrap">Next.js App Router</span>
+            <span aria-hidden="true">·</span>
+            <span className="whitespace-nowrap">TypeScript</span>
+            <span aria-hidden="true">·</span>
+            <span className="whitespace-nowrap">Tailwind CSS</span>
           </div>
         </div>
       </Container>
