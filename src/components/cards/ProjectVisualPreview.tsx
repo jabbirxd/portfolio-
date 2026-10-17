@@ -13,13 +13,13 @@ export function ProjectVisualPreview({ project, className }: ProjectVisualPrevie
   // Real screenshot wins when one exists — never fabricate images.
   if (project.screenshot) {
     return (
-      <div className={`relative w-full h-full min-h-[160px] rounded-xl overflow-hidden border border-white/[0.06] ${className ?? ""}`}>
+      <div className={`relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-white/[0.06] ${className ?? ""}`}>
         <Image
           src={project.screenshot}
           alt={`${project.title} screenshot`}
           fill
           className="object-cover"
-          sizes="(max-width: 768px) 100vw, 50vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 80vw, 1100px"
         />
       </div>
     );
