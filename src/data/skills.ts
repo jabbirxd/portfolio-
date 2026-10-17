@@ -68,9 +68,9 @@ export const skillsCategories: SkillCategory[] = [
       {
         name: "PHP",
         discipline: "Backend Language",
-        description: "Learning modern PHP by building real backend features, not just tutorials.",
+        description: "Used PHP to build a complete Laravel e-commerce app for my field work.",
         relatedProject: {
-          projectTitle: "Techif — Laravel Web Application",
+          projectTitle: "Techif Store — Laravel E-commerce App",
           projectSlug: "techif-laravel-app",
           url: "/work/techif-laravel-app",
         },
@@ -78,9 +78,9 @@ export const skillsCategories: SkillCategory[] = [
       {
         name: "Laravel",
         discipline: "Backend Framework",
-        description: "Routing, controllers, Eloquent models, migrations, and Blade templates.",
+        description: "Built a full e-commerce app: routing, Eloquent models, migrations, Blade, Livewire.",
         relatedProject: {
-          projectTitle: "Techif — Laravel Web Application",
+          projectTitle: "Techif Store — Laravel E-commerce App",
           projectSlug: "techif-laravel-app",
           url: "/work/techif-laravel-app",
         },

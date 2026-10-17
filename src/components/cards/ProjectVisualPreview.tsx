@@ -82,7 +82,7 @@ export function ProjectVisualPreview({ project, className }: ProjectVisualPrevie
             </div>
           </div>
           <div className="flex items-center justify-between text-xs text-[#8a9bb0] pt-2 border-t border-white/[0.04]">
-            <span>STATUS: IN PROGRESS</span>
+            <span>STATUS: COMPLETED</span>
             <span className="text-rose-400">ENV: LOCAL</span>
           </div>
         </div>

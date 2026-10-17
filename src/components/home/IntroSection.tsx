@@ -88,7 +88,7 @@ export function IntroSection() {
               </div>
 
               <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-6 flex-grow">
-                Shipping real web apps with Next.js and TypeScript, and learning the backend side with PHP and Laravel.
+                Shipping real web apps with Next.js and TypeScript, and built a complete Laravel e-commerce app for my field work.
               </p>
 
               <div className="pt-4 border-t border-[var(--border-subtle)] flex items-center justify-between text-xs font-mono text-[var(--text-secondary)]">

@@ -13,7 +13,7 @@ export const experiencesData: ExperienceItem[] = [
     bullets: [
       "Shipped a live weather dashboard with real API integration and a 5-day forecast",
       "Built a task manager with priorities, filters, and localStorage persistence",
-      "Learning backend development by building a Laravel web application",
+      "Built a complete Laravel e-commerce app (Techif Store) as my university field work project",
     ],
     skillsUsed: ["Next.js", "TypeScript", "Tailwind CSS", "PHP", "Laravel"],
   },
