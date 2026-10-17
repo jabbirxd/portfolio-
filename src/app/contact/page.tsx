@@ -9,12 +9,14 @@ import { Card } from "@/components/ui/Card";
 import { GithubIcon, LinkedinIcon } from "@/components/icons/BrandIcons";
 import { Mail, ArrowUpRight, MapPin } from "lucide-react";
 import type { Metadata } from "next";
+import { socialMetadata } from "@/lib/social-metadata";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
     "Get in touch with Md. Jabbir Ali — email, GitHub, and LinkedIn.",
   alternates: { canonical: "/contact" },
+  ...socialMetadata("Contact", "Get in touch with Md. Jabbir Ali — email, GitHub, and LinkedIn.", "/contact"),
 };
 
 export default function ContactPage() {

@@ -37,6 +37,8 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
+import { socialMetadata } from "@/lib/social-metadata";
+
 export async function generateMetadata({
   params,
 }: ProjectDetailPageProps): Promise<Metadata> {
@@ -51,6 +53,11 @@ export async function generateMetadata({
     title: `${project.title} | Selected Work`,
     description: project.summary,
     alternates: { canonical: `/work/${slug}` },
+    ...socialMetadata(
+      `${project.title} | Selected Work`,
+      project.summary,
+      `/work/${slug}`
+    ),
   };
 }
 
