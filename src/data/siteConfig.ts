@@ -17,9 +17,9 @@ export const siteConfig = {
   ],
   navItems: [
     { title: "Home", href: "/" },
+    { title: "About", href: "/about" },
     { title: "Work", href: "/work" },
     { title: "Research", href: "/research" },
-    { title: "About", href: "/about" },
     { title: "Skills", href: "/skills" },
     { title: "Resume", href: "/resume" },
     { title: "Contact", href: "/contact" },
