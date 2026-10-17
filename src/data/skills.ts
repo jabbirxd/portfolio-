@@ -99,9 +99,9 @@ export const skillsCategories: SkillCategory[] = [
     description: "Areas I explore outside of coursework and keep learning about.",
     skills: [
       {
-        name: "Computational Biology",
-        discipline: "Research Interest",
-        description: "How computation helps explore biological questions. An interest, not a credential.",
+        name: "CADD",
+        discipline: "Research",
+        description: "Computer-Aided Drug Discovery: molecular docking, MD simulations and MM/GBSA — co-first author, manuscript under review.",
       },
       {
         name: "UI Design",

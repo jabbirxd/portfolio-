@@ -24,9 +24,9 @@ import { socialMetadata } from "@/lib/social-metadata";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Junior web developer and final-year CSE student. I build with Next.js and TypeScript, I built a Laravel e-commerce app for my university field work, and I do independent study in computational biology.",
+    "Junior web developer and final-year CSE student. I build with Next.js and TypeScript, I built a Laravel e-commerce app for my university field work, and I do CADD research alongside my degree; manuscript under review.",
   alternates: { canonical: "/about" },
-  ...socialMetadata("About", "Junior web developer and final-year CSE student. I build with Next.js and TypeScript, I built a Laravel e-commerce app for my university field work, and I do independent study in computational biology.", "/about"),
+  ...socialMetadata("About", "Junior web developer and final-year CSE student. I build with Next.js and TypeScript, I built a Laravel e-commerce app for my university field work, and I do CADD research alongside my degree; manuscript under review.", "/about"),
 };
 
 export default function AboutPage() {
@@ -85,7 +85,7 @@ export default function AboutPage() {
               I work with Next.js and TypeScript on the frontend, and I built a complete Laravel e-commerce app for my university field work. I&apos;m honest about where I am: I can read and explain code well, and I&apos;m building the ability to create from scratch by finishing one project at a time.
             </p>
             <p>
-              Outside of web dev, I&apos;m doing independent study in computational biology. My approach everywhere is the same: understand how the thing works, then build something small that proves it.
+              Outside of web dev, I do CADD research alongside my degree; manuscript under review. My approach everywhere is the same: understand how the thing works, then build something small that proves it.
             </p>
           </div>
           </section>

@@ -33,12 +33,12 @@ export const researchInterestsData: ResearchInterest[] = [
   },
   {
     id: "int-comp-bio",
-    title: "Computational Biology",
-    subtitle: "In Silico Workflows & Biomolecular Modeling",
+    title: "CADD Workflows",
+    subtitle: "Docking, Dynamics & Free Energy Calculations",
     category: "Computational Informatics",
     description:
-      "Learning the basic tools: aligning protein structures, minimizing energy, and working with biological sequences.",
-    keyConcepts: ["Structural Bioinformatics", "Data Pipelines", "Macromolecular Modeling"],
+      "The methods behind my research: molecular docking, MD simulations, and MM/GBSA binding free energy calculations.",
+    keyConcepts: ["Molecular Docking", "MD Simulations", "MM/GBSA"],
     iconType: "comp-bio",
   },
   {

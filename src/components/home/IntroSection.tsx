@@ -174,7 +174,7 @@ export function IntroSection() {
               </div>
 
               <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-6 flex-grow">
-                Independent study in computational biology alongside my degree. Details stay private until published.
+                CADD research alongside my degree; manuscript under review.
               </p>
 
               <div className="pt-4 border-t border-[var(--border-subtle)] flex items-center justify-between text-xs font-mono text-[var(--text-secondary)]">
