@@ -44,7 +44,7 @@ export const currentlyExploringData: ExploringItem[] = [
       "Eloquent & Migrations",
       "MVC Fundamentals",
     ],
-    statusTag: "COMPLETED",
+    statusTag: "BUILT 2025",
     accent: "system",
     linkUrl: "/work/techif-laravel-app",
     linkLabel: "View Techif Store",

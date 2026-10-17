@@ -114,7 +114,7 @@ export const projectsData: ProjectItem[] = [
     summary:
       "My university field work project at NUBT, built solo in 2025: a Laravel e-commerce app with product catalog, cart, checkout, and an admin panel. Completed and run locally.",
     description:
-      "Techif Store was my university field work project, built solo in 2025. It is a complete e-commerce app: product catalog with categories, brands, colors and images; cart and wishlist with Livewire; checkout with Cash on Delivery and a PayPal option; order history; and an admin panel for products, categories, colors, sliders, orders, users and settings with role-based admin access. It ran locally only and was never deployed.",
+      "Techif Store was my solo university field work project in 2025: a complete Laravel e-commerce app with a storefront, cart, checkout, and a role-based admin panel. It ran locally and was never deployed.",
     category: "development",
     filterCategory: "DEVELOPMENT",
     displaySize: "medium",
@@ -137,13 +137,13 @@ export const projectsData: ProjectItem[] = [
       "Eloquent models and migrations for products, orders and variants",
     ],
     problem:
-      "My university field work needed a real, complete project. I chose to build a full e-commerce app to learn backend development end to end.",
+      "My university field work required a complete project, and all my earlier projects were frontend only.",
     approach:
       "Built it the Laravel way: routes to controllers, Eloquent models with migrations, Blade views, and Livewire for the cart and wishlist. Admin panel with role-based access for managing the store.",
     whatILearned: [
       "Building a complete app teaches more than tutorials: checkout flows, order states, admin permissions.",
       "Eloquent relationships keep product, order and variant data consistent.",
-      "Running locally is fine for learning, but deployment is a separate skill.",
+      "Role-based access needs to be enforced on the server, not just hidden in the UI.",
     ],
   },
 ];
