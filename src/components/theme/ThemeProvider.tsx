@@ -39,16 +39,21 @@ function readThemeFromDOM(): Theme {
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>(readThemeFromDOM);
 
-  // Sync outward only: persist the choice and keep the DOM attribute
-  // (and color-scheme) in step. No state is set here.
+  // Sync outward only: keep the DOM attribute (and color-scheme) in step.
+  // localStorage is written ONLY when the user clicks the toggle —
+  // never on first visit — so a visitor's OS preference keeps being
+  // followed until they make an explicit choice.
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
-    window.localStorage.setItem(STORAGE_KEY, theme);
   }, [theme]);
 
   const toggleTheme = useCallback(() => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+    setTheme((prev) => {
+      const next = prev === "dark" ? "light" : "dark";
+      window.localStorage.setItem(STORAGE_KEY, next);
+      return next;
+    });
   }, []);
 
   return (

@@ -7,6 +7,7 @@ Stack: Next.js 16.3.3 (App Router, Turbopack), React 19.2.8, TypeScript 5, Tailw
 ## Phase workflow (owner instruction, 2026-10-17)
 - **Before each phase:** sync the local working copy to the remote branch — `git fetch origin` then `git reset --hard origin/fix/site-audit` (keeps untracked `docs/`). Build and test exactly what is pushed. Then run lint/tsc/build on that clean copy before committing the phase.
 - Each phase = one GitHub API commit on `fix/site-audit` containing exactly that phase's files.
+- **Push lesson (2026-10-17):** if a push fails or the session dies, check `origin/fix/site-audit` head BEFORE retrying — the first attempt may have landed (Phase 2 part 2 left an empty duplicate `e75683b`; owner will squash-merge the PR at the end).
 
 ## How pushing works in this environment
 - Direct `git push` does NOT work in this VM (`could not read Username`). All commits are made via the GitHub API (`push_files` / `delete_file`), one API commit per phase, each containing exactly that phase's files.
@@ -25,6 +26,8 @@ Stack: Next.js 16.3.3 (App Router, Turbopack), React 19.2.8, TypeScript 5, Tailw
 - Dev server runs locally at http://localhost:3101/ for verification.
 
 ## Phases completed
+- [x] **Phase 3, part 1 — design consistency (items 1–4 + owner additions).** Commit: `TODO_PHASE3A`. (1) New reusable `Eyebrow` component (variants: default/studio/research, optional icon); replaced all 7 one-off eyebrow badges (/work hero? no — /about, /contact, /skills, /research, hero, ExploringSection, SectionHeader). (2) Button audit: all primary CTAs already use the single indigo `primary` variant; removed the unused duplicate `emerald` variant (identical to `research`). (3) "CV" → "Resume" everywhere (navbar, mobile menu, hero button, resume page button, footer link); `/resume` route kept. (4) Nav now renders from `siteConfig.navItems` — desktop uses the 4 section links + Contact button, mobile menu renders all 7 (this also fixed Contact missing from the mobile menu). (10) ThemeProvider writes to localStorage only inside `toggleTheme`, never on first visit — OS preference keeps being followed until the user chooses. (11) Date/period badges on /resume and /about get `self-start` so they size to content on mobile instead of stretching full-width. Checks: `tsc` clean, `build` passes, lint 12 errors/44 warnings (unchanged, Phase 8's). Skipped: nothing; items 5–9 in part 2.
+
 - [x] **Phase 2, part 2 — visual/layout bugs (items 6–11) + owner follow-ups.** Commit: `TODO_PHASE2B`. Owner follow-ups: (1) removed COORDINATE span from hero header (Phase 4 was going to remove it anyway); header label `whitespace-nowrap`, verified never truncated at 375px and 1440px; (2) terminal stack labels ("NEXT.JS · TYPESCRIPT" / "PHP · LARAVEL") hidden below `sm`, so "build output"/"artisan" always shows in full on mobile; (3) "feat: scrollspy" label moved below the main line — verified no line crosses any label at 375/1024/1440px. Phase 2 fixes: (6) research cards — footer chips get `min-h-[96px]` so "Key Investigative Themes" labels align (verified 1052/1052/1052); exploring cards get missing `h-full`; (7) orphaned last items span full width when count is odd (/resume projects + skill groups `sm:col-span-2`, home tiles `col-span-2 sm:col-span-1`); (8) footer process strip stacks vertically on mobile with rotated arrows, tech signature wraps cleanly with `whitespace-nowrap` terms; (9) case-study stat tiles are a compact 3-col row on mobile (330px → 85px tall); (10) "Axis [Build × Learn × Explore]" hidden below `sm`; (11) skill card badge stacks under the heading on mobile. Checks: `tsc` clean, `build` passes, lint 12 errors/44 warnings (unchanged, Phase 8's). Skipped: nothing.
 
 - [x] **Phase 2, part 1 — visual/layout bugs (items 1–5) + owner fixes.** Commit: `TODO_PHASE2A`. Owner fixes: (1) navbar regression — desktop nav now shows from `lg` (1024px) up, mobile menu below; verified logo on one line and ≥12px Contact–CV gap at 768/800/834/1024; (2) PROGRESS.md header + Next phase corrected; (3) new workflow: `git fetch` + `git reset --hard origin/fix/site-audit` before each phase (fetch works read-only on the public repo), noted in PROGRESS.md; (4) Phase 3 gets a new item — only write theme to localStorage on toggle click. Phase 2 fixes: (1) terminal headers get gap + truncate, no mobile collision; (2) skills badge `whitespace-nowrap`, Evidence row gets gap; (3) SystemVisual — header no longer wraps (coordinate hidden <420px), card aligns with content edges on mobile, compact on mobile (terminal + telemetry hidden, tighter nodes), solid dark bg so it is not washed out in light theme; (4) root cause found — `space-y-*` was on a wrapper div while content lived inside `<Container>`, so sections touched at 0px; moved spacing onto Container on all 3 case-study pages, /research, /skills, /contact, /about (verified 0px → 48px on case study); (5) git graph — branch label moved below feature line, "init: portfolio" label below main line (curve no longer crosses it), commits spread 4%→93% width. Checks: `tsc` clean, `build` passes, lint 12 errors/44 warnings (unchanged, Phase 8's). Skipped: nothing; items 6–11 in part 2.
@@ -38,7 +41,11 @@ Stack: Next.js 16.3.3 (App Router, Turbopack), React 19.2.8, TypeScript 5, Tailw
 ## Decisions made by owner
 - (none yet)
 
+## Phase 5 note (owner instruction, 2026-10-17)
+- The mobile stat-tile labels in `work/[slug]` use `text-[10px]` — raise to the 12px minimum in Phase 5.
+
 ## Phase 3 addition (owner instruction, 2026-10-17)
+- Date/period badges ("Expected 2026", "2020", "2018") stretch full-width like a bar on /resume mobile — make all date/period badges size to content (`self-start` / `w-fit`) at every breakpoint, on /resume and /about.
 - ThemeProvider currently writes the theme to localStorage on the first visit even if the visitor never pressed the toggle — this freezes their OS preference forever. Only save to localStorage when the user clicks the toggle. (Handle in Phase 3.)
 
 ## Owner TODO list (things Jabbir must do himself)
@@ -49,4 +56,4 @@ Stack: Next.js 16.3.3 (App Router, Turbopack), React 19.2.8, TypeScript 5, Tailw
 - Check that both live demo URLs in `projects.ts` load correctly.
 
 ## Next phase
-- **Phase 3: design consistency** (canonical URL, CV download fallback copy, no-JS content visibility, theme FOUC + provider refactor, Contact link in desktop navbar).
+- **Phase 3: design consistency** (in progress — split into parts) (canonical URL, CV download fallback copy, no-JS content visibility, theme FOUC + provider refactor, Contact link in desktop navbar).

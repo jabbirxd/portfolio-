@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
-  variant?: "primary" | "secondary" | "outline" | "ghost" | "research" | "emerald";
+  variant?: "primary" | "secondary" | "outline" | "ghost" | "research";
   size?: "sm" | "md" | "lg";
   icon?: React.ReactNode;
   iconPosition?: "left" | "right";
@@ -32,8 +32,6 @@ export function Button({
     ghost:
       "bg-transparent hover:bg-[var(--bg-surface-hover)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-semibold border-transparent",
     research:
-      "bg-emerald-600 hover:bg-emerald-500 text-white font-semibold border border-emerald-400/40 shadow-lg shadow-emerald-600/20 hover:shadow-emerald-600/30",
-    emerald:
       "bg-emerald-600 hover:bg-emerald-500 text-white font-semibold border border-emerald-400/40 shadow-lg shadow-emerald-600/20 hover:shadow-emerald-600/30",
   };
 

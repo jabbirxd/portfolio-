@@ -2,6 +2,7 @@ import React from "react";
 import { Reveal } from "@/components/motion/Reveal";
 import { educationData, experiencesData } from "@/data/experience";
 import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Card } from "@/components/ui/Card";
@@ -71,10 +72,9 @@ export default function AboutPage() {
         {/* 1. Opening Hero Section */}
         <Reveal>
           <section className="space-y-6 pb-12 border-b border-[var(--border-default)]">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-[var(--bg-surface-hover)] text-[var(--text-secondary)] border border-[var(--border-default)]">
-            <Sparkles className="w-3.5 h-3.5 text-[var(--accent-studio)]" />
-            <span>MD. JABBIR ALI // BIOGRAPHY & APPROACH</span>
-          </div>
+          <Eyebrow icon={<Sparkles className="w-3.5 h-3.5 text-[var(--accent-studio)]" />}>
+            MD. JABBIR ALI // BIOGRAPHY & APPROACH
+          </Eyebrow>
 
           <h1 className="text-4xl sm:text-6xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight font-sans">
             About Me
@@ -164,7 +164,7 @@ export default function AboutPage() {
                       <GraduationCap className="w-4 h-4 text-[var(--accent-research)]" />
                       <span className="text-base font-bold text-[var(--text-primary)]">{edu.institution}</span>
                     </div>
-                    <span className="text-xs font-mono text-[var(--accent-research)] bg-[var(--accent-research-subtle)] px-2 py-0.5 rounded border border-[var(--accent-research-border)]">
+                    <span className="self-start text-xs font-mono text-[var(--accent-research)] bg-[var(--accent-research-subtle)] px-2 py-0.5 rounded border border-[var(--accent-research-border)]">
                       {edu.period}
                     </span>
                   </div>
@@ -227,7 +227,7 @@ export default function AboutPage() {
                       <Badge variant={exp.type === "Research" ? "research" : "studio"} size="sm">
                         {exp.type}
                       </Badge>
-                      <span className="text-xs font-mono text-[var(--text-secondary)]">{exp.period}</span>
+                      <span className="self-start sm:self-auto text-xs font-mono text-[var(--text-secondary)]">{exp.period}</span>
                     </div>
                   </div>
 

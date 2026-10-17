@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
 import { SystemVisual } from "@/components/hero/SystemVisual";
 import { ArrowRight, FileText, Sparkles } from "lucide-react";
@@ -30,10 +31,12 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={getTransition(0.05)}
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-[var(--bg-surface-subtle)] text-[var(--text-secondary)] border border-[var(--border-default)]">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="tracking-wide">LEARN · BUILD · SHIP</span>
-              </div>
+              <Eyebrow
+                icon={<span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />}
+                className="tracking-wide"
+              >
+                LEARN · BUILD · SHIP
+              </Eyebrow>
             </motion.div>
 
             {/* 1. Name */}
@@ -93,7 +96,7 @@ export function Hero() {
                 size="lg"
                 icon={<FileText className="w-4 h-4" />}
               >
-                View CV
+                View Resume
               </Button>
             </motion.div>
 

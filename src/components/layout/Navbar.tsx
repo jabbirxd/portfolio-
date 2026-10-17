@@ -29,12 +29,11 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const mainNavLinks = [
-    { title: "Work", href: "/work" },
-    { title: "Research", href: "/research" },
-    { title: "About", href: "/about" },
-    { title: "Skills", href: "/skills" },
-  ];
+  // Single source of truth for nav links (titles/hrefs live in siteConfig).
+  // Desktop shows the 4 section links + a Contact button; mobile shows all.
+  const mainNavLinks = siteConfig.navItems.filter((item) =>
+    ["/work", "/research", "/about", "/skills"].includes(item.href)
+  );
 
   // Scrollspy: on the home page, highlight the nav item whose preview
   // section is currently in view (single-page feel on a multi-page site).
@@ -121,14 +120,14 @@ export function Navbar() {
             </Link>
           </nav>
 
-          {/* Right: CV, GitHub, LinkedIn */}
+          {/* Right: Resume, GitHub, LinkedIn */}
           <div className="hidden lg:flex items-center gap-3">
             <Link
               href="/resume"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] bg-[var(--bg-surface-subtle)] hover:bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)] transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
             >
               <FileText className="w-3.5 h-3.5 text-[var(--accent-studio)]" />
-              <span>CV</span>
+              <span>Resume</span>
             </Link>
 
             <a
@@ -174,20 +173,12 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div className="lg:hidden border-b border-[var(--border-default)] bg-[var(--bg-app)]/98 backdrop-blur-xl px-5 pt-3 pb-6 space-y-4">
           <nav className="flex flex-col space-y-1">
-            <Link
-              href="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className={cn(
-                "px-3.5 py-2.5 rounded-lg text-sm font-mono transition-colors",
-                pathname === "/" && !spyHref
-                  ? "text-[var(--text-primary)] bg-[var(--bg-surface-hover)] font-bold"
-                  : "text-[var(--text-secondary)] hover:bg-[var(--bg-surface-hover)]"
-              )}
-            >
-              Home
-            </Link>
-            {mainNavLinks.map((item) => {
-              const isActive = isActiveLink(item.href);
+            {siteConfig.navItems.map((item) => {
+              const isActive =
+                item.href === "/"
+                  ? pathname === "/" && !spyHref
+                  : isActiveLink(item.href);
+              const isResume = item.href === "/resume";
               return (
                 <Link
                   key={item.href}
@@ -195,23 +186,19 @@ export function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={cn(
                     "px-3.5 py-2.5 rounded-lg text-sm font-mono transition-colors",
+                    isResume && "flex items-center gap-2",
                     isActive
                       ? "text-[var(--accent-studio)] bg-[var(--accent-studio-subtle)] font-bold border border-[var(--accent-studio-border)]"
                       : "text-[var(--text-secondary)] hover:bg-[var(--bg-surface-hover)]"
                   )}
                 >
-                  {item.title}
+                  {isResume && (
+                    <FileText className="w-4 h-4 text-[var(--accent-studio)]" />
+                  )}
+                  <span>{item.title}</span>
                 </Link>
               );
             })}
-            <Link
-              href="/resume"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3.5 py-2.5 rounded-lg text-sm font-mono text-[var(--text-secondary)] hover:bg-[var(--bg-surface-hover)] flex items-center gap-2"
-            >
-              <FileText className="w-4 h-4 text-[var(--accent-studio)]" />
-              <span>Curriculum Vitae (CV)</span>
-            </Link>
           </nav>
 
           <div className="pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between">

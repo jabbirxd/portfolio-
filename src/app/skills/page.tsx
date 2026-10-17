@@ -6,6 +6,7 @@ import React from "react";
 import Link from "next/link";
 import { skillsCategories } from "@/data/skills";
 import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { SkillGroupCard } from "@/components/cards/SkillGroupCard";
@@ -22,10 +23,12 @@ export default function SkillsPage() {
 
         {/* 1. Header */}
         <div className="space-y-6 pb-12 border-b border-[var(--border-default)]">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-[var(--accent-studio-subtle)] text-[var(--accent-studio)] border border-[var(--accent-studio-border)]">
-            <ShieldCheck className="w-3.5 h-3.5 text-[var(--accent-research)]" />
-            <span>CONFIRMED TECHNICAL & METHODOLOGICAL MATRIX</span>
-          </div>
+          <Eyebrow
+            variant="studio"
+            icon={<ShieldCheck className="w-3.5 h-3.5 text-[var(--accent-research)]" />}
+          >
+            CONFIRMED TECHNICAL & METHODOLOGICAL MATRIX
+          </Eyebrow>
 
           <h1 className="text-4xl sm:text-6xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight font-sans">
             Capabilities & Competencies

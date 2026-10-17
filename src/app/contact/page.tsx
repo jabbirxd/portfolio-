@@ -2,6 +2,7 @@ import React from "react";
 import { Reveal } from "@/components/motion/Reveal";
 import { siteConfig } from "@/data/siteConfig";
 import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Card } from "@/components/ui/Card";
@@ -23,10 +24,9 @@ export default function ContactPage() {
         <Breadcrumb items={[{ label: "Contact" }]} />
 
         <div className="space-y-6 pb-10 border-b border-[var(--border-default)]">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-[var(--bg-surface-subtle)] text-[var(--text-secondary)] border border-[var(--border-default)]">
-            <Mail className="w-3.5 h-3.5 text-[var(--accent-studio)]" />
-            <span>DIRECT CHANNELS</span>
-          </div>
+          <Eyebrow icon={<Mail className="w-3.5 h-3.5 text-[var(--accent-studio)]" />}>
+            DIRECT CHANNELS
+          </Eyebrow>
 
           <h1 className="text-4xl sm:text-6xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight font-sans">
             Let&apos;s talk.

@@ -78,7 +78,7 @@ export default function ResumePage() {
               size="sm"
               icon={<Download className="w-4 h-4" />}
             >
-              Download CV (PDF)
+              Download Resume (PDF)
             </Button>
             <Button
               onClick={handlePrint}
@@ -164,7 +164,7 @@ export default function ResumePage() {
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                     <h4 className="text-base font-bold text-[var(--text-primary)]">{edu.degree}</h4>
-                    <span className="text-xs font-mono text-[var(--accent-research)] bg-[var(--accent-research-subtle)] px-2 py-0.5 rounded border border-[var(--accent-research-border)]">
+                    <span className="self-start text-xs font-mono text-[var(--accent-research)] bg-[var(--accent-research-subtle)] px-2 py-0.5 rounded border border-[var(--accent-research-border)]">
                       {edu.period}
                     </span>
                   </div>
@@ -294,7 +294,7 @@ export default function ResumePage() {
                         {exp.organization} — {exp.location}
                       </p>
                     </div>
-                    <span className="text-xs font-mono text-[var(--text-secondary)]">{exp.period}</span>
+                    <span className="self-start sm:self-auto text-xs font-mono text-[var(--text-secondary)]">{exp.period}</span>
                   </div>
 
                   <p className="text-xs text-[var(--text-secondary)] leading-relaxed font-sans">

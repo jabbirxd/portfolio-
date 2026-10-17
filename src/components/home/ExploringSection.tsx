@@ -6,6 +6,7 @@ import React from "react";
 import Link from "next/link";
 import { currentlyExploringData } from "@/data/exploring";
 import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
@@ -30,14 +31,17 @@ export function ExploringSection() {
       <Container size="xl">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-[var(--bg-surface-subtle)] text-[var(--text-secondary)] border border-[var(--border-default)]">
-              {/* Subtle animated indicator for current focus */}
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
-              </span>
-              <span className="tracking-wider uppercase">CURRENT_INQUIRY // ACTIVE_FOCUS</span>
-            </div>
+            <Eyebrow
+              className="tracking-wider uppercase"
+              icon={
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+                </span>
+              }
+            >
+              CURRENT_INQUIRY // ACTIVE_FOCUS
+            </Eyebrow>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)] tracking-tight font-sans">
               Currently Exploring

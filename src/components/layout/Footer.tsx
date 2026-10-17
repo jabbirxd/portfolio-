@@ -10,7 +10,7 @@ export function Footer() {
     { label: "Work", href: "/work", isExternal: false },
     { label: "Research", href: "/research", isExternal: false },
     { label: "About", href: "/about", isExternal: false },
-    { label: "CV", href: "/resume", isExternal: false },
+    { label: "Resume", href: "/resume", isExternal: false },
     { label: "GitHub", href: siteConfig.socials.github, isExternal: true },
     { label: "LinkedIn", href: siteConfig.socials.linkedin, isExternal: true },
     { label: "Email", href: `mailto:${siteConfig.socials.email}`, isExternal: true },

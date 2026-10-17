@@ -4,6 +4,7 @@ import React from "react";
 import { Reveal } from "@/components/motion/Reveal";
 import { researchInterestsData } from "@/data/research";
 import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { ResearchInterestCard } from "@/components/research/ResearchInterestCard";
@@ -18,10 +19,12 @@ export default function ResearchPage() {
 
         {/* 1. Research Hero Section */}
         <div className="space-y-6 pb-12 border-b border-[var(--border-default)]">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-[var(--accent-research)] border border-emerald-500/20">
-            <FlaskConical className="w-3.5 h-3.5" />
-            <span>LEARNING IN PUBLIC · NO CLAIMS, JUST CURIOSITY</span>
-          </div>
+          <Eyebrow
+            variant="research"
+            icon={<FlaskConical className="w-3.5 h-3.5" />}
+          >
+            LEARNING IN PUBLIC · NO CLAIMS, JUST CURIOSITY
+          </Eyebrow>
 
           <h1 className="text-4xl sm:text-6xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight font-sans">
             Research Interests
