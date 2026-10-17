@@ -1,7 +1,7 @@
 # Portfolio Fix Progress
 
 Owner: Md. Jabbir Ali — https://github.com/jabbirxd/portfolio- (work branch: `fix/site-audit`; `main` is production, deployed by Vercel — do not commit to it)
-Live: https://portfolio-jabbirxd.vercel.app
+Live: https://jabbirxd.online
 Stack: Next.js 16.3.3 (App Router, Turbopack), React 19.2.8, TypeScript 5, Tailwind CSS v4, motion, lucide-react. Vercel deploy.
 
 ## Skills per phase (owner instruction, 2026-10-17)
