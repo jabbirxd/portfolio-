@@ -1,13 +1,13 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
+;
 import { motion, useReducedMotion } from "motion/react";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
 import { SystemVisual } from "@/components/hero/SystemVisual";
-import { ArrowRight, FileText, Sparkles } from "lucide-react";
+import { ArrowRight, FileText } from "lucide-react";
 import { RotatingWord } from "@/components/motion/RotatingWord";
 
 export function Hero() {

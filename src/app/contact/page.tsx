@@ -3,7 +3,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { siteConfig } from "@/data/siteConfig";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { SectionHeader } from "@/components/ui/SectionHeader";
+;
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Card } from "@/components/ui/Card";
 import { GithubIcon, LinkedinIcon } from "@/components/icons/BrandIcons";

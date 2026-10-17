@@ -7,9 +7,9 @@ import Link from "next/link";
 import { currentlyExploringData } from "@/data/exploring";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { SectionHeader } from "@/components/ui/SectionHeader";
+;
 import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
+;
 import { ArrowUpRight, Sparkles, Cpu, Dna, Activity } from "lucide-react";
 
 export function ExploringSection() {
@@ -48,7 +48,7 @@ export function ExploringSection() {
             </h2>
 
             <p className="text-[var(--text-secondary)] text-xs sm:text-sm leading-relaxed font-sans">
-              What I'm focused on right now: building, learning, and staying curious.
+              What I&apos;m focused on right now: building, learning, and staying curious.
             </p>
           </div>
 

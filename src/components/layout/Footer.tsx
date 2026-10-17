@@ -2,8 +2,8 @@ import React from "react";
 import Link from "next/link";
 import { siteConfig } from "@/data/siteConfig";
 import { Container } from "@/components/ui/Container";
-import { GithubIcon, LinkedinIcon } from "@/components/icons/BrandIcons";
-import { Mail, ArrowUpRight, Cpu, Layers, Dna } from "lucide-react";
+;
+import { ArrowUpRight } from "lucide-react";
 
 export function Footer() {
   // Page links come from the single nav source (Work, Research, About,

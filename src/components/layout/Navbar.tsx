@@ -51,10 +51,13 @@ export function Navbar() {
 
   // Close the mobile menu when the route changes (e.g., browser back/forward).
   // Links inside the menu also close it via onClick.
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMobileMenuOpen(false);
-  }, [pathname]);
+  const [lastPathname, setLastPathname] = useState(pathname);
+  if (pathname !== lastPathname) {
+    setLastPathname(pathname);
+    if (mobileMenuOpen) {
+      setMobileMenuOpen(false);
+    }
+  }
 
   // Single source of truth for nav links (titles/hrefs live in siteConfig).
   // Desktop shows the 4 section links + a Contact button; mobile shows all.

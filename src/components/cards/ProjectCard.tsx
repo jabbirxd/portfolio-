@@ -51,7 +51,7 @@ export function ProjectCard({ project, className, headingLevel = "h3" }: Project
               {project.filterCategory}
             </Badge>
             <span className="text-xs font-mono text-[var(--text-secondary)] hidden sm:inline">
-              // {project.role}
+              {"//"} {project.role}
             </span>
           </div>
           <span className="text-xs font-mono text-[var(--text-secondary)] tracking-wider">

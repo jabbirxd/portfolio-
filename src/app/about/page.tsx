@@ -14,15 +14,9 @@ import {
   GraduationCap,
   Briefcase,
   Wrench,
-  Cpu,
-  Layers,
   Sparkles,
   Compass,
   ArrowRight,
-  CheckCircle2,
-  Calendar,
-  MapPin,
-  Flame,
 } from "lucide-react";
 import type { Metadata } from "next";
 import { socialMetadata } from "@/lib/social-metadata";

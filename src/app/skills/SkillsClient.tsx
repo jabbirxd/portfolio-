@@ -3,16 +3,16 @@
 import { Reveal } from "@/components/motion/Reveal";
 
 import React from "react";
-import Link from "next/link";
+;
 import { skillsCategories } from "@/data/skills";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { SectionHeader } from "@/components/ui/SectionHeader";
+;
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { SkillGroupCard } from "@/components/cards/SkillGroupCard";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { CheckCircle2, ArrowRight, ShieldCheck, Layers, Terminal } from "lucide-react";
+import { ArrowRight, ShieldCheck } from "lucide-react";
 
 export function SkillsClient() {
   return (
@@ -34,7 +34,7 @@ export function SkillsClient() {
           </h1>
 
           <p className="text-lg sm:text-2xl text-[var(--text-secondary)] max-w-3xl leading-relaxed font-sans">
-            An honest list: what I'm comfortable with, what I'm learning, and what I'm curious about. No percentage bars, no padding.
+            An honest list: what I&apos;m comfortable with, what I&apos;m learning, and what I&apos;m curious about. No percentage bars, no padding.
           </p>
 
         </div>

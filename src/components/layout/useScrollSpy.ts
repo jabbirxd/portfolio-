@@ -9,9 +9,11 @@ import { useEffect, useRef, useState } from "react";
  */
 export function useScrollSpy(ids: string[]): string | null {
   const [activeId, setActiveId] = useState<string | null>(null);
-  const key = ids.join("|");
   const idsRef = useRef(ids);
-  idsRef.current = ids;
+
+  useEffect(() => {
+    idsRef.current = ids;
+  }, [ids]);
 
   useEffect(() => {
     const list = idsRef.current;
@@ -47,8 +49,7 @@ export function useScrollSpy(ids: string[]): string | null {
     }
 
     return () => observer.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [key]);
+  }, [ids]);
 
   return activeId;
 }

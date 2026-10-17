@@ -108,11 +108,6 @@ export function GitGraphCanvas({ className }: { className?: string }) {
     const pt = (c: CommitNode): Pt => ({ x: c.fx * w, y: c.fy * h });
 
     // Cubic curve from a to b with vertical easing (branch-like)
-    const branchCurve = (a: Pt, b: Pt) => {
-      ctx.beginPath();
-      ctx.moveTo(a.x, a.y);
-      ctx.bezierCurveTo(a.x + (b.x - a.x) * 0.35, a.y, a.x + (b.x - a.x) * 0.65, b.y, b.x, b.y);
-    };
 
     const draw = (now: number) => {
       if (start === null) start = now;

@@ -10,7 +10,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
+;
 import {
   Printer,
   Download,
@@ -19,7 +19,6 @@ import {
   Globe,
   Briefcase,
   GraduationCap,
-  Sparkles,
   FlaskConical,
   Code,
   Layers,
@@ -35,7 +34,7 @@ export function ResumeClient() {
     }
   };
 
-  const handleDownload = (e: React.MouseEvent) => {
+  const handleDownload = () => {
     // Graceful degradation: Check if cv.pdf exists via head request; if not, trigger print-to-pdf dialog
     fetch("/cv.pdf", { method: "HEAD" })
       .then((res) => {

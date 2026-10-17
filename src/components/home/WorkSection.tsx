@@ -3,14 +3,14 @@
 import { Reveal } from "@/components/motion/Reveal";
 
 import React, { useState } from "react";
-import Link from "next/link";
+;
 import { projectsData } from "@/data/projects";
 import { ProjectFilter } from "@/types";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ProjectCard } from "@/components/cards/ProjectCard";
 import { Button } from "@/components/ui/Button";
-import { ArrowRight, Filter } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
 

@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
-import { Code2, Sparkles, FlaskConical, ArrowUpRight, Terminal, Layers, Dna } from "lucide-react";
+import { Code2, Sparkles, FlaskConical, ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
 export function IntroSection() {

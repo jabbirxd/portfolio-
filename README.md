@@ -42,3 +42,15 @@ skills, experience, or research interests. No CMS, no database.
 - [ ] Add the real CV file at `public/cv.pdf` — the "Download CV (PDF)"
   button on /resume currently falls back to the browser print dialog
   until the file exists.
+
+## Owner TODOs
+
+- [ ] Add the real CV file at `public/cv.pdf` (enables the Resume download button)
+- [ ] Add real project screenshots under `public/projects/` (then set the `screenshot` field in `src/data/projects.ts`)
+- [ ] Rename the GitHub repo `Name--Techif` to something professional, then update its URL in `src/data/projects.ts`
+- [ ] Move/rename the task-manager deployment so the URL matches `jabbirxd`, then update `liveUrl`
+- [ ] Personally check both live-demo URLs in `src/data/projects.ts`
+
+## CI
+
+GitHub Actions runs on every push: `npm ci` → `tsc --noEmit` → `eslint` → `npm run build`.
