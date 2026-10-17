@@ -62,8 +62,8 @@ export default function ResumePage() {
       <Container size="lg">
         <Breadcrumb items={[{ label: "Resume" }]} />
 
-        {/* Action Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 border-b border-[var(--border-default)]">
+        {/* Action Header — hidden in print (the resume sheet has its own header) */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 border-b border-[var(--border-default)] print-hide-header">
           <div>
             <h1 className="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)]">Resume</h1>
             <p className="text-[var(--text-secondary)] text-sm mt-1">

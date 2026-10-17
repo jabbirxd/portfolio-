@@ -69,8 +69,8 @@ export default function AboutPage() {
       <Container size="xl" className="space-y-16 sm:space-y-20">
         <Breadcrumb items={[{ label: "About Me" }]} />
 
-        {/* 1. Opening Hero Section */}
-        <Reveal>
+        {/* 1. Opening Hero Section — no Reveal: above the fold, must paint immediately for LCP */}
+        <div>
           <section className="space-y-6 pb-12 border-b border-[var(--border-default)]">
           <Eyebrow icon={<Sparkles className="w-3.5 h-3.5 text-[var(--accent-studio)]" />}>
             MD. JABBIR ALI // BIOGRAPHY & APPROACH
@@ -93,7 +93,7 @@ export default function AboutPage() {
             </p>
           </div>
           </section>
-        </Reveal>
+        </div>
 
         {/* 2. My Approach — Three Core Principles */}
         <Reveal>

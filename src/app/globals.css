@@ -327,9 +327,29 @@ footer,
     padding: 0.75rem !important;
   }
 
-  /* Avoid breaking inside cards */
+  /* Avoid breaking inside resume cards — but only the cards, not every div */
   .print-avoid-break {
     break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Never leave a heading alone at the bottom of a page */
+  h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Disable line-clamp truncation in print — show full text */
+  .line-clamp-2,
+  .line-clamp-3 {
+    display: block !important;
+    -webkit-line-clamp: unset !important;
+    overflow: visible !important;
+  }
+
+  /* Hide the on-screen page header (H1 + subtitle) in print */
+  .print-hide-header {
+    display: none !important;
   }
 
   @page {
