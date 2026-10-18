@@ -125,7 +125,7 @@ export const projectsData: ProjectItem[] = [
     role: "Solo Developer (University Field Work)",
     timeline: "2025",
     isFeatured: true,
-    repoUrl: "https://github.com/jabbirxd/Name--Techif",
+    repoUrl: "https://github.com/jabbirxd/techif",
     metrics: [
       { label: "Framework", value: "Laravel 10" },
       { label: "Type", value: "E-commerce" },
