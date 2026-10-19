@@ -39,7 +39,7 @@ skills, experience, or research interests. No CMS, no database.
 
 ## Owner TODOs
 
-- [ ] Rename the GitHub repo `Name--Techif` to something professional, then update its URL in `src/data/projects.ts` and in the CV
+- [x] Rename the GitHub repo `Name--Techif` to something professional, then update its URL in `src/data/projects.ts` and in the CV
 - [ ] Move/rename the task-manager deployment so the URL matches `jabbirxd`, then update `liveUrl` and the CV
 
 ## CI
