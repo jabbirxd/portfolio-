@@ -59,6 +59,9 @@ export interface ProjectItem {
   // the card shows the image instead of the illustrated visual.
   // Never fabricate: leave empty until a real screenshot exists.
   screenshot?: string;
+
+  // Extra real screenshots for the detail-page gallery. Real captures only.
+  screenshots?: { src: string; caption: string }[];
   
   // Case Study Sections
   problem?: string;

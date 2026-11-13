@@ -146,6 +146,54 @@ export const projectsData: ProjectItem[] = [
       "Role-based access needs to be enforced on the server, not just hidden in the UI.",
     ],
   },
+  {
+    id: "proj-buyora-laravel",
+    slug: "buyora-laravel-app",
+    screenshot: "/projects/buyora-laravel-app.jpg",
+    screenshots: [
+      { src: "/projects/buyora/buyora-product.jpg", caption: "Product page — colour picker, live stock and quantity" },
+      { src: "/projects/buyora/buyora-cart.jpg", caption: "Cart — order summary with delivery included" },
+      { src: "/projects/buyora/buyora-checkout.jpg", caption: "Checkout — delivery details and order summary" },
+      { src: "/projects/buyora/buyora-admin-dashboard.jpg", caption: "Admin dashboard — orders, products, categories and users at a glance" },
+      { src: "/projects/buyora/buyora-admin-orders.jpg", caption: "Admin orders — every order with tracking number, payment mode and status" },
+    ],
+    title: "Buyora — Laravel E-commerce App",
+    tagline: "A complete e-commerce app built with Laravel",
+    summary:
+      "My university field work project at NUBT, built solo in 2025: a Laravel e-commerce app with product catalog, cart, checkout, and an admin panel. Completed and run locally.",
+    description:
+      "Buyora was my solo university field work project in 2025: a complete Laravel e-commerce app with a storefront, cart, checkout, and a role-based admin panel. It ran locally and was never deployed.",
+    category: "development",
+    filterCategory: "DEVELOPMENT",
+    displaySize: "medium",
+    visualType: "server-terminal",
+    previewAccent: "studio",
+    disciplines: ["Backend Development", "E-commerce", "Databases"],
+    techStack: ["PHP", "Laravel", "Livewire", "Blade", "MySQL"],
+    role: "Solo Developer (University Field Work)",
+    timeline: "2025",
+    isFeatured: true,
+    repoUrl: "https://github.com/jabbirxd/buyora",
+    metrics: [
+      { label: "Framework", value: "Laravel 10" },
+      { label: "Type", value: "E-commerce" },
+      { label: "Status", value: "Completed (local)" },
+    ],
+    highlights: [
+      "Storefront with cart, wishlist and checkout (COD + SSLCommerz/aamarPay sandbox)",
+      "Admin panel with role-based access for products, orders and users",
+      "Eloquent models and migrations for products, orders and variants",
+    ],
+    problem:
+      "My university field work required a complete project, and all my earlier projects were frontend only.",
+    approach:
+      "Built it the Laravel way: routes to controllers, Eloquent models with migrations, Blade views, and Livewire for the cart and wishlist. Admin panel with role-based access for managing the store.",
+    whatILearned: [
+      "Building a complete app teaches more than tutorials: checkout flows, order states, admin permissions.",
+      "Eloquent relationships keep product, order and variant data consistent.",
+      "Role-based access needs to be enforced on the server, not just hidden in the UI.",
+    ],
+  },
 ];
 
 export function getProjectBySlug(slug: string): ProjectItem | undefined {
