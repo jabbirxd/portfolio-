@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getProjectBySlug, getAllProjectSlugs } from "@/data/projects";
 import { Container } from "@/components/ui/Container";
@@ -413,6 +414,33 @@ export default async function ProjectDetailPage({
 
           </aside>
         </div>
+
+        {/* Gallery: extra real screenshots, full width, natural aspect (never cropped) */}
+        {project.screenshots && project.screenshots.length > 0 && (
+          <section className="space-y-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)]">
+              More screenshots
+            </h2>
+            <div className="space-y-8">
+              {project.screenshots.map((shot) => (
+                <figure key={shot.src} className="space-y-2">
+                  <div className="rounded-2xl overflow-hidden border border-[var(--border-default)] bg-[var(--bg-surface)] shadow-2xl p-2 sm:p-4">
+                    <Image
+                      src={shot.src}
+                      alt={shot.caption}
+                      width={1280}
+                      height={843}
+                      className="w-full h-auto rounded-xl"
+                    />
+                  </div>
+                  <figcaption className="text-xs font-mono text-[var(--text-muted)]">
+                    {shot.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Closing CTA: full-width, not squeezed into the sidebar */}
         <Card variant="solid" className="mt-12 p-8 sm:p-10 text-center space-y-4">
